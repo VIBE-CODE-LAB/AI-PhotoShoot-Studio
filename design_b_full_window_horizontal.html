@@ -1,0 +1,381 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;height:100%;}
+body{background:#fff4ec;}
+.dB{background:#fff4ec;font-family:var(--font-sans);color:#3d2818;border-radius:0;overflow:hidden;border:0;width:100vw;display:flex;flex-direction:column;height:100vh;min-height:760px;}
+
+.dB-top{padding:10px 18px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #fde2d0;flex-shrink:0;}
+.dB-brand{display:flex;align-items:center;gap:9px;}
+.dB-logo{width:32px;height:32px;border-radius:50%;background:#fb7d4b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;}
+.dB-name{font-size:16px;font-weight:500;color:#3d2818;}
+.dB-tag{font-size:12px;color:#a86b4a;}
+.dB-pro{background:#fff4ec;border:1.5px solid #fb7d4b;border-radius:20px;padding:4px 12px;font-size:11.5px;font-weight:500;color:#fb7d4b;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;}
+.dB-pro-d{width:6px;height:6px;border-radius:50%;background:#22c55e;}
+
+.dB-body{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:0;flex:1;align-items:stretch;min-height:0;}
+
+.dB-left{padding:14px 16px;display:flex;flex-direction:column;gap:10px;border-right:1px solid #fde2d0;min-width:0;overflow-y:auto;}
+.dB-right{padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:#fef6ee;min-width:0;}
+
+.dB-greet{margin-bottom:0;}
+.dB-q{font-size:17px;font-weight:500;color:#3d2818;margin-bottom:1px;}
+.dB-q-sub{font-size:12px;color:#a86b4a;}
+
+.dB-modes{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+.dB-mode{background:#fff;border:2px solid #fde2d0;border-radius:11px;padding:11px 4px;cursor:pointer;text-align:center;transition:transform 0.1s;}
+.dB-mode:hover{transform:translateY(-1px);}
+.dB-mode.on{border-color:transparent;}
+.dB-mode.on[data-c="orange"]{background:#fb7d4b;}
+.dB-mode.on[data-c="pink"]{background:#ec4899;}
+.dB-mode.on[data-c="violet"]{background:#a78bfa;}
+.dB-mode.on[data-c="cyan"]{background:#06b6d4;}
+.dB-mode .em{font-size:20px;margin-bottom:2px;display:block;color:#fb7d4b;}
+.dB-mode.on .em{color:#fff;}
+.dB-mode .mn{font-size:12px;font-weight:500;color:#3d2818;display:block;line-height:1.1;}
+.dB-mode.on .mn{color:#fff;}
+.dB-mode .ms{font-size:10px;color:#a86b4a;margin-top:1px;display:block;}
+.dB-mode.on .ms{color:rgba(255,255,255,0.85);}
+
+.dB-card{background:#fff;border-radius:12px;padding:12px 14px;border:1px solid #fde2d0;}
+.dB-step{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.dB-stepn{width:22px;height:22px;border-radius:50%;background:#fff4ec;color:#fb7d4b;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;border:1.5px solid #fb7d4b;}
+.dB-stept{font-size:14px;font-weight:500;color:#3d2818;}
+.dB-step-tag{font-size:10.5px;color:#a86b4a;margin-left:auto;background:#fff4ec;padding:3px 8px;border-radius:10px;}
+
+.dB-slots{display:grid;gap:6px;}
+.dB-s2{grid-template-columns:1fr 1fr;}
+.dB-s3{grid-template-columns:1fr 1fr 1fr;}
+.dB-slot{border:2px dashed #fde2d0;border-radius:10px;padding:12px 4px;text-align:center;background:#fffaf5;cursor:pointer;}
+.dB-slot:hover{border-color:#fb7d4b;}
+.dB-slot.up{border-style:solid;border-color:#22c55e;background:#f0fdf4;}
+.dB-s-i{font-size:22px;color:#fdba8c;}
+.dB-slot.up .dB-s-i{color:#22c55e;}
+.dB-s-n{font-size:12px;font-weight:500;color:#3d2818;display:block;margin-top:3px;line-height:1.1;}
+.dB-s-t{font-size:10px;color:#a86b4a;display:block;margin-top:1px;}
+.dB-slot.up .dB-s-t{color:#22c55e;font-weight:500;}
+
+.dB-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px;}
+.dB-row:last-child{margin-bottom:0;}
+.dB-row-l{font-size:12.5px;color:#a86b4a;min-width:64px;}
+.dB-pills{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
+.dB-pill{border-radius:14px;background:#fff4ec;border:1.5px solid transparent;padding:5px 10px;font-size:11.5px;font-weight:500;color:#a86b4a;cursor:pointer;display:inline-flex;align-items:center;gap:4px;}
+.dB-pill:hover{border-color:#fdba8c;}
+.dB-pill.on{background:#fb7d4b;color:#fff;}
+.dB-pill.lk{opacity:0.35;cursor:not-allowed;}
+
+.dB-mini{display:flex;gap:3px;flex-wrap:wrap;flex:1;}
+.dB-mp{background:#fff4ec;border:none;border-radius:10px;padding:5px 11px;font-size:12.5px;font-weight:500;color:#a86b4a;cursor:pointer;}
+.dB-mp.on{background:#3d2818;color:#fff;}
+
+.dB-brands{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:6px;}
+.dB-br{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;background:transparent;border:none;padding:3px 1px;border-radius:7px;}
+.dB-br:hover{background:#fff4ec;}
+.dB-br.on{background:#fff4ec;}
+.dB-br.dis{opacity:0.3;cursor:not-allowed;}
+.dB-br-d{width:20px;height:20px;border-radius:50%;border:2px solid transparent;}
+.dB-br.on .dB-br-d{border-color:#3d2818;}
+.dB-br-n{font-size:9.5px;font-weight:500;color:#5c3d28;line-height:1;}
+
+.dB-divider-mini{display:flex;align-items:center;gap:8px;margin:7px 0 4px;}
+.dB-divider-mini-l{flex:1;height:1px;background:#fde2d0;}
+.dB-divider-mini-t{font-size:11px;color:#a86b4a;}
+
+.dB-note{width:100%;background:#fffaf5;border:1.5px solid #fde2d0;border-radius:10px;padding:10px 12px;font-size:13.5px;color:#3d2818;resize:none;font-family:inherit;line-height:1.5;min-height:74px;}
+.dB-note:focus{outline:none;border-color:#fb7d4b;}
+
+.dB-spacer{flex:0.4;min-height:6px;}
+.dB-cta{width:100%;background:#3d2818;color:#fff;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;flex-shrink:0;}
+.dB-cta.dis{background:#fde2d0;color:#a86b4a;cursor:not-allowed;}
+.dB-cta-em{font-size:16px;}
+
+.dB-guide{background:#fff;border:1px solid #fde2d0;border-radius:10px;padding:7px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.dB-guide-t{font-size:11.5px;color:#a86b4a;line-height:1.4;}
+.dB-guide-b{background:#fb7d4b;color:#fff;border:none;border-radius:7px;padding:5px 10px;font-size:11.5px;font-weight:500;cursor:pointer;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px;}
+
+.dB-result-h{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.dB-result-t{font-size:17px;font-weight:500;color:#3d2818;}
+.dB-result-tag{background:#fff;border:1px solid #fde2d0;color:#a86b4a;font-size:11.5px;padding:4px 10px;border-radius:11px;font-weight:500;}
+
+.dB-canvas{flex:1;background:#fff;border-radius:14px;border:1.5px dashed #fde2d0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:24px;min-height:0;position:relative;}
+.dB-canvas-i{font-size:50px;color:#fdba8c;}
+.dB-canvas-tt{font-size:17px;font-weight:500;color:#5c3d28;}
+.dB-canvas-s{font-size:13px;color:#a86b4a;text-align:center;line-height:1.6;max-width:320px;}
+.dB-canvas-chip{margin-top:4px;background:#fff4ec;color:#fb7d4b;font-size:12px;font-weight:500;padding:5px 13px;border-radius:11px;}
+
+.dB-canvas-corners::before,.dB-canvas-corners::after{content:'';position:absolute;width:12px;height:12px;}
+.dB-canvas-corners::before{top:10px;left:10px;border-top:1.5px solid #fdba8c;border-left:1.5px solid #fdba8c;}
+.dB-canvas-corners::after{bottom:10px;right:10px;border-bottom:1.5px solid #fdba8c;border-right:1.5px solid #fdba8c;}
+
+.dB-meta-strip{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid #fde2d0;border-radius:11px;padding:9px 14px;flex-shrink:0;}
+.dB-meta-it{display:flex;flex-direction:column;gap:1px;}
+.dB-meta-l{font-size:10px;color:#a86b4a;letter-spacing:0.1em;text-transform:uppercase;}
+.dB-meta-v{font-size:13.5px;font-weight:500;color:#3d2818;}
+.dB-meta-sep{width:1px;height:22px;background:#fde2d0;}
+
+.dB-act{display:flex;gap:6px;flex-shrink:0;}
+.dB-act-b{flex:1;background:#fff;border:1px solid #fde2d0;color:#a86b4a;padding:10px 12px;border-radius:11px;font-size:12.5px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+.dB-act-b:disabled{opacity:0.5;cursor:not-allowed;}
+.dB-act-b:hover:not(:disabled){border-color:#fb7d4b;color:#fb7d4b;}
+
+.dB-foot{font-size:11px;color:#a86b4a;text-align:center;padding:2px 4px;line-height:1.5;flex-shrink:0;}
+</style>
+
+<div class="dB">
+
+  <div class="dB-top">
+    <div class="dB-brand">
+      <div class="dB-logo">S</div>
+      <span class="dB-name">Studio</span>
+      <span class="dB-tag">· your AI photoshoot kit</span>
+    </div>
+    <div class="dB-pro"><span class="dB-pro-d"></span> Pro active</div>
+  </div>
+
+  <div class="dB-body">
+
+    <div class="dB-left">
+
+      <div class="dB-guide">
+        <div class="dB-guide-t">Download the Smart Style guide first — it explains how to use each mode.</div>
+        <button class="dB-guide-b"><i class="ti ti-download" style="font-size:10px" aria-hidden="true"></i> Guide</button>
+      </div>
+
+      <div class="dB-greet">
+        <div class="dB-q">What are we shooting?</div>
+        <div class="dB-q-sub">Pick a shoot type to begin.</div>
+      </div>
+
+      <div class="dB-modes" id="bModes">
+        <button class="dB-mode" data-c="orange" data-m="panty_only" onclick="bSet('panty_only')">
+          <i class="ti ti-shirt em" aria-hidden="true"></i>
+          <span class="mn">Panty</span>
+          <span class="ms">2 photos</span>
+        </button>
+        <button class="dB-mode on" data-c="pink" data-m="bra_panty" onclick="bSet('bra_panty')">
+          <i class="ti ti-layers-intersect em" aria-hidden="true"></i>
+          <span class="mn">Bra + Panty</span>
+          <span class="ms">3 photos</span>
+        </button>
+        <button class="dB-mode" data-c="violet" data-m="pushup_bra" onclick="bSet('pushup_bra')">
+          <i class="ti ti-arrow-up em" aria-hidden="true"></i>
+          <span class="mn">Pushup</span>
+          <span class="ms">2 photos</span>
+        </button>
+        <button class="dB-mode" data-c="cyan" data-m="bra_only" onclick="bSet('bra_only')">
+          <i class="ti ti-crop em" aria-hidden="true"></i>
+          <span class="mn">Bra</span>
+          <span class="ms">2 photos</span>
+        </button>
+      </div>
+
+      <div class="dB-card">
+        <div class="dB-step">
+          <div class="dB-stepn">1</div>
+          <div class="dB-stept">Drop your photos</div>
+          <span class="dB-step-tag" id="bStepTag">0 / 3 added</span>
+        </div>
+        <div id="bSlots"></div>
+      </div>
+
+      <div class="dB-card">
+        <div class="dB-step">
+          <div class="dB-stepn">2</div>
+          <div class="dB-stept">Set the scene</div>
+          <span class="dB-step-tag">camera &amp; brand</span>
+        </div>
+        <div class="dB-row">
+          <span class="dB-row-l">Camera</span>
+          <div class="dB-pills" id="bPills"></div>
+        </div>
+        <div class="dB-divider-mini">
+          <div class="dB-divider-mini-l"></div>
+          <span class="dB-divider-mini-t" id="bBrandLbl">Brand · active</span>
+          <div class="dB-divider-mini-l"></div>
+        </div>
+        <div class="dB-brands" id="bBrands"></div>
+      </div>
+
+      <div class="dB-card">
+        <div class="dB-step">
+          <div class="dB-stepn">3</div>
+          <div class="dB-stept">Tune the output</div>
+          <span class="dB-step-tag">aspect · engine · note</span>
+        </div>
+        <div class="dB-row">
+          <span class="dB-row-l">Aspect</span>
+          <div class="dB-mini" id="bAspect">
+            <button class="dB-mp" onclick="bR(this)">1:1</button>
+            <button class="dB-mp on" onclick="bR(this)">3:4</button>
+            <button class="dB-mp" onclick="bR(this)">9:16</button>
+            <button class="dB-mp" onclick="bR(this)">4:3</button>
+            <button class="dB-mp" onclick="bR(this)">16:9</button>
+            <button class="dB-mp" onclick="bR(this)">A4+</button>
+          </div>
+        </div>
+        <div class="dB-row">
+          <span class="dB-row-l">Engine</span>
+          <div class="dB-mini">
+            <button class="dB-mp" onclick="bE(this)">Gemini 3 Pro</button>
+            <button class="dB-mp on" onclick="bE(this)">3.1 Fast</button>
+          </div>
+        </div>
+        <div class="dB-row">
+          <span class="dB-row-l">Preset</span>
+          <div class="dB-mini" style="flex-wrap:nowrap;">
+            <input style="flex:1;background:#fff4ec;border:none;border-radius:10px;padding:5px 11px;font-size:12.5px;color:#3d2818;min-width:0;" placeholder="Search style № 3">
+            <button class="dB-mp">Sync</button>
+          </div>
+        </div>
+        <textarea class="dB-note" rows="2" placeholder="A short note about mood, lighting, or style (optional)…" style="margin-top:6px;"></textarea>
+      </div>
+
+      <div class="dB-spacer"></div>
+
+      <button class="dB-cta dis" id="bCta">
+        <span class="dB-cta-em">✦</span>
+        <span id="bCtaT">Add all photos to make image</span>
+      </button>
+
+    </div>
+
+    <div class="dB-right">
+
+      <div class="dB-result-h">
+        <div class="dB-result-t">Your image</div>
+        <span class="dB-result-tag" id="bModeTag">Bra + Panty · 3:4</span>
+      </div>
+
+      <div class="dB-canvas dB-canvas-corners">
+        <i class="ti ti-photo dB-canvas-i" aria-hidden="true"></i>
+        <div class="dB-canvas-tt">Nothing here yet</div>
+        <div class="dB-canvas-s" id="bPrevS">Add your photos on the left and tap "make image" — your shoot will appear here in about 12 seconds.</div>
+        <div class="dB-canvas-chip" id="bCanvasChip">awaiting 3 photos</div>
+      </div>
+
+      <div class="dB-meta-strip">
+        <div class="dB-meta-it">
+          <span class="dB-meta-l">Mode</span>
+          <span class="dB-meta-v" id="bMetaMode">Bra + Panty</span>
+        </div>
+        <div class="dB-meta-sep"></div>
+        <div class="dB-meta-it">
+          <span class="dB-meta-l">Brand</span>
+          <span class="dB-meta-v" id="bMetaBrand">Dressberry</span>
+        </div>
+        <div class="dB-meta-sep"></div>
+        <div class="dB-meta-it">
+          <span class="dB-meta-l">Pose</span>
+          <span class="dB-meta-v" id="bMetaPose">Front</span>
+        </div>
+        <div class="dB-meta-sep"></div>
+        <div class="dB-meta-it">
+          <span class="dB-meta-l">Engine</span>
+          <span class="dB-meta-v">3.1 Fast</span>
+        </div>
+      </div>
+
+      <div class="dB-act">
+        <button class="dB-act-b" disabled><i class="ti ti-download" style="font-size:12px" aria-hidden="true"></i> Save</button>
+        <button class="dB-act-b" disabled><i class="ti ti-refresh" style="font-size:12px" aria-hidden="true"></i> Regenerate</button>
+        <button class="dB-act-b" disabled><i class="ti ti-share" style="font-size:12px" aria-hidden="true"></i> Share</button>
+      </div>
+
+      <div class="dB-foot">
+        Powered by Gemini Vision Model. Studio composites innerwear products onto model references.<br>Ensure you have rights to use uploaded images.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const MODES={
+  panty_only:{slots:[{k:'model',n:'Model',t:'Required'},{k:'panty',n:'Panty',t:'Required'}],angles:['front','side','back','mood'],bOn:false,
+    bCtaT:'Add both photos to make image',bPrev:'Add model and panty on the left — your shoot will appear here in about 12 seconds.',label:'Panty'},
+  bra_panty:{slots:[{k:'model',n:'Model',t:'Required'},{k:'bra',n:'Bra',t:'Required'},{k:'panty',n:'Panty',t:'Required'}],angles:['front','side','back','mood'],bOn:true,
+    bCtaT:'Add all 3 photos to make image',bPrev:'Add model, bra, and panty on the left — your shoot will appear here in about 12 seconds.',label:'Bra + Panty'},
+  pushup_bra:{slots:[{k:'model',n:'Model',t:'Required'},{k:'pushup',n:'Pushup bra',t:'Required'}],angles:['pushup','side'],bOn:false,
+    bCtaT:'Add both photos to make image',bPrev:'Pushup mode — drop a model and a pushup bra photo. Output is upper-body focused.',label:'Pushup'},
+  bra_only:{slots:[{k:'model',n:'Model',t:'Required'},{k:'bra',n:'Bra',t:'Required'}],angles:['front','side','back','mood'],bOn:false,
+    bCtaT:'Add both photos to make image',bPrev:'Bra only mode — drop a model and a bra photo for an upper-body crop output.',label:'Bra only'}
+};
+const ANGLES={front:{i:'ti-user',l:'Front'},pushup:{i:'ti-arrow-up',l:'Pushup'},side:{i:'ti-rotate-2',l:'Side'},back:{i:'ti-user-circle',l:'Back'},mood:{i:'ti-sparkles',l:'Mood'}};
+const BRANDS=[
+  {n:'Tweens',c:'#6F4940'},{n:'Dressberry',c:'#6B2E43'},{n:'Invisi-Soft',c:'#304C7A'},
+  {n:'Souminie',c:'#2D4FA0'},{n:'Komli',c:'#B62F57'},{n:'Joomie',c:'#E21B2D'},
+  {n:'Invisi-fit',c:'#7A631B'},{n:'Sztori',c:'#B2189B'},{n:'Sushme',c:'#B81CB0'},
+  {n:'Swanz',c:'#5B2D28'},{n:'Intimist',c:'#7B34C9'}
+];
+
+let bMode='bra_panty',bAngle='front',bBrand=1,bUps={},bRatio='3:4';
+
+function bSet(m){bMode=m;bUps={};bAngle=MODES[m].angles[0];bRender();}
+function bR(b){document.querySelectorAll('#bAspect .dB-mp').forEach(x=>x.classList.remove('on'));b.classList.add('on');bRatio=b.textContent;bRender();}
+function bE(b){const all=document.querySelectorAll('.dB-mp');for(let i=all.length-3;i<all.length-1;i++)all[i].classList.remove('on');b.classList.add('on');}
+function bAng(a){if(!MODES[bMode].angles.includes(a))return;bAngle=a;bRender();}
+function bBr(i){if(!MODES[bMode].bOn)return;bBrand=i;bRender();}
+function bTog(k){bUps[k]=!bUps[k];bRender();}
+
+function bRender(){
+  const md=MODES[bMode];
+  document.querySelectorAll('.dB-mode').forEach(t=>t.classList.toggle('on',t.dataset.m===bMode));
+  const sl=md.slots;
+  const done=sl.filter(s=>bUps[s.k]).length;
+  document.getElementById('bStepTag').textContent=done+' / '+sl.length+' added';
+
+  const sc=document.getElementById('bSlots');
+  sc.innerHTML='';
+  const r=document.createElement('div');
+  r.className='dB-slots '+(sl.length===3?'dB-s3':'dB-s2');
+  sl.forEach(s=>{
+    const u=bUps[s.k];
+    const d=document.createElement('div');
+    d.className='dB-slot'+(u?' up':'');
+    d.onclick=()=>bTog(s.k);
+    d.innerHTML='<i class="ti '+(u?'ti-check':'ti-plus')+' dB-s-i" aria-hidden="true"></i><span class="dB-s-n">'+s.n+'</span><span class="dB-s-t">'+(u?'Added':s.t)+'</span>';
+    r.appendChild(d);
+  });
+  sc.appendChild(r);
+
+  const pl=document.getElementById('bPills');
+  pl.innerHTML='';
+  const allA=bMode==='pushup_bra'?['pushup','side']:['front','side','back','mood'];
+  allA.forEach(a=>{
+    const en=md.angles.includes(a);
+    const on=bAngle===a;
+    const ang=ANGLES[a];
+    const b=document.createElement('button');
+    b.className='dB-pill'+(on?' on':'')+(en?'':' lk');
+    b.onclick=()=>bAng(a);
+    b.innerHTML='<i class="ti '+ang.i+'" aria-hidden="true" style="font-size:10px"></i> '+ang.l;
+    pl.appendChild(b);
+  });
+
+  document.getElementById('bBrandLbl').textContent=md.bOn?'Brand · active':'Brand · locked (Bra + Panty only)';
+  const bg=document.getElementById('bBrands');
+  bg.innerHTML='';
+  BRANDS.forEach((b,i)=>{
+    const d=document.createElement('button');
+    d.className='dB-br'+(i===bBrand&&md.bOn?' on':'')+(md.bOn?'':' dis');
+    d.onclick=()=>bBr(i);
+    d.innerHTML='<div class="dB-br-d" style="background:'+b.c+'"></div><span class="dB-br-n">'+b.n+'</span>';
+    bg.appendChild(d);
+  });
+
+  const ok=sl.every(s=>bUps[s.k]);
+  const cb=document.getElementById('bCta');
+  cb.className='dB-cta'+(ok?'':' dis');
+  document.getElementById('bCtaT').textContent=ok?'Make my image':md.bCtaT;
+  document.getElementById('bPrevS').textContent=md.bPrev;
+  document.getElementById('bCanvasChip').textContent=ok?'ready to generate':('awaiting '+sl.length+' photos');
+  document.getElementById('bModeTag').textContent=md.label+' · '+bRatio;
+  document.getElementById('bMetaMode').textContent=md.label;
+  document.getElementById('bMetaBrand').textContent=md.bOn?BRANDS[bBrand].n:'—';
+  document.getElementById('bMetaPose').textContent=ANGLES[bAngle].l;
+}
+
+bRender();
+</script>

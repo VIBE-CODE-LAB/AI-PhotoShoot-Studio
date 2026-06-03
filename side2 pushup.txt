@@ -1,0 +1,111 @@
+"""REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
+REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, silhouette. Replicate identically.
+Push Effect — Level 3 Padding (CRITICAL — MUST BE VISIBLY RENDERED):
+
+The bra cups MUST visibly show a strong, natural Level 3 push-up padding 
+effect. This is NON-NEGOTIABLE and must be clearly visible in the final image.
+
+Specific rendering instructions:
+— Both cups must appear visibly LIFTED upward and pushed inward toward 
+  center simultaneously
+— The upper cup area must show clear, natural fullness and visible rounded 
+  projection — NOT flat or deflated
+— There must be a visible, modest, natural-looking center cleavage definition 
+  created by the inward push of both cups
+— The cup silhouette must appear three-dimensional, projected, and lifted — 
+  NOT flat against the chest
+— The underside of each cup must show a visible upward curve indicating 
+  strong padding lift from beneath
+— The push must look symmetric — both cups lifted equally
+— The overall bust silhouette must read as clearly enhanced, lifted, and 
+  fuller in shape compared to an unpadded bra
+— This must be visible even at full body frame distance — the lift effect 
+  must read clearly without zooming in
+
+DO NOT render flat, deflated, or projection-less cups.
+DO NOT make the effect anatomically exaggerated or unrealistic.
+DO NOT change the external cup fabric, color, or structure.
+The push is INTERNAL padding lift — external silhouette result must be 
+clearly visible, natural, and catalogue-appropriate.
+
+═══════════════════════════════════════════════════════
+POSE & BODY DIRECTION
+═══════════════════════════════════════════════════════
+Model stands FULLY FRONT-FACING | Body squared to lens | Direct warm eye contact
+Soft natural relaxed smile | Both arms relaxed at sides
+Shot framed from HEAD TO WAIST only — the image crops precisely at the model's natural waistline (navel level). No hips, no lower body, no legs visible whatsoever. Strict head-to-waist crop.
+Hair away from ALL bra zones | Tattoo-free, blemish-free skin
+Body language: clean, modern, effortlessly premium
+═══════════════════════════════════════════════════════
+PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
+═══════════════════════════════════════════════════════
+Full front panel, both straps, full bottom band, both armhole edges — ALL fully visible, unobstructed, sharply in focus
+Primary lighting on bra | No hands, hair, or arms overlapping bra
+═══════════════════════════════════════════════════════
+BACKGROUND & LIGHTING
+═══════════════════════════════════════════════════════
+Soft, airy, light-filled indoor background
+Fresh icy white tones aligned with #F5FBFF (Souminie brand background) — evokes a clean, modern, premium lifestyle space
+Subtle soft-focus elements allowed (e.g., aqua-blue sheer panels, crisp white surfaces, cool natural light) — nothing distracting
+Lighting is bright, crisp, and clean — cool-fresh toned, energising yet soft
+No dark shadows, no warm-heavy tones, no dramatic contrast
+Aspect ratio: portrait 4:5
+═══════════════════════════════════════════════════════
+PHOTOGRAPHY STYLE
+═══════════════════════════════════════════════════════
+Campaign-quality professional e-commerce product image
+Fresh icy white, aqua-blue soft, cobalt anchored, clean modern premium
+Overall mood: clean, modern, premium lingerie — consistent with Souminie's "clean modern lingerie premium" identity
+═══════════════════════════════════════════════════════
+INFOGRAPHIC LAYOUT & TYPOGRAPHY
+═══════════════════════════════════════════════════════
+HEADLINE — TOP LEFT
+Text: "Comfort that feels light"
+Font: Sora (bold display weight, large size)
+Color: #2D4FA0
+SUB-HEADING — TOP LEFT, directly below headline
+Text: "Soft touch. Gentle support."
+Font: DM Sans (medium weight, slightly smaller)
+Color: #2D4FA0
+FEATURE ICON + TEXT STACK — LEFT SIDE (stacked vertically, evenly spaced)
+FEATURE 1:
+Icon: Small circular icon — thin WHITE line illustration of a cotton/fabric/breathable weave symbol
+Text: "Breathable Cotton Fabric", "for airy comfort all day"
+Line 1 bold (Sora), Line 2 regular (DM Sans) | Color: #2D4FA0
+FEATURE 2:
+Icon: Small circular icon — thin WHITE line illustration of soft padding/gentle lift symbol
+Text: "Light Padding gives", "Gentle Lift"
+Line 1 bold (Sora), Line 2 regular (DM Sans) | Color: #2D4FA0
+FEATURE 3:
+Icon: Small circular icon — thin WHITE line illustration of internal gripper/grip strip detail
+Text: "Hidden Internal Gripper", "for Perfect Fit"
+Line 1 bold (Sora), Line 2 regular (DM Sans) | Color: #2D4FA0
+ICON STYLE (ALL three — CRITICAL NON-NEGOTIABLE):
+→ Circular icon | Size: ~40–45px
+→ SOLID FILLED background: #2D4FA0 — fully opaque, zero transparency, not ghost, not outlined-only, not see-through
+→ Interior illustration: simple thin WHITE line drawing relevant to each feature
+→ Border ring: #2D4FA0 thin clean ring
+→ ALL icons must appear as a solid dark blue filled circle with white line art inside — no background showing through at any point
+NO callout lines — icons sit independently on LEFT side, NOT pointing to bra zones
+ICON PLACEMENT — CRITICAL:
+Every icon must be placed ENTIRELY within the background/negative space of the image. NO icon, circle border, or any part of the graphic may touch, overlap, or rest on any part of the model's body, skin, hair, or bra product. All icons must float clearly in the open background space only.
+═══════════════════════════════════════════════════════
+OVERALL COMPOSITION BALANCE
+═══════════════════════════════════════════════════════
+Headline + sub-heading: TOP LEFT quadrant
+Model: CENTER to CENTER-RIGHT
+Three feature icons stacked vertically: LEFT side, middle zone — all icons fully in background space, never touching the model
+No text/icons overlapping model's face, body, or bra
+Generous breathing space around all elements
+Final image: balanced, airy, campaign-ready — true to Souminie's minimal premium daily comfort identity
+═══════════════════════════════════════════════════════
+STRICT NEGATIVE INSTRUCTIONS
+═══════════════════════════════════════════════════════
+Do NOT show any part of the model below the waist
+Do NOT use transparent, semi-transparent, ghost, or outlined-only icons — ALL icons must be 100% solid filled #2D4FA0 with white interior line art
+Do NOT place any icon, circle, or graphic touching or overlapping the model's body, skin, hair, or bra
+Do NOT alter model or product | FULLY FRONT-FACING only | No callout lines
+Do NOT use background other than #F5FBFF fresh icy white tones
+Do NOT use fonts other than Sora (headings) and DM Sans (body)
+Do NOT use text color other than #2D4FA0
+No hair over bra | No icons/text on face or bra | No warm-heavy lighting | No watermarks | No extra models | 4:5 ratio only | No flat white backdrop"""

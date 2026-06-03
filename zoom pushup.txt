@@ -1,0 +1,141 @@
+"""""""REFERENCE IMAGE 1 (Model): Exact skin tone and body reference — chest to hip only. 
+Face NOT shown.
+REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, seamless bonded 
+construction. Replicate identically.
+Push Effect — Level 3 Padding (CRITICAL — MUST BE VISIBLY RENDERED):
+
+The bra cups MUST visibly show a strong, natural Level 3 push-up padding 
+effect. This is NON-NEGOTIABLE and must be clearly visible in the final image.
+
+Specific rendering instructions:
+— Both cups must appear visibly LIFTED upward and pushed inward toward 
+  center simultaneously
+— The upper cup area must show clear, natural fullness and visible rounded 
+  projection — NOT flat or deflated
+— There must be a visible, modest, natural-looking center cleavage definition 
+  created by the inward push of both cups
+— The cup silhouette must appear three-dimensional, projected, and lifted — 
+  NOT flat against the chest
+— The underside of each cup must show a visible upward curve indicating 
+  strong padding lift from beneath
+— The push must look symmetric — both cups lifted equally
+— The overall bust silhouette must read as clearly enhanced, lifted, and 
+  fuller in shape compared to an unpadded bra
+— This must be visible even at full body frame distance — the lift effect 
+  must read clearly without zooming in
+
+DO NOT render flat, deflated, or projection-less cups.
+DO NOT make the effect anatomically exaggerated or unrealistic.
+DO NOT change the external cup fabric, color, or structure.
+The push is INTERNAL padding lift — external silhouette result must be 
+clearly visible, natural, and catalogue-appropriate.
+═══════════════════════════════════════════════════════
+SHOT TYPE — CLOSE-UP STATIC ZOOM SHOT
+═══════════════════════════════════════════════════════
+
+Static clean close-up — chin/collarbone to below bottom band | NO hands | Square 1:1
+
+═══════════════════════════════════════════════════════
+POSE & BODY DIRECTION
+═══════════════════════════════════════════════════════
+
+Body 15–20° angled right | Arms OUT OF FRAME | Torso relaxed
+Skin: ZERO marks, indentation, irritation | Tattoo-free, blemish-free
+
+═══════════════════════════════════════════════════════
+PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
+═══════════════════════════════════════════════════════
+
+All bra zones razor sharp: front panel smooth, bonded edges invisible, bottom band flat, 
+side seamless, straps & neckline visible at top
+Fabric completely smooth, second-skin — NO stitching or seam lines
+
+═══════════════════════════════════════════════════════
+BACKGROUND & LIGHTING
+═══════════════════════════════════════════════════════
+
+LEFT 60–65%: model/product on #F6F8FB (Invisi-Soft brand — cool airy off-white) background
+RIGHT 35–40%: flat #F6F8FB cool airy off-white solid text panel
+Lighting: soft, cool-fresh, bright — no harsh shadows | Deep-blue clean tone | 
+No warm-heavy tones
+
+═══════════════════════════════════════════════════════
+PHOTOGRAPHY STYLE
+═══════════════════════════════════════════════════════
+
+Intimate static close-up — invisible, clean, precisely premium
+Overall mood: smooth, seamless, invisibly luxurious — consistent with 
+Invisi-Soft's ""invisible comfort luxury"" identity
+
+═══════════════════════════════════════════════════════
+INFOGRAPHIC LAYOUT & TYPOGRAPHY
+═══════════════════════════════════════════════════════
+
+COMPOSITION SPLIT:
+LEFT 62%: static bra on skin, no action, no hands
+RIGHT 38%: flat #F6F8FB cool airy off-white text panel
+
+HEADLINE — TOP of RIGHT text panel, right-aligned
+(Use Headline from TEXT LOCK)
+Color: {{BRAND_FONT_COLOR}}
+
+CALLOUT 1 — RIGHT panel, first item
+→ Thin curved organic callout line curves LEFT pointing to
+   SEAMLESS SIDE EDGE of bra
+Text (right-aligned, NO icon):
+(Use Callout 1 Feature from TEXT LOCK)
+Color: {{BRAND_FONT_COLOR}}
+— Regular weight — no bold anywhere in callouts —
+
+CALLOUT 2 — RIGHT panel, second item
+→ Thin curved organic callout line curves LEFT pointing to
+   SKIN CONTACT ZONE just below bra's bottom edge
+Text (right-aligned, NO icon):
+(Use Callout 2 Feature from TEXT LOCK)
+Color: {{BRAND_FONT_COLOR}}
+— Regular weight — no bold anywhere in callouts —
+
+CALLOUT 3 — RIGHT panel, third item, lowest position
+→ Thin curved organic callout line curves LEFT pointing to
+   BOTTOM BAND where it meets the skin
+Text (right-aligned, NO icon):
+(Use Callout 3 Feature from TEXT LOCK)
+Color: {{BRAND_FONT_COLOR}}
+— Regular weight — no bold anywhere in callouts —
+
+CALLOUT LINE STYLE (all three):
+Thin, slightly curved organic lines — NOT rigid or straight
+Curve naturally from right panel into left photo
+Color: #304C7A (Invisi-Soft brand — deep blue)
+Each line ends at product touch point
+Lines must NOT cross each other
+Lines originate from LEFT edge of text panel and arc into photo zone
+
+TEXT STYLE (all three callouts):
+NO circular icons — purely typographic
+Right-aligned within RIGHT panel
+Generous vertical spacing between each item
+Consistent rhythm top to bottom
+
+═══════════════════════════════════════════════════════
+OVERALL COMPOSITION BALANCE
+═══════════════════════════════════════════════════════
+
+Photo zone LEFT — static bra on skin, no action, no hands
+Text zone RIGHT — flat #F6F8FB cool airy off-white panel, three stacked callouts
+Headline anchors TOP RIGHT
+Three callouts distribute evenly down right panel
+Callout lines arc gracefully from right text into left photo, each pointing to 
+distinct bra zone
+No text overlapping photo zone
+Final image: premium, editorial, cool, tactile — true to 
+Invisi-Soft's invisible comfort luxury identity
+
+═══════════════════════════════════════════════════════
+STRICT NEGATIVE INSTRUCTIONS
+═══════════════════════════════════════════════════════
+
+No hands | No face | No skin marks | No seams | No straight lines | No icons | 
+RIGHT panel | #F6F8FB flat only
+Fonts: Playfair Display / Plus Jakarta Sans only | Color: #304C7A only | 
+No warm-yellow lighting | No watermarks | 1:1 only | No props"""""""
