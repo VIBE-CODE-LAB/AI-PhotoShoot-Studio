@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ImageUploader } from './components/ImageUploader';
 import { LoginModal } from './components/LoginModal';
+import { getStoredApiKey } from './services/geminiService';
 import {
   AspectRatio,
   CalloutZone,
@@ -265,7 +266,8 @@ const App = () => {
     const savedCount = localStorage.getItem('belle_usage_count');
     const savedPro = localStorage.getItem('belle_is_pro');
     if (savedCount) setUsageCount(parseInt(savedCount, 10));
-    if (savedPro === 'true') setIsPro(true);
+    // Auto-unlock Pro if a valid API key is already stored in the browser
+    if (savedPro === 'true' && getStoredApiKey()) setIsPro(true);
     setStylePresets(loadPresetsFromStorage());
 
     const savedSheetUrl = loadGoogleSheetUrlFromStorage();

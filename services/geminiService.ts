@@ -219,12 +219,22 @@ const getSystemInstruction = (mode: ShootMode, viewAngle?: ViewAngle): string =>
   return "You are a professional digital fashion compositor. Combine the model with the panty product reference only, preserving exact product construction and realistic fit. Keep the model fully clothed, and keep output clean, modest, non-suggestive, and professional for a general audience e-commerce catalog.";
 };
 
+const LS_KEY = 'gemini_api_key';
+
+export const getStoredApiKey = (): string => {
+  return localStorage.getItem(LS_KEY) || '';
+};
+
+export const setStoredApiKey = (key: string): void => {
+  localStorage.setItem(LS_KEY, key.trim());
+};
+
+export const clearStoredApiKey = (): void => {
+  localStorage.removeItem(LS_KEY);
+};
+
 export const checkApiKey = async (): Promise<boolean> => {
-  try {
-    if (process.env.API_KEY) return true;
-  } catch (e) {
-    // Ignore runtime env access errors in browsers.
-  }
+  if (getStoredApiKey()) return true;
   if (typeof window !== "undefined" && (window as any).aistudio) {
     return await (window as any).aistudio.hasSelectedApiKey();
   }
@@ -262,7 +272,9 @@ export const generateShoot = async ({
   const pantyImage = pantyBase64 ? parseBase64Image(pantyBase64) : null;
   const braImage = braBase64 ? parseBase64Image(braBase64) : null;
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const resolvedKey = getStoredApiKey();
+  if (!resolvedKey) throw new Error('No API key found. Please enter your Gemini API key.');
+  const ai = new GoogleGenAI({ apiKey: resolvedKey });
   const selectedBrand = BRAND_SPECIFICATIONS_BY_ID[brand] || BRAND_SPECIFICATIONS_BY_ID.dressberry;
 
   const sanitizedImageCallouts = sanitizeImageCalloutsForPrompt(mode, viewAngle, imageCalloutsContent);
