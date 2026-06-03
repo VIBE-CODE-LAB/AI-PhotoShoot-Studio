@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    const isProd = mode === 'production';
     return {
+      base: isProd ? '/ai-photoshoot-studio/' : '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
@@ -23,3 +25,4 @@ export default defineConfig(({ mode }) => {
       }
     };
 });
+
