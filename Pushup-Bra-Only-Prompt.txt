@@ -96,11 +96,11 @@ clearly visible, natural, and catalogue-appropriate.
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION
 ═══════════════════════════════════════════════════════
-Model stands in a three-quarter angle, body turned approximately 30–40 degrees to the LEFT of camera
+Model stands in a three-quarter angle, body turned approximately 30–40 degrees to the RIGHT of camera
 Face turns back toward camera making DIRECT eye contact with the lens
 Chin is level, natural relaxed confident smile
-RIGHT arm hangs relaxed at her side
-LEFT arm is relaxed and slightly away from body so the LEFT armhole area of the bra is clearly visible and unobstructed
+LEFT arm hangs relaxed at her side
+RIGHT arm is relaxed and slightly away from body so the RIGHT armhole area of the bra is clearly visible and unobstructed
 Shoulders are relaxed, not raised or tensed
 Shot framed from HEAD TO WAIST only — the image crops precisely at the model's natural waistline (navel level). No hips, no lower body, no legs visible whatsoever. Strict head-to-waist crop.
 Hair falls softly over both shoulders BUT must be directed AWAY from all bra straps, armhole edges, and bottom band — zero hair overlap on any part of the bra at any point
@@ -110,7 +110,7 @@ PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
 ═══════════════════════════════════════════════════════
 The bra from REFERENCE IMAGE 2 must be worn exactly as it appears — same color, same fabric, same fit, same silhouette
 ALL of the following zones must be FULLY VISIBLE, unobstructed, and sharply in focus:
-→ LEFT armhole edge, RIGHT armhole edge, Full bottom band, Front center panel, Both shoulder straps
+→ RIGHT armhole edge, LEFT armhole edge, Full bottom band, Front center panel, Both shoulder straps
 Primary lighting directed TOWARD the bra — it is the HERO product of this image
 No hands, hair, arms, or fabric overlapping any part of the bra
 ═══════════════════════════════════════════════════════
@@ -140,13 +140,13 @@ CALLOUT LINE RULE (applies to ALL callouts — CRITICAL):
 → Straight or very slightly angled — no curves, no decorative tips, no arrowheads
 → Lines must NOT cross each other at any point
 → Line runs from icon outward to bra zone — NO dot at touch point, just thin line ending cleanly
-CALLOUT 1 — LEFT SIDE: Points to LEFT ARMHOLE EDGE
+CALLOUT 1 — LEFT SIDE: Points to SIDE SEAM / FABRIC EDGE
 Line 1 (bold, Sora, #2D4FA0): "Elastic-free Armhole"
 Line 2 (DM Sans, #2D4FA0): "for Rashfree Comfort"
 CALLOUT 2 — BOTTOM LEFT: Points to BOTTOM BAND
 Line 1 (bold, Sora, #2D4FA0): "Elastic-free Bottom Band"
 Line 2 (DM Sans, #2D4FA0): "for Seamless Support"
-CALLOUT 3 — RIGHT SIDE: Points to SIDE SEAM / FABRIC EDGE
+CALLOUT 3 — RIGHT SIDE: Points to RIGHT ARMHOLE EDGE
 Line 1 (bold, Sora, #2D4FA0): "No-Stitch Design"
 Line 2 (DM Sans, #2D4FA0): "for Invisible Finish"
 ICON STYLE (ALL icons — CRITICAL NON-NEGOTIABLE):
