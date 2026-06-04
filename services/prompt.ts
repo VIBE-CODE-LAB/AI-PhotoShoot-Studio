@@ -556,23 +556,23 @@ const buildCalloutTextColorLock = (brand: BrandSpecification, callouts?: Resolve
 
 const buildCalloutPlacementLock = (): string =>
   [
-    'CALLOUT PLACEMENT LOCK (CRITICAL & MANDATORY)',
-    'ABSOLUTELY NO TEXT, ICONS, OR GRAPHICS MAY OVERLAP THE MODEL\\'S SKIN, BODY, HAIR, OR GARMENT.',
-    'All icon circles, icon artwork, callout text, labels, dots, and decorative callout elements must be placed ONLY on the clean empty background/negative space.',
-    'If the model\\'s arm, shoulder, or torso occupies a side of the frame, YOU MUST push the callouts further out into the empty background or reposition the model to ensure ZERO overlap.',
-    'Keep callout icons and text at least 32px away from the model silhouette and garment edges.',
-    'Pointer lines may approach feature areas, but the visible line must not run across skin or product fabric; use the shortest clean route through background space and stop at the edge.',
-  ].join('\\n');
+    "CALLOUT PLACEMENT LOCK (CRITICAL & MANDATORY)",
+    "ABSOLUTELY NO TEXT, ICONS, OR GRAPHICS MAY OVERLAP THE MODEL'S SKIN, BODY, HAIR, OR GARMENT.",
+    "All icon circles, icon artwork, callout text, labels, dots, and decorative callout elements must be placed ONLY on the clean empty background/negative space.",
+    "If the model's arm, shoulder, or torso occupies a side of the frame, YOU MUST push the callouts further out into the empty background or reposition the model to ensure ZERO overlap.",
+    "Keep callout icons and text at least 32px away from the model silhouette and garment edges.",
+    "Pointer lines may approach feature areas, but the visible line must not run across skin or product fabric; use the shortest clean route through background space and stop at the edge.",
+  ].join('\n');
 
 const buildCalloutPlacementLockNoIcon = (): string =>
   [
-    'CALLOUT PLACEMENT LOCK (MOOD — NO ICONS — CRITICAL)',
-    'ABSOLUTELY NO TEXT OR GRAPHICS MAY OVERLAP THE MODEL\\'S SKIN, BODY, HAIR, OR GARMENT.',
-    'All callout text, labels, dots, and decorative callout elements must be placed ONLY on the clean empty background/negative space.',
-    'If the model\\'s arm, shoulder, or torso occupies a side of the frame, YOU MUST push the text further out into the empty background or reposition the model to ensure ZERO overlap.',
-    'Keep callout text and dots at least 32px away from the model silhouette and garment edges.',
-    'Pointer lines may approach feature areas, but the visible line must not run across skin or product fabric; use the shortest clean route through background space and stop at the edge.',
-  ].join('\\n');
+    "CALLOUT PLACEMENT LOCK (MOOD — NO ICONS — CRITICAL)",
+    "ABSOLUTELY NO TEXT OR GRAPHICS MAY OVERLAP THE MODEL'S SKIN, BODY, HAIR, OR GARMENT.",
+    "All callout text, labels, dots, and decorative callout elements must be placed ONLY on the clean empty background/negative space.",
+    "If the model's arm, shoulder, or torso occupies a side of the frame, YOU MUST push the text further out into the empty background or reposition the model to ensure ZERO overlap.",
+    "Keep callout text and dots at least 32px away from the model silhouette and garment edges.",
+    "Pointer lines may approach feature areas, but the visible line must not run across skin or product fabric; use the shortest clean route through background space and stop at the edge.",
+  ].join('\n');
 
 const buildBackgroundColorLock = (brand: BrandSpecification): string =>
   [
@@ -894,7 +894,21 @@ export const getPushupBraOnlySide2Prompt = (
     resolveCallout(copy.callout3, content?.zone3),
   ];
 
-  const basePrompt = buildPushupBraOnlyPromptFromSection('SIDE 2 PUSH UP PROMPT — BRA ONLY', 'BACK PUSH UP PROMPT — BRA ONLY', brand);
+  const basePrompt = buildPushupBraOnlyPromptFromSection(
+    'SIDE 2 PUSH UP PROMPT — BRA ONLY',
+    'BACK PUSH UP PROMPT — BRA ONLY',
+    brand,
+    [
+      ['"Comfort that feels light"', `"${copy.heading}"`],
+      ['"Soft touch. Gentle support."', `"${copy.subHead}"`],
+      ['"Breathable Cotton Fabric "', `"${copy.callout1[0]}"`],
+      ['"for airy comfort all day"', `"${copy.callout1[1]}"`],
+      ['"Light Padding gives"', `"${copy.callout2[0]}"`],
+      ['"Gentle Lift"', `"${copy.callout2[1]}"`],
+      ['"Hidden Internal Gripper"', `"${copy.callout3[0]}"`],
+      ['"for Perfect Fit"', `"${copy.callout3[1]}"`],
+    ]
+  );
 
   return `${basePrompt}\n\n${buildTextLock3(copy)}\n\n${buildCalloutTextColorLock(brand, callouts)}\n\n${buildCalloutPlacementLock()}\n\n${buildBackgroundColorLock(brand)}\n\n${buildFinalBrandRenderLock(brand)}`;
 };
