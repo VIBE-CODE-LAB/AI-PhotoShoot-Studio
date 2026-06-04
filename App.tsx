@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ImageUploader } from './components/ImageUploader';
 import { LoginModal } from './components/LoginModal';
-import { getStoredApiKey } from './services/geminiService';
+import { clearStoredApiKey, getStoredApiKey } from './services/geminiService';
 import {
   AspectRatio,
   CalloutZone,
@@ -368,6 +368,12 @@ const App = () => {
     setIsPro(true);
     localStorage.setItem('belle_is_pro', 'true');
     setIsLoginModalOpen(false);
+  };
+
+  const handleLogout = () => {
+    clearStoredApiKey();
+    localStorage.removeItem('belle_is_pro');
+    setIsPro(false);
   };
 
   const downloadImage = (src: string, label: string) => {
@@ -748,7 +754,11 @@ const App = () => {
             <span className="dB-pro-d"></span>
             {isPro ? 'Pro active' : `Free plan · ${Math.min(usageCount, 3)}/3 used`}
           </div>
-          {!isPro && (
+          {isPro ? (
+            <button type="button" className="dB-login" style={{ backgroundColor: 'transparent', color: '#ff4d4f', border: '1px solid #ff4d4f' }} onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
             <button type="button" className="dB-login" onClick={() => setIsLoginModalOpen(true)}>
               Login
             </button>
