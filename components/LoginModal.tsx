@@ -27,8 +27,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
     }
 
     const trimmedKey = apiKey.trim();
-    if (!trimmedKey || !trimmedKey.startsWith('AIza')) {
-      setError('Please enter a valid Gemini API key (starts with "AIza").');
+    if (!trimmedKey || trimmedKey.length < 30) {
+      setError('Please enter a valid Gemini API key.');
       return;
     }
 
@@ -101,7 +101,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
                   className="w-full bg-white text-brand-900 placeholder-brand-400 border border-brand-200 rounded-lg p-3 pr-10 focus:ring-2 focus:ring-brand-500 outline-none transition-all font-mono text-sm"
-                  placeholder="AIzaSy..."
+                  placeholder="Enter your API key..."
                 />
                 <button type="button" onClick={() => setShowApiKey(!showApiKey)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-400 hover:text-brand-600 focus:outline-none">
