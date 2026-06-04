@@ -94,7 +94,7 @@ clearly visible, natural, and catalogue-appropriate.
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION
 ═══════════════════════════════════════════════════════
-Model stands on the RIGHT HALF of the image frame (CENTER-RIGHT), leaving a wide, empty negative space on the LEFT HALF for text.
+Model stands on the LEFT HALF of the image frame (CENTER-LEFT), leaving a wide, empty negative space on the RIGHT HALF for text.
 Her body is turned facing towards the RIGHT edge of the image frame.
 Her LEFT shoulder is forward (closest to the camera), and her RIGHT shoulder is turned away.
 LEFT arm hangs relaxed at her side
@@ -159,7 +159,7 @@ Every callout icon must be placed ENTIRELY within the background/negative space 
 OVERALL COMPOSITION BALANCE
 ═══════════════════════════════════════════════════════
 Headline + sub-heading occupy TOP LEFT quadrant
-Model is CENTER-RIGHT of the frame
+Model is CENTER-LEFT of the frame
 Callout 1 sits on the LEFT, vertically middle zone — icon fully in background space
 Callout 2 sits on the BOTTOM LEFT — icon fully in background space
 Callout 3 sits on the RIGHT, vertically middle zone — icon fully in background space
