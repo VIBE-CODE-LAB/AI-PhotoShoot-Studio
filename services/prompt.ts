@@ -354,11 +354,12 @@ const trimNonEmptyParts = (parts: string[]): string[] =>
 const splitPromptPair = (
   value: string | undefined,
   fallbackLine1: string,
-  fallbackLine2: string
+  fallbackLine2: string,
+  useFallbackIfEmpty: boolean = true
 ): [string, string] => {
   // Strip wrapping quotes that may come from Google Sheets CSV data
   const input = value?.trim().replace(/^["']|["']$/g, '');
-  if (!input) return [fallbackLine1, fallbackLine2];
+  if (!input) return useFallbackIfEmpty ? [fallbackLine1, fallbackLine2] : ['', ''];
 
   const explicitParts = trimNonEmptyParts(input.split(/\r?\n|\s*\/\s*|\s*\|\s*|\s*[•·]\s*/));
   if (explicitParts.length >= 2) return [explicitParts[0], explicitParts[1]];
@@ -400,13 +401,16 @@ interface PromptCopy4 extends PromptCopy3 {
 const buildPromptCopy3 = (
   content: ImageCalloutsContent | undefined,
   defaults: PromptCopy3
-): PromptCopy3 => ({
-  heading: content?.heading?.trim() || defaults.heading,
-  subHead: content?.subHead?.trim() || defaults.subHead,
-  callout1: splitPromptPair(content?.callout1, defaults.callout1[0], defaults.callout1[1]),
-  callout2: splitPromptPair(content?.callout2, defaults.callout2[0], defaults.callout2[1]),
-  callout3: splitPromptPair(content?.callout3, defaults.callout3[0], defaults.callout3[1]),
-});
+): PromptCopy3 => {
+  const isCustom = content !== undefined;
+  return {
+    heading: isCustom ? (content.heading || '') : defaults.heading,
+    subHead: isCustom ? (content.subHead || '') : defaults.subHead,
+    callout1: splitPromptPair(content?.callout1, defaults.callout1[0], defaults.callout1[1], !isCustom),
+    callout2: splitPromptPair(content?.callout2, defaults.callout2[0], defaults.callout2[1], !isCustom),
+    callout3: splitPromptPair(content?.callout3, defaults.callout3[0], defaults.callout3[1], !isCustom),
+  };
+};
 
 const buildPromptCopy4 = (
   content: ImageCalloutsContent | undefined,

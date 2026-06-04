@@ -842,7 +842,7 @@ PHOTOGRAPHY STYLE
 ═══════════════════════════════════════════════════════
 
 Intimate static close-up — feminine, premium, precisely tactile
-Overall mood: smooth, seamless, warmly feminine — consistent with Dressberry's ""feminine fashion elegance"" identity
+Overall mood: smooth, seamless, warmly feminine — consistent with Dressberry's "feminine fashion elegance" identity
 
 ═══════════════════════════════════════════════════════
 INFOGRAPHIC LAYOUT & TYPOGRAPHY — MANDATORY
@@ -853,7 +853,7 @@ LEFT 62%: static bra on skin, no action, no hands
 RIGHT 38%: flat #F7F3EE soft ivory text panel
 
 HEADLINE — TOP of RIGHT text panel, right-aligned
-Text: ""Cotton Bonded Bra""
+Text: "Cotton Bonded Bra"
 Font: Cormorant Garamond (MANDATORY — bold, large — wraps to 3 lines)
 Color: #6B2E43 (MANDATORY)
 CRITICAL: Use ONLY Cormorant Garamond font family. Do NOT substitute with Times New Roman, Georgia, Playfair Display, or any other serif font.
@@ -861,8 +861,8 @@ CRITICAL: Use ONLY Cormorant Garamond font family. Do NOT substitute with Times 
 CALLOUT 1 — RIGHT panel, first item
 → Thin curved organic callout line curves LEFT pointing to SEAMLESS SIDE EDGE of bra
 Text (right-aligned, NO icon):
-Line 1 (Cormorant Garamond regular weight — NOT bold): ""Invisible""
-Line 2 (Cormorant Garamond regular weight — NOT bold): ""under outfits""
+Line 1 (Cormorant Garamond regular weight — NOT bold): "Invisible"
+Line 2 (Cormorant Garamond regular weight — NOT bold): "under outfits"
 Color: #6B2E43
 Font: Cormorant Garamond (MANDATORY)
 — Both lines same regular weight — no bold anywhere in callouts —
@@ -870,8 +870,8 @@ Font: Cormorant Garamond (MANDATORY)
 CALLOUT 2 — RIGHT panel, second item
 → Thin curved organic callout line curves LEFT pointing to SKIN CONTACT ZONE just below bra's bottom edge
 Text (right-aligned, NO icon):
-Line 1 (Cormorant Garamond regular weight — NOT bold): ""Sits smooth""
-Line 2 (Cormorant Garamond regular weight — NOT bold): ""on skin""
+Line 1 (Cormorant Garamond regular weight — NOT bold): "Sits smooth"
+Line 2 (Cormorant Garamond regular weight — NOT bold): "on skin"
 Color: #6B2E43
 Font: Cormorant Garamond (MANDATORY)
 — Both lines same regular weight — no bold anywhere in callouts —
@@ -879,8 +879,8 @@ Font: Cormorant Garamond (MANDATORY)
 CALLOUT 3 — RIGHT panel, third item, lowest position
 → Thin curved organic callout line curves LEFT pointing to BOTTOM BAND where it meets the skin
 Text (right-aligned, NO icon):
-Line 1 (Cormorant Garamond regular weight — NOT bold): ""No Digging.""
-Line 2 (Cormorant Garamond regular weight — NOT bold): ""No Rashes.""
+Line 1 (Cormorant Garamond regular weight — NOT bold): "No Digging."
+Line 2 (Cormorant Garamond regular weight — NOT bold): "No Rashes."
 Color: #6B2E43
 Font: Cormorant Garamond (MANDATORY)
 — Both lines same regular weight — no bold anywhere in callouts —
@@ -922,7 +922,7 @@ Color: #6B2E43 only | No cool-blue lighting | No watermarks | 3:4 ratio only | N
 
 MOCKUP PROMPT 
 
-"""IMPORTANT WORKFLOW NOTE:
+""IMPORTANT WORKFLOW NOTE:
 Product mockup only — no model. Upload product flatlay only.
 
 REFERENCE IMAGE (Product Flatlay): Exact reference for all bra construction details. Replicate identically.
@@ -961,21 +961,21 @@ INFOGRAPHIC LAYOUT & TYPOGRAPHY — MANDATORY
 ═══════════════════════════════════════════════════════
 
 HEADLINE — TOP LEFT of image, above product
-DISPLAY TEXT ONLY: ""Elastic Free Armholes
- and Bottom Band""
+DISPLAY TEXT ONLY: "Elastic Free Armholes
+ and Bottom Band"
 Typeface: bold display serif, large size
 Color: #6B2E43 (MANDATORY — Dressberry brand font color)
 Font: Cormorant Garamond (MANDATORY)
 CRITICAL: Use ONLY Cormorant Garamond font family. Do NOT substitute with any other display or serif font.
-— ""Cormorant Garamond"" must NEVER appear as visible text —
+— "Cormorant Garamond" must NEVER appear as visible text —
 
 SECONDARY TEXT — directly below headline, TOP LEFT
-DISPLAY TEXT ONLY: ""Light Padding for Perfect Shape""
+DISPLAY TEXT ONLY: "Light Padding for Perfect Shape"
 Typeface: medium weight clean sans-serif, slightly smaller than headline
 Color: #6B2E43 (MANDATORY)
 Font: Manrope (MANDATORY)
 CRITICAL: Use ONLY Manrope font family. Do NOT substitute with any other sans-serif font.
-— ""Manrope"" must NEVER appear as visible text —
+— "Manrope" must NEVER appear as visible text —
 — Font names must NEVER be printed in the image —
 
 ---
@@ -1006,25 +1006,25 @@ GLOBAL TEXT RULE (all 4 callouts):
 CALLOUT 1 — LEFT SIDE, upper zone
 → Thin straight line points to LEFT ARMHOLE EDGE of bra
 Text (Manrope regular/light weight, no icon):
-""Broad Shoulder Straps""
+"Broad Shoulder Straps"
 Color: #6B2E43
 
 CALLOUT 2 — LEFT SIDE, lower zone
 → Thin straight line points to LEFT SIDE WING or BOTTOM BAND edge
 Text (Manrope regular/light weight, no icon):
-""Seamless Wide Side Wings""
+"Seamless Wide Side Wings"
 Color: #6B2E43
 
 CALLOUT 3 — RIGHT SIDE, upper zone
 → Thin straight line points to RIGHT STRAP SLIDER / ADJUSTABLE HARDWARE
 Text (Manrope regular/light weight, no icon):
-""Adjustable Straps""
+"Adjustable Straps"
 Color: #6B2E43
 
 CALLOUT 4 — RIGHT SIDE, lower zone
 → Thin straight line points to RIGHT SIDE WING of bra
 Text (Manrope regular/light weight, no icon):
-""Full Coverage Design""
+"Full Coverage Design"
 Color: #6B2E43
 
 ═══════════════════════════════════════════════════════
@@ -1038,7 +1038,7 @@ Callouts 3 + 4: RIGHT side, lines pointing LEFT into product zones
 Generous #F7F3EE breathing space around product — product does not fill entire frame
 All callout text sits cleanly in margins outside product silhouette
 No text overlapping product at any point
-Final image: elegant, feminine, refined, premium — true to Dressberry's ""feminine fashion elegance"" identity
+Final image: elegant, feminine, refined, premium — true to Dressberry's "feminine fashion elegance" identity
 
 ═══════════════════════════════════════════════════════
 ═══════════════════════════════════════════════════════
@@ -1049,5 +1049,5 @@ No model/human/skin | FLOAT only | No curved lines | No icons
 Background: #F7F3EE ONLY
 Fonts: Cormorant Garamond (headline) / Manrope (body + callouts) — NO Times New Roman, NO Georgia, NO Arial, NO Helvetica substitutions
 Color: #6B2E43 only
-No props | Subtle shadow | No watermarks | 3:4 ratio only | Lines not crossing | NOT bold in callouts""
+No props | Subtle shadow | No watermarks | 3:4 ratio only | Lines not crossing | NOT bold in callouts"
 "

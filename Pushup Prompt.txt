@@ -1,5 +1,5 @@
 FRONT PUSH UP PROMPT
-"""Generate a high-quality clean commercial product photograph for a lingerie catalog. This is a plain image only, not an advertisement layout.
+""Generate a high-quality clean commercial product photograph for a lingerie catalog. This is a plain image only, not an advertisement layout.
 IMAGE REFERENCES:
 Image 1 (Model Reference): Use ONLY for the model's face, skin tone, hair texture, and physical appearance. Do NOT replicate any bra, brief, or clothing from this image. Image 2 (Product Reference — Bra): Use ONLY to replicate the exact bra design — its shape, cup structure, neckline, strap style, band fit, and fabric finish. Extract the exact colorway shown in this product image. Image 3 (Product Reference — Panty): Use ONLY to replicate the exact panty design — its exact shape, waistband style, fabric finish, seamless construction, coverage, and colorway. Extract the exact color directly from Image 3. Do NOT alter, change, or substitute the panty design, color, or structure in any way.
 Push Effect — Level 3 Padding (CRITICAL — MUST BE VISIBLY RENDERED):
@@ -49,11 +49,11 @@ TECHNICAL SPECIFICATIONS: — Format: Portrait, head-to-upper-thigh product crop
 NO TEXT / NO GRAPHICS RULE — CRITICAL: Do NOT render any visible text, brand names, logos, headlines, font names, labels, callouts, arrows, pointer lines, icons, dots, decorative graphics, UI marks, watermarks, captions, or typography anywhere in the image. The background must stay completely clean.
 
 NEGATIVE GUIDANCE — STRICTLY AVOID: ✗ Do NOT render text or callouts of any kind ✗ Do NOT render the brand name or font names ✗ Do NOT crop out the panty ✗ Do NOT show only the panty waistband ✗ Do NOT generate a bra-only or head-to-waist crop ✗ Do NOT cut through the panty body, leg openings, side seams, or crotch panel ✗ Do NOT show feet or ankles ✗ Do NOT alter or change the panty design, cut, color, or construction from Image 3 ✗ Do NOT use any color for the panty other than what is shown in Image 3 ✗ Do NOT raise both arms — only the right hand touches the hair ✗ Do NOT place both hands behind the head ✗ Do NOT place hands on hips or waist ✗ Do NOT add any clothing layer over the bra ✗ Do NOT use pure white or grey background — warm cream/off-white only ✗ Do NOT add tattoos, body art, or markings of any kind ✗ Do NOT use the bra color from Image 1 — color comes from Image 2 only ✗ Do NOT add props, furniture, or background elements ✗ Do NOT let hair cover both bra straps completely ✗ Do NOT let panty waistband be hidden or obscured ✗ Do NOT cover the midriff — it must remain bare and visible
-REFERENCE INSTRUCTION: Image 1 = Model face and appearance reference only. Image 2 = Bra product design, structure, and color reference only. Image 3 = Panty product design, structure, and color reference only."""
+REFERENCE INSTRUCTION: Image 1 = Model face and appearance reference only. Image 2 = Bra product design, structure, and color reference only. Image 3 = Panty product design, structure, and color reference only.""
 
 SIDE 1 PUSH UP PROMPT
 
-"""Tweens — SIDE VIEW PROMPT
+""Tweens — SIDE VIEW PROMPT
 ═══════════════════════════════════════════════════════
 REFERENCE IMAGES — EXACT REPLICATION REQUIRED
 ═══════════════════════════════════════════════════════
@@ -127,7 +127,7 @@ Background color: #F3F0E9 (Tweens brand background — Cream beige base; warm nu
 Soft diffused studio lighting, no harsh shadows
 Strategic lighting to emphasize and highlight the sculpted push-up shape, rounded cup projection, and prominent cleavage line
 Even illumination showcasing bra details, fabric texture, and the dramatic lift effect
-Overall tone is Cream beige base; warm nude softness; cocoa premium anchor — consistent with Tweens's """"Minimal premium daily comfort"""" identity
+Overall tone is Cream beige base; warm nude softness; cocoa premium anchor — consistent with Tweens's ""Minimal premium daily comfort"" identity
 Lighting is bright, clean, and warm — never cool-blue or harsh
 Aspect ratio: portrait 3:4
 
@@ -148,25 +148,25 @@ The push-up effect should be confidently and clearly showcased — the lift, vol
 INFOGRAPHIC LAYOUT & TYPOGRAPHY — MANDATORY
 ═══════════════════════════════════════════════════════
 
-HEADLINE — TOP LEFT: """"Elastic-Free Construction""""
+HEADLINE — TOP LEFT: ""Elastic-Free Construction""
 Font: Fraunces (MANDATORY — bold display weight, large size) | Color: #6F4940 (MANDATORY)
 CRITICAL: Use ONLY Fraunces font family. Do NOT substitute with any other font.
 
-SUB-HEADING — TOP LEFT below headline: """"No Digging. No Marks. No Itching""""
+SUB-HEADING — TOP LEFT below headline: ""No Digging. No Marks. No Itching""
 Font: Inter (MANDATORY — medium weight) | Color: #6F4940 (MANDATORY)
 CRITICAL: Use ONLY Inter font family. Do NOT substitute with any other font.
 
 CALLOUT 1 — RIGHT: Points to LEFT ARMHOLE EDGE
-Line 1 (bold, Fraunces, #6F4940): """"Elastic-free Armhole""""
-Line 2 (Inter, #6F4940): """"for Rashfree Comfort""""
+Line 1 (bold, Fraunces, #6F4940): ""Elastic-free Armhole""
+Line 2 (Inter, #6F4940): ""for Rashfree Comfort""
 
 CALLOUT 2 — BOTTOM LEFT: Points to BOTTOM BAND OF BRA
-Line 1 (bold, Fraunces, #6F4940): """"Elastic-free Bottom Band""""
-Line 2 (Inter, #6F4940): """"for Seamless Support""""
+Line 1 (bold, Fraunces, #6F4940): ""Elastic-free Bottom Band""
+Line 2 (Inter, #6F4940): ""for Seamless Support""
 
 CALLOUT 3 — LEFT: Points to SIDE SEAM / FABRIC EDGE OF BRA
-Line 1 (bold, Fraunces, #6F4940): """"Seamless Design""""
-Line 2 (Inter, #6F4940): """"Invisible under Outfits""""
+Line 1 (bold, Fraunces, #6F4940): ""Seamless Design""
+Line 2 (Inter, #6F4940): ""Invisible under Outfits""
 
 CALLOUT LINE STYLE: Thin single line or slightly angled line | Color: #6F4940 | Clean and minimal
 ICON STYLE: ~40–45px circular icon | Fill: solid #6F4940 with white interior line illustration | Clean modern premium style
@@ -214,7 +214,7 @@ Do NOT create artistic/fashion editorial style — keep it professional product 
  
 SIDE 2 PUSH UP PROMPT
 
-"""Tweens — SIDE VIEW 2 PROMPT
+""Tweens — SIDE VIEW 2 PROMPT
 ═══════════════════════════════════════════════════════
 REFERENCE IMAGES — EXACT REPLICATION REQUIRED
 ═══════════════════════════════════════════════════════
@@ -300,13 +300,13 @@ INFOGRAPHIC LAYOUT & TYPOGRAPHY — MANDATORY
 ═══════════════════════════════════════════════════════
 
 HEADLINE — TOP LEFT
-Text: """"Airy Comfort Enhanced Shape""""
+Text: ""Airy Comfort Enhanced Shape""
 Font: Fraunces (MANDATORY — bold display weight, large size)
 Color: #6F4940 (MANDATORY)
 CRITICAL: Use ONLY Fraunces font family. Do NOT substitute with any other font.
 
 SUB-HEADING — TOP LEFT, directly below headline
-Text: """"Lift That Feels Light""""
+Text: ""Lift That Feels Light""
 Font: Inter (MANDATORY — medium weight, slightly smaller)
 Color: #6F4940 (MANDATORY)
 CRITICAL: Use ONLY Inter font family. Do NOT substitute with any other font.
@@ -316,20 +316,20 @@ FEATURE ICON + TEXT STACK — LEFT SIDE (stacked vertically, evenly spaced)
 FEATURE 1:
 Icon: Small circular icon — thin line illustration of a cotton/fabric/breathable weave symbol
 Fill: solid #6F4940 with white interior line illustration | Border ring: #6F4940 thin line
-Text: """"Breathable Cotton Fabric""""
+Text: ""Breathable Cotton Fabric""
 Line 1 bold (Fraunces, #6F4940), Line 2 regular (Inter, #6F4940)
 
 FEATURE 2:
 Icon: Small circular icon — thin line illustration of soft padding/gentle lift symbol (same style as Feature 1)
-Text: """"Soft 2nd Level Padding 
-1 Cup fuller Appearance. """"
-Line 2: """"1 Cups fuller""""
+Text: ""Soft 2nd Level Padding 
+1 Cup fuller Appearance. ""
+Line 2: ""1 Cups fuller""
 Line 1 bold (Fraunces, #6F4940), Line 2 regular (Inter, #6F4940)
 
 FEATURE 3:
 Icon: Small circular icon — thin line illustration of internal gripper/grip strip detail (same style as Feature 1)
-Text: """"Hidden Internal Gripper""""
-Line 2: """"Perfect Fit""""
+Text: ""Hidden Internal Gripper""
+Line 2: ""Perfect Fit""
 Line 1 bold (Fraunces, #6F4940), Line 2 regular (Inter, #6F4940)
 
 ICON STYLE (all three — consistent):
@@ -377,11 +377,11 @@ Do NOT use dramatic/sultry expressions or intimate framing
 Do NOT isolate body parts or use tight cropping
 Do NOT create artistic/fashion editorial style — keep it professional product catalogue style
  
-"""
+""
 
 BACK PUSH UP PROMPT
 
-"""Tweens — BACK VIEW PROMPT
+""Tweens — BACK VIEW PROMPT
 ═══════════════════════════════════════════════════════
 REFERENCE IMAGES — EXACT REPLICATION REQUIRED
 ═══════════════════════════════════════════════════════
@@ -450,7 +450,7 @@ Background color: #F3F0E9 (Tweens brand — Cream beige base; warm nude softness
 Soft diffused studio lighting — bright, clean, and warm
 Light wraps around model's back illuminating all construction details
 Strategic lighting to emphasize the sculpted push-up shape, rounded cup projection, and support structure
-No harsh shadows — consistent with Tweens's """"Minimal premium daily comfort"""" identity
+No harsh shadows — consistent with Tweens's ""Minimal premium daily comfort"" identity
 Aspect ratio: portrait 3:4
 
 ═══════════════════════════════════════════════════════
@@ -468,12 +468,12 @@ INFOGRAPHIC LAYOUT & TYPOGRAPHY — MANDATORY
 ═══════════════════════════════════════════════════════
 
 HEADLINE — TOP LEFT
-Text: """"Engineered Back Support""""
+Text: ""Engineered Back Support""
 Font: Fraunces (MANDATORY — bold display weight, large size) | Color: #6F4940 (MANDATORY)
 CRITICAL: Use ONLY Fraunces font family. Do NOT substitute with any other font.
 
 SUB-HEADING — TOP LEFT, directly below headline
-Text: """"Stays Put. Always""""
+Text: ""Stays Put. Always""
 Font: Inter (MANDATORY — medium weight, slightly smaller) | Color: #6F4940 (MANDATORY)
 CRITICAL: Use ONLY Inter font family. Do NOT substitute with any other font.
 
@@ -489,8 +489,8 @@ FEATURE CALLOUT 1 — TOP RIGHT
 Icon positioned at TOP RIGHT of image, level with the U-back junction height
 Icon: Small Circular | thin-line illustration of BACK VIEW of bra — two straps forming a U-shape converging at center back
 Fill: solid #6F4940 with white interior line illustration | Border: #6F4940 thin line
-Feature text: """"U-Back Support""""
-Benefit text: """"No Ride-Up""""
+Feature text: ""U-Back Support""
+Benefit text: ""No Ride-Up""
 Line 1 bold (Fraunces, #6F4940), Line 2 regular (Inter, #6F4940)
 Text sits directly below icon | Right-aligned
 
@@ -499,8 +499,8 @@ Touch point: Thin 2px line placed exactly on the hook-eye closure rows at center
 Line: travels RIGHT from that point to icon — outside model silhouette | Color: #6F4940
 Icon: Small Circular | thin-line illustration of 3 horizontal rows of hook-and-eye closure
 Fill: solid #6F4940 with white interior line illustration | Border: #6F4940 thin line
-Feature text: """"3-Level Adjustable""""
-Benefit text: """"Hook Closure""""
+Feature text: ""3-Level Adjustable""
+Benefit text: ""Hook Closure""
 Line 1 bold (Fraunces, #6F4940), Line 2 regular (Inter, #6F4940)
 
 FEATURE CALLOUT 3 — BOTTOM RIGHT
@@ -508,8 +508,8 @@ Touch point: Thin 2px line at the center of the RIGHT SIDE WING panel
 Line: travels RIGHT from that point to icon — outside model silhouette | Color: #6F4940
 Icon: Small Circular | thin-line illustration of wide side wing panel shape
 Fill: solid #6F4940 with white interior line illustration | Border: #6F4940 thin line
-Feature text: """"Wide-Side Wings""""
-Benefit text: """"for Back Smoothening""""
+Feature text: ""Wide-Side Wings""
+Benefit text: ""for Back Smoothening""
 Line 1 bold (Fraunces, #6F4940), Line 2 regular (Inter, #6F4940)
 
 CALLOUT LINE STYLE: Thin single straight or slightly angled line | Color: #6F4940 | Clean minimal
@@ -558,11 +558,11 @@ Do NOT create suggestive poses or angles
 Do NOT isolate body parts or use tight cropping
 Do NOT create artistic/fashion editorial style — keep it professional product catalogue style
  
-"""
+""
 
 MOOD PUSH UP PROMPT
 
-"""""""Tweens — MOOD SHOOT PROMPT
+Tweens — MOOD SHOOT PROMPT
 ═══════════════════════════════════════════════════════
 REFERENCE IMAGES — EXACT REPLICATION REQUIRED
 ═══════════════════════════════════════════════════════
@@ -689,7 +689,7 @@ PHOTOGRAPHY STYLE
 
 Premium, minimal, realistic, fashion e-commerce aesthetic
 Professional catalog quality
-Premium lifestyle campaign photography — consistent with Tweens's """"""""Minimal premium daily comfort"""""""" identity
+Premium lifestyle campaign photography — consistent with Tweens's "Minimal premium daily comfort" identity
 Professional modest innerwear catalogue photography — focus on fabric quality, comfort features, and push-up construction benefits
 The push-up effect should be confidently and clearly showcased within the lifestyle context.
 
@@ -698,20 +698,20 @@ INFOGRAPHIC LAYOUT & TYPOGRAPHY — MANDATORY
 ═══════════════════════════════════════════════════════
 
 HEADLINE — TOP LEFT of image
-DISPLAY TEXT ONLY (do not render font name): """"""""Bonded Finish, Elevated Support""""""""
+DISPLAY TEXT ONLY (do not render font name): "Bonded Finish, Elevated Support"
 Typeface: bold display serif, large size, wraps naturally to 2 lines
 Color: #6F4940
 Font: Fraunces (MANDATORY)
 CRITICAL: Use ONLY Fraunces font family. Do NOT substitute with any other font.
-— The word """"""""Fraunces"""""""" must NEVER appear anywhere in the image —
+— The word "Fraunces" must NEVER appear anywhere in the image —
 
 SECONDARY TEXT — TOP LEFT directly below headline
-DISPLAY TEXT ONLY (do not render font name): """"""""Shape, Lift & Comfort for Every Curve""""""""
+DISPLAY TEXT ONLY (do not render font name): "Shape, Lift & Comfort for Every Curve"
 Typeface: medium weight clean sans-serif, slightly smaller than headline
 Color: #6F4940
 Font: Inter (MANDATORY)
 CRITICAL: Use ONLY Inter font family. Do NOT substitute with any other font.
-— The word """"""""Inter"""""""" must NEVER appear anywhere in the image —
+— The word "Inter" must NEVER appear anywhere in the image —
 
 ---
 
@@ -740,26 +740,26 @@ TEXT RULE (applies to ALL callouts):
 CALLOUT 1 — LEFT SIDE, upper position
 Touch point: tiny 4px solid dot on LEFT SIDE PANEL at flank/underarm area
 Line: travels LEFT from dot to text — fully outside model silhouette | Color: #6F4940
-Feature text: """"""""3/4th Coverage""""""""
-Benefit text: """"""""Cups""""""""
+Feature text: "3/4th Coverage"
+Benefit text: "Cups"
 
 CALLOUT 2 — LEFT SIDE, lower position (minimum 180px below Callout 1 text center)
 Touch point: tiny 4px solid dot on FRONT CENTER PANEL at mid-chest
 Line: travels LEFT from dot to text — fully outside model silhouette | Color: #6F4940
-Feature text: """"""""W-Hold Support""""""""
+Feature text: "W-Hold Support"
 
 
 CALLOUT 3 — RIGHT SIDE, upper position
 Touch point: tiny 4px solid dot on RIGHT SHOULDER STRAP near shoulder
 Line: travels RIGHT from dot to text — fully outside model silhouette | Color: #6F4940
-""""Feature text: """"""""Sweetheart Neckline""""""""
-Benefit text: """"""""Defined Curves""""""""
+""Feature text: "Sweetheart Neckline"
+Benefit text: "Defined Curves"
 
 
 CALLOUT 4 — RIGHT SIDE, lower position (minimum 180px below Callout 3 text center)
 Touch point: tiny 4px solid dot on RIGHT BOTTOM BAND, 2cm from right side seam
 Line: travels RIGHT from dot to text — fully outside model silhouette | Color: #6F4940
-Feature text: """"""""Wire-Free Design""""
+Feature text: "Wire-Free Design""
 
 ═══════════════════════════════════════════════════════
 OVERALL COMPOSITION BALANCE
@@ -807,11 +807,11 @@ Do NOT use dramatic/sultry expressions or intimate framing
 Do NOT isolate body parts or use tight cropping
 Do NOT create artistic/fashion editorial style — keep it professional lifestyle product catalogue style
  
-"""""""
+
 
 ZOOM PUSH UP PROMPT
 
-"""ZOOM SHOT — CLOSE-UP TACTILE DETAIL
+""ZOOM SHOT — CLOSE-UP TACTILE DETAIL
 ═══════════════════════════════════════════════════════
 ZOOM SHOT — CLOSE-UP TACTILE DETAIL
 ═══════════════════════════════════════════════════════
@@ -851,26 +851,26 @@ COMPOSITION SPLIT:
 LEFT 62%: static bra on skin, no action, no hands
 RIGHT 38%: flat #F3F0E9 warm cream text panel
 HEADLINE — TOP of RIGHT text panel, right-aligned
-Text: """"Bonded Pushup Bra""""
+Text: ""Bonded Pushup Bra""
 Font: Fraunces (MANDATORY — bold, large — wraps to 3 lines)
 Color: #6F4940 (MANDATORY)
 CALLOUT 1 — RIGHT panel, first item
 → Thin curved organic callout line curves LEFT pointing to SEAMLESS SIDE EDGE of bra
 Text (right-aligned, NO icon):
-Line 1 (Fraunces regular weight): """"Invisible""""
-Line 2 (Fraunces regular weight): """"under outfits""""
+Line 1 (Fraunces regular weight): ""Invisible""
+Line 2 (Fraunces regular weight): ""under outfits""
 Color: #6F4940
 CALLOUT 2 — RIGHT panel, second item
 → Thin curved organic callout line curves LEFT pointing to SKIN CONTACT ZONE just below bra's bottom edge
 Text (right-aligned, NO icon):
-Line 1 (Fraunces regular weight): """"Sits smooth""""
-Line 2 (Fraunces regular weight): """"on skin""""
+Line 1 (Fraunces regular weight): ""Sits smooth""
+Line 2 (Fraunces regular weight): ""on skin""
 Color: #6F4940
 CALLOUT 3 — RIGHT panel, third item, lowest position
 → Thin curved organic callout line curves LEFT pointing to BOTTOM BAND where it meets the skin
 Text (right-aligned, NO icon):
-Line 1 (Fraunces regular weight): """"No Digging.""""
-Line 2 (Fraunces regular weight): """"No Rashes.""""
+Line 1 (Fraunces regular weight): ""No Digging.""
+Line 2 (Fraunces regular weight): ""No Rashes.""
 Color: #6F4940
 CALLOUT LINE STYLE (all three):
 Thin, slightly curved organic lines — NOT rigid or straight
@@ -892,11 +892,11 @@ STRICT NEGATIVE INSTRUCTIONS
 No hands | No face | No skin marks | No seams | No straight lines | No icons | RIGHT panel #F3F0E9 flat only
 Fonts: Fraunces only — NO Times New Roman, NO Georgia, NO Arial, NO Helvetica
 Color: #6F4940 only | No cool-blue lighting | No watermarks | 3:4 ratio only | No props
-"""
+""
 
 MOCKUP PROMPT
 
-"""
+""
 MOCKUP SHOT — FLOATING PRODUCT ONLY
 ═══════════════════════════════════════════════════════
 MOCKUP SHOT — FLOATING PRODUCT ONLY
@@ -981,7 +981,7 @@ GLOBAL TEXT RULE (all 4 callouts):
 → Clean sans-serif weight matching brand body font (Inter)
 CALLOUT 1 — LEFT SIDE, upper zone
 → Thin straight line points to LEFT ARMHOLE EDGE of bra
-Text (regular/light weight, no icon): """"3/4th Coverage""""
+Text (regular/light weight, no icon): ""3/4th Coverage""
 Color: #6F4940
 CALLOUT 2 — LEFT SIDE, lower zone
 → Thin straight line points to LEFT SIDE WING or BOTTOM BAND edge
@@ -989,11 +989,11 @@ Text (regular/light weight, no icon):  Soft Level 2 Padding.
 Color: #6F4940
 CALLOUT 3 — RIGHT SIDE, upper zone
 → Thin straight line points to RIGHT STRAP SLIDER / ADJUSTABLE HARDWARE
-Text (regular/light weight, no icon): """"Adjustable Straps""""
+Text (regular/light weight, no icon): ""Adjustable Straps""
 Color: #6F4940
 CALLOUT 4 — RIGHT SIDE, lower zone
 → Thin straight line points to RIGHT SIDE WING of bra
-Text (regular/light weight, no icon):""""Wide Side Wings""""
+Text (regular/light weight, no icon):""Wide Side Wings""
 Color: #6F4940
 ═══════════════════════════════════════════════════════
 OVERALL COMPOSITION BALANCE
@@ -1023,4 +1023,4 @@ NO props, NO flowers, NO fabric swatches | Subtle warm shadow only — never dar
 NO watermarks, NO logos | NO changing bra color from reference — derive from reference only
 NO aspect ratio other than 3:4 portrait | Lines MUST NOT cross | Text MUST be regular/light weight only
 Font names must NEVER appear as visible text in image
-"""
+""

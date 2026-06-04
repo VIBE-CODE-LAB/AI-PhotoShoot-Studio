@@ -9,7 +9,7 @@ REFERENCE IMAGES REQUIRED: Image 1 (Model) + Image 2 (Bra Product) ONLY.
 
 
 FRONT PUSH UP PROMPT — BRA ONLY
-"""Generate a high-quality clean commercial product photograph for a lingerie catalog. This is a plain image only, not an advertisement layout.
+""Generate a high-quality clean commercial product photograph for a lingerie catalog. This is a plain image only, not an advertisement layout.
 IMAGE REFERENCES:
 Image 1 (Model Reference): Use ONLY for the model's face, skin tone, hair texture, and physical appearance. Do NOT replicate any bra or clothing from this image.
 Image 2 (Product Reference — Bra): Use ONLY to replicate the exact bra design — its shape, cup structure, neckline, strap style, band fit, and fabric finish. Extract the exact colorway shown in this product image.
@@ -59,14 +59,14 @@ TECHNICAL SPECIFICATIONS: — Format: Portrait, head-to-waist product crop — S
 NO TEXT / NO GRAPHICS RULE — CRITICAL: Do NOT render any visible text, brand names, logos, headlines, font names, labels, callouts, arrows, pointer lines, icons, dots, decorative graphics, UI marks, watermarks, captions, or typography anywhere in the image. The background must stay completely clean.
 
 NEGATIVE GUIDANCE — STRICTLY AVOID: ✗ Do NOT render text or callouts of any kind ✗ Do NOT render the brand name or font names ✗ Do NOT show any lower body, hips, thighs, or underwear ✗ Do NOT generate a full-body or head-to-thigh crop ✗ Do NOT extend the frame below the waist/navel ✗ Do NOT show abdomen, stomach, belly, or midriff beyond the navel ✗ Do NOT cut through the bra band ✗ Do NOT show feet, ankles, knees, hips, or lower body ✗ Do NOT raise both arms — only the right hand touches the hair ✗ Do NOT place both hands behind the head ✗ Do NOT place hands on hips or waist ✗ Do NOT add any clothing layer over the bra ✗ Do NOT use pure white or grey background — warm cream/off-white only ✗ Do NOT add tattoos, body art, or markings of any kind ✗ Do NOT use the bra color from Image 1 — color comes from Image 2 only ✗ Do NOT add props, furniture, or background elements ✗ Do NOT let hair cover both bra straps completely ✗ Do NOT render a stretched or extended torso — keep the crop tight and head-to-waist only
-REFERENCE INSTRUCTION: Image 1 = Model face and appearance reference only. Image 2 = Bra product design, structure, and color reference only."""
+REFERENCE INSTRUCTION: Image 1 = Model face and appearance reference only. Image 2 = Bra product design, structure, and color reference only.""
 
 
 SIDE 1 PUSH UP PROMPT — BRA ONLY
 
 
 
-"""REFERENCE IMAGE 1 (Model): Use this image as the EXACT reference for the model's face, skin tone, hair color, hair texture, body type, and overall appearance. Replicate identically — do not alter any facial feature, complexion, or hair characteristic.
+""REFERENCE IMAGE 1 (Model): Use this image as the EXACT reference for the model's face, skin tone, hair color, hair texture, body type, and overall appearance. Replicate identically — do not alter any facial feature, complexion, or hair characteristic.
 REFERENCE IMAGE 2 (Product): Use this image as the EXACT reference for the bra's color, texture, fabric finish, silhouette, band width, strap width, and neckline shape. Replicate identically on the model's body. Do not alter the product in any way.
 The bra cups MUST visibly show a strong, natural Level 3 push-up padding 
 effect. This is NON-NEGOTIABLE and must be clearly visible in the final image.
@@ -178,14 +178,14 @@ Do NOT alter model or product from reference images
 Do NOT use background other than #F5FBFF
 Do NOT use fonts other than Sora (headings) and DM Sans (body)
 Do NOT use text color other than #2D4FA0
-Do NOT allow hair over bra, callouts over face or bra, harsh shadows, warm-yellow lighting, watermarks, extra models, or thick callout lines"""
+Do NOT allow hair over bra, callouts over face or bra, harsh shadows, warm-yellow lighting, watermarks, extra models, or thick callout lines""
 
 
  
 SIDE 2 PUSH UP PROMPT — BRA ONLY
 
-"""
-"""REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
+""
+""REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
 REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, silhouette. Replicate identically.
 Push Effect — Level 3 Padding (CRITICAL — MUST BE VISIBLY RENDERED):
 
@@ -295,13 +295,13 @@ Do NOT alter model or product | FULLY FRONT-FACING only | No callout lines
 Do NOT use background other than #F5FBFF fresh icy white tones
 Do NOT use fonts other than Sora (headings) and DM Sans (body)
 Do NOT use text color other than #2D4FA0
-No hair over bra | No icons/text on face or bra | No warm-heavy lighting | No watermarks | No extra models | 4:5 ratio only | No flat white backdrop"""
-"""
+No hair over bra | No icons/text on face or bra | No warm-heavy lighting | No watermarks | No extra models | 4:5 ratio only | No flat white backdrop""
+""
 
 
 BACK PUSH UP PROMPT — BRA ONLY
 
-"""Tweens — BACK VIEW PROMPT (BRA ONLY)
+""Tweens — BACK VIEW PROMPT (BRA ONLY)
 ═══════════════════════════════════════════════════════
 REFERENCE IMAGES — EXACT REPLICATION REQUIRED
 ═══════════════════════════════════════════════════════
@@ -475,12 +475,12 @@ Do NOT create suggestive poses or angles
 Do NOT isolate body parts or use tight cropping
 Do NOT create artistic/fashion editorial style — keep it professional product catalogue style
  
-"""
+""
 
 
 MOOD PUSH UP PROMPT — BRA ONLY
 
-"""
+""
 REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, 
 hair, body. Replicate identically.
 REFERENCE IMAGE 2 (Product): Exact reference — bra color, 
@@ -808,13 +808,13 @@ must match bra color exactly
 Do NOT use different color for bottom than bra
 Do NOT make mismatched set — both pieces same 
 color always
-"""
+""
 
 
 ZOOM PUSH UP PROMPT — (UNCHANGED — BRA ONLY BY DEFAULT)
 
-"""
-"""""""REFERENCE IMAGE 1 (Model): Exact skin tone and body reference — chest to hip only. 
+""
+REFERENCE IMAGE 1 (Model): Exact skin tone and body reference — chest to hip only. 
 Face NOT shown.
 REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, seamless bonded 
 construction. Replicate identically.
@@ -883,7 +883,7 @@ PHOTOGRAPHY STYLE
 
 Intimate static close-up — invisible, clean, precisely premium
 Overall mood: smooth, seamless, invisibly luxurious — consistent with 
-Invisi-Soft's ""invisible comfort luxury"" identity
+Invisi-Soft's "invisible comfort luxury" identity
 
 ═══════════════════════════════════════════════════════
 INFOGRAPHIC LAYOUT & TYPOGRAPHY
@@ -917,8 +917,8 @@ CALLOUT 3 — RIGHT panel, third item, lowest position
 → Thin curved organic callout line curves LEFT pointing to
    BOTTOM BAND where it meets the skin
 Text (right-aligned, NO icon):
-Line 1 (Playfair Display regular weight — NOT bold): ""No Digging.""
-Line 2 (Playfair Display regular weight — NOT bold): ""No Rashes.""
+Line 1 (Playfair Display regular weight — NOT bold): "No Digging."
+Line 2 (Playfair Display regular weight — NOT bold): "No Rashes."
 Color: #304C7A
 — Both lines same regular weight — no bold anywhere in callouts —
 
@@ -957,13 +957,13 @@ STRICT NEGATIVE INSTRUCTIONS
 No hands | No face | No skin marks | No seams | No straight lines | No icons | 
 RIGHT panel | #F6F8FB flat only
 Fonts: Playfair Display / Plus Jakarta Sans only | Color: #304C7A only | 
-No warm-yellow lighting | No watermarks | 1:1 only | No props"""""""
-"""
+No warm-yellow lighting | No watermarks | 1:1 only | No props
+""
 
 
 MOCKUP PROMPT — (UNCHANGED — PRODUCT ONLY BY DEFAULT)
 
-"""
+""
 MOCKUP SHOT — FLOATING PRODUCT ONLY
 ═══════════════════════════════════════════════════════
 MOCKUP SHOT — FLOATING PRODUCT ONLY
@@ -1090,4 +1090,4 @@ NO props, NO flowers, NO fabric swatches | Subtle warm shadow only — never dar
 NO watermarks, NO logos | NO changing bra color from reference — derive from reference only
 NO aspect ratio other than 3:4 portrait | Lines MUST NOT cross | Text MUST be regular/light weight only
 Font names must NEVER appear as visible text in image
-"""
+""
