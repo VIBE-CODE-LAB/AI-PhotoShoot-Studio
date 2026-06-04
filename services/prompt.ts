@@ -556,21 +556,23 @@ const buildCalloutTextColorLock = (brand: BrandSpecification, callouts?: Resolve
 
 const buildCalloutPlacementLock = (): string =>
   [
-    'CALLOUT PLACEMENT LOCK (MANDATORY)',
-    'All icon circles, icon artwork, callout text, labels, dots, and decorative callout elements must be placed only on clean background/negative space.',
-    'Do not place icons or text over model skin, face, hair, arms, torso, bra, panty, straps, seams, or product fabric.',
-    'Keep callout icons and text at least 24px away from the model silhouette and garment edges.',
+    'CALLOUT PLACEMENT LOCK (CRITICAL & MANDATORY)',
+    'ABSOLUTELY NO TEXT, ICONS, OR GRAPHICS MAY OVERLAP THE MODEL\\'S SKIN, BODY, HAIR, OR GARMENT.',
+    'All icon circles, icon artwork, callout text, labels, dots, and decorative callout elements must be placed ONLY on the clean empty background/negative space.',
+    'If the model\\'s arm, shoulder, or torso occupies a side of the frame, YOU MUST push the callouts further out into the empty background or reposition the model to ensure ZERO overlap.',
+    'Keep callout icons and text at least 32px away from the model silhouette and garment edges.',
     'Pointer lines may approach feature areas, but the visible line must not run across skin or product fabric; use the shortest clean route through background space and stop at the edge.',
-  ].join('\n');
+  ].join('\\n');
 
 const buildCalloutPlacementLockNoIcon = (): string =>
   [
-    'CALLOUT PLACEMENT LOCK (MOOD — NO ICONS)',
-    'All callout text, labels, dots, and decorative callout elements must be placed only on clean background/negative space.',
-    'Do not place text or dots over model skin, face, hair, arms, torso, bra, panty, straps, seams, or product fabric.',
-    'Keep callout text and dots at least 24px away from the model silhouette and garment edges.',
+    'CALLOUT PLACEMENT LOCK (MOOD — NO ICONS — CRITICAL)',
+    'ABSOLUTELY NO TEXT OR GRAPHICS MAY OVERLAP THE MODEL\\'S SKIN, BODY, HAIR, OR GARMENT.',
+    'All callout text, labels, dots, and decorative callout elements must be placed ONLY on the clean empty background/negative space.',
+    'If the model\\'s arm, shoulder, or torso occupies a side of the frame, YOU MUST push the text further out into the empty background or reposition the model to ensure ZERO overlap.',
+    'Keep callout text and dots at least 32px away from the model silhouette and garment edges.',
     'Pointer lines may approach feature areas, but the visible line must not run across skin or product fabric; use the shortest clean route through background space and stop at the edge.',
-  ].join('\n');
+  ].join('\\n');
 
 const buildBackgroundColorLock = (brand: BrandSpecification): string =>
   [
