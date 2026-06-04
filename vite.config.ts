@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     const isProd = mode === 'production';
     return {
-      base: isProd ? '/ai-photoshoot-studio/' : '/',
+      base: isProd ? './' : '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
