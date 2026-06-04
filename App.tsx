@@ -298,6 +298,7 @@ const App = () => {
 
     setSelectedPresetStyleName(styleName);
     setSelectedPresetPose(pose);
+    setStylePresetSearch(`${styleName} - ${pose}`);
     setImageCalloutsContent(presetToCalloutsContent(preset));
     setIsImageCalloutsMode(true);
 
@@ -400,13 +401,16 @@ const App = () => {
           setImageCalloutsContent(presetToCalloutsContent(preset));
           setIsImageCalloutsMode(true);
           setSelectedPresetPose(step.presetPose);
+          setStylePresetSearch(`${preset.styleName} - ${preset.pose}`);
         } else {
           setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
           setSelectedPresetPose(null);
+          setStylePresetSearch('');
         }
       } else {
         setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
         setSelectedPresetPose(null);
+        setStylePresetSearch('');
       }
     }
   };
@@ -464,13 +468,16 @@ const App = () => {
           setImageCalloutsContent(presetToCalloutsContent(preset));
           setIsImageCalloutsMode(true);
           setSelectedPresetPose(matchingStep.presetPose);
+          setStylePresetSearch(`${preset.styleName} - ${preset.pose}`);
         } else {
           setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
           setSelectedPresetPose(null);
+          setStylePresetSearch('');
         }
       } else {
         setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
         setSelectedPresetPose(null);
+        setStylePresetSearch('');
       }
     }
   };
@@ -478,20 +485,27 @@ const App = () => {
   const handleManualSideVariantChange = (variant: SideViewVariant) => {
     setSideViewVariant(variant);
     if (selectedPresetStyleName) {
-      const matchingStep = activeSequence.find(step => step.viewAngle === 'Side' && step.sideViewVariant === variant);
+      const matchingStep = activeSequence.find(step => 
+        step.viewAngle === 'Side' && 
+        step.sideViewVariant === variant &&
+        (!step.frontViewVariant || step.frontViewVariant === frontViewVariant)
+      );
       if (matchingStep && matchingStep.presetPose) {
         const preset = findPreset(stylePresets, selectedPresetStyleName, matchingStep.presetPose);
         if (preset) {
           setImageCalloutsContent(presetToCalloutsContent(preset));
           setIsImageCalloutsMode(true);
           setSelectedPresetPose(matchingStep.presetPose);
+          setStylePresetSearch(`${preset.styleName} - ${preset.pose}`);
         } else {
           setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
           setSelectedPresetPose(null);
+          setStylePresetSearch('');
         }
       } else {
         setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
         setSelectedPresetPose(null);
+        setStylePresetSearch('');
       }
     }
   };

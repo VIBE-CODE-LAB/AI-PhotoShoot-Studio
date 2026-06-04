@@ -452,6 +452,13 @@ const normalizePromptTokens = (prompt: string, brand: BrandSpecification): strin
   output = replaceWordSafe(output, 'Fraunces', brand.headingsDisplay);
   output = replaceWordSafe(output, 'Inter', brand.bodyUi);
 
+  // Replace Souminie baseline (the new Bra Prompt.txt baseline)
+  output = replaceWordSafe(output, 'Souminie', brand.label);
+  output = replaceAllSafe(output, '#F5FBFF', brand.backgroundColor);
+  output = replaceAllSafe(output, '#2D4FA0', brand.fontHex);
+  output = replaceWordSafe(output, 'Sora', brand.headingsDisplay);
+  output = replaceWordSafe(output, 'DM Sans', brand.bodyUi);
+
   // Replace Invisi-Soft baseline
   output = replaceWordSafe(output, 'Invisi-Soft', brand.label);
   output = replaceAllSafe(output, '#F6F8FB', brand.backgroundColor);
