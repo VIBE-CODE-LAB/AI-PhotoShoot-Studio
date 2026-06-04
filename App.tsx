@@ -298,7 +298,8 @@ const App = () => {
 
     setSelectedPresetStyleName(styleName);
     setSelectedPresetPose(pose);
-    setStylePresetSearch(styleName);
+    const numMatch = styleName.match(/\d+/);
+    setStylePresetSearch(numMatch ? numMatch[0] : styleName);
     setImageCalloutsContent(presetToCalloutsContent(preset));
     setIsImageCalloutsMode(true);
 
@@ -401,7 +402,8 @@ const App = () => {
           setImageCalloutsContent(presetToCalloutsContent(preset));
           setIsImageCalloutsMode(true);
           setSelectedPresetPose(step.presetPose);
-          setStylePresetSearch(preset.styleName);
+          const numMatch = preset.styleName.match(/\d+/);
+          setStylePresetSearch(numMatch ? numMatch[0] : preset.styleName);
         } else {
           setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
           setSelectedPresetPose(null);
@@ -468,7 +470,8 @@ const App = () => {
           setImageCalloutsContent(presetToCalloutsContent(preset));
           setIsImageCalloutsMode(true);
           setSelectedPresetPose(matchingStep.presetPose);
-          setStylePresetSearch(preset.styleName);
+          const numMatch = preset.styleName.match(/\d+/);
+          setStylePresetSearch(numMatch ? numMatch[0] : preset.styleName);
         } else {
           setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
           setSelectedPresetPose(null);
@@ -496,7 +499,8 @@ const App = () => {
           setImageCalloutsContent(presetToCalloutsContent(preset));
           setIsImageCalloutsMode(true);
           setSelectedPresetPose(matchingStep.presetPose);
-          setStylePresetSearch(preset.styleName);
+          const numMatch = preset.styleName.match(/\d+/);
+          setStylePresetSearch(numMatch ? numMatch[0] : preset.styleName);
         } else {
           setImageCalloutsContent({ heading: '', subHead: '', callout1: '', callout2: '', callout3: '', callout4: '', zone1: 'auto', zone2: 'auto', zone3: 'auto', zone4: 'auto' });
           setSelectedPresetPose(null);

@@ -468,8 +468,19 @@ export const findPreset = (
   presets: StylePreset[],
   styleName: string,
   pose: PresetPose
-): StylePreset | undefined =>
-  presets.find((p) => p.styleName === styleName && p.pose === pose);
+): StylePreset | undefined => {
+  const exact = presets.find((p) => p.styleName === styleName && p.pose === pose);
+  if (exact) return exact;
+
+  const numMatch = styleName.match(/\d+/);
+  if (numMatch) {
+    const num = numMatch[0];
+    const regex = new RegExp(`(^|\\D)${num}(\\D|$)`);
+    const fuzzy = presets.find((p) => p.pose === pose && regex.test(p.styleName));
+    if (fuzzy) return fuzzy;
+  }
+  return undefined;
+};
 
 export const presetToCalloutsContent = (preset: StylePreset): ImageCalloutsContent => ({
   heading: preset.heading,
