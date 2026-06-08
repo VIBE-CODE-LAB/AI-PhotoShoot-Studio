@@ -311,12 +311,16 @@ export const generateShoot = async ({
     aspectRatio === "3:4" ? "Image Resolution: 1792x2400 pixels." : "";
 
   let mainPromptText: string;
+  const useExactPushupBraOnlySide1Prompt =
+    isPushupBraOnly && viewAngle === "Side" && sideViewVariant === "SIDE_VIEW_1";
 
   const calloutLayoutInstruction = sanitizedImageCallouts
     ? `CRITICAL LAYOUT & COLOR RULE (ABSOLUTE PRIORITY): All callout boxes, text, lines, icons, and annotations MUST be placed ENTIRELY in the blank background space surrounding the model. They MUST NOT touch, overlap, or obscure the model's skin, body, or garments in any way. Keep the model and product 100% visible and unobstructed by any graphics. Furthermore, ALL text, pointer lines, and callout icons MUST be rendered in exact brand color ${selectedBrand.fontHex}. Absolutely NO black (#000000), gray, or generic dark text is allowed. DO NOT generate or include any watermarks, logos, or brand marks.`
     : "DO NOT generate or include any watermarks, logos, or brand marks.";
 
-  if (isFullCustomPrompt) {
+  if (useExactPushupBraOnlySide1Prompt) {
+    mainPromptText = promptInstructions;
+  } else if (isFullCustomPrompt) {
     // Custom full-prompt mode: user's text is the main instruction.
     // Brand block is still injected so colors and fonts are always correct.
     mainPromptText = [

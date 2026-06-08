@@ -856,25 +856,12 @@ export const getPushupBraOnlyFrontPrompt = (brand: BrandSpecification): string =
 export const getPushupBraOnlySide1Prompt = (
   brand: BrandSpecification,
   content?: ImageCalloutsContent
-): string => {
-  const copy = buildPromptCopy3(content, {
-    heading: 'Elastic-Free Construction',
-    subHead: 'No Digging. No Marks. No Itching.',
-    callout1: ['Elastic-free Armhole', 'for Rashfree Comfort'],
-    callout2: ['Elastic-free Bottom Band', 'for Seamless Support'],
-    callout3: ['Seamless Design,', 'Invisible under Outfits'],
-  });
-
-  const callouts: [ResolvedCallout, ResolvedCallout, ResolvedCallout] = [
-    resolveCallout(copy.callout1, content?.zone1),
-    resolveCallout(copy.callout2, content?.zone2),
-    resolveCallout(copy.callout3, content?.zone3),
-  ];
-
-  const basePrompt = buildPushupBraOnlyPromptFromSection('SIDE 1 PUSH UP PROMPT — BRA ONLY', 'SIDE 2 PUSH UP PROMPT — BRA ONLY', brand);
-
-  return `${basePrompt}\n\n${buildTextLock3(copy)}\n\n${buildCalloutTextColorLock(brand, callouts)}\n\n${buildCalloutPlacementLock()}\n\n${buildBackgroundColorLock(brand)}\n\n${buildFinalBrandRenderLock(brand)}`;
-};
+): string =>
+  extractPromptSection(
+    PUSHUP_BRA_ONLY_PROMPT_SOURCE,
+    'SIDE 1 PUSH UP PROMPT — BRA ONLY',
+    'SIDE 2 PUSH UP PROMPT — BRA ONLY'
+  );
 
 export const getPushupBraOnlySide2Prompt = (
   brand: BrandSpecification,
