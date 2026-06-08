@@ -94,7 +94,7 @@ clearly visible, natural, and catalogue-appropriate.
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION
 ═══════════════════════════════════════════════════════
-Model stands on the RIGHT HALF of the image frame (CENTER-RIGHT), leaving a wide, empty negative space on the LEFT HALF for text.
+Model stands CENTER-RIGHT but fully inside the frame, leaving negative space on BOTH sides for balanced callouts. The model must NOT touch or be cut by the right edge.
 Her body is turned facing towards the LEFT edge of the image frame.
 Her RIGHT shoulder is forward (closest to the camera), and her LEFT shoulder is turned away.
 RIGHT arm hangs relaxed at her side
@@ -102,6 +102,7 @@ LEFT arm is relaxed and slightly away from body so the left side of the bra is c
 Face turns gently toward camera from this opposite-side angle, making direct eye contact while clearly showing the mirrored pose direction.
 Shoulders are relaxed, not raised or tensed
 Shot framed from HEAD TO WAIST only — the image crops precisely at the model's natural waistline (navel level). No hips, no lower body, no legs visible whatsoever. Strict head-to-waist crop.
+FRAME SAFETY — CRITICAL: The full head, hair outline, both shoulders, both arms visible in this crop, full bra, and waist/navel crop line must remain fully inside the image. Keep clear margin around the model on all sides, especially the right edge. Do NOT crop off hair, face, shoulder, upper arm, elbow, bra band, waist, or any side of the body.
 Hair falls softly over both shoulders BUT must be directed AWAY from all bra straps, armhole edges, and bottom band — zero hair overlap on any part of the bra at any point
 Skin is completely tattoo-free and blemish-free
 ═══════════════════════════════════════════════════════
@@ -139,18 +140,21 @@ CALLOUT LINE RULE (applies to ALL callouts — CRITICAL):
 → Straight or very slightly angled — no curves, no decorative tips, no arrowheads
 → Lines must NOT cross each other at any point
 → Line runs from icon outward to bra zone — NO dot at touch point, just thin line ending cleanly
+→ Lines must be SHORT and close to the product zone; do NOT draw long horizontal lines across the image
+→ Maximum connector length: about 120–180px visually, never more than 25% of the image width
+→ Icons must be positioned near their target bra zone so the line stays compact and elegant
 EXACT CALLOUT COUNT — CRITICAL:
 → Render EXACTLY 3 callouts and EXACTLY 3 circular icons.
 → Do NOT omit any callout. Do NOT crop out any icon or text block.
 → All 3 icons and all 3 callout text blocks must be fully visible inside the frame.
-→ Because the model is on the RIGHT HALF, all 3 callout icons and text blocks must sit in the LEFT negative-space column.
+→ Use the balanced original layout: 2 callouts on the LEFT side and 1 callout on the RIGHT side.
 CALLOUT 1 — LEFT SIDE, UPPER: Points to VISIBLE LEFT ARMHOLE / SIDE FABRIC EDGE
 Line 1 (bold, Sora, #2D4FA0): "Elastic-free Armhole"
 Line 2 (DM Sans, #2D4FA0): "for Rashfree Comfort"
 CALLOUT 2 — LEFT SIDE, LOWER: Points to BOTTOM BAND
 Line 1 (bold, Sora, #2D4FA0): "Elastic-free Bottom Band"
 Line 2 (DM Sans, #2D4FA0): "for Seamless Support"
-CALLOUT 3 — LEFT SIDE, MIDDLE: Points diagonally to VISIBLE FRONT / LEFT ARMHOLE EDGE
+CALLOUT 3 — RIGHT SIDE, MIDDLE: Points to VISIBLE RIGHT/FRONT ARMHOLE EDGE or seamless cup-side area
 Line 1 (bold, Sora, #2D4FA0): "No-Stitch Design"
 Line 2 (DM Sans, #2D4FA0): "for Invisible Finish"
 ICON STYLE (ALL icons — CRITICAL NON-NEGOTIABLE):
@@ -165,14 +169,13 @@ Every callout icon must be placed ENTIRELY within the background/negative space 
 OVERALL COMPOSITION BALANCE
 ═══════════════════════════════════════════════════════
 Headline + sub-heading occupy TOP LEFT quadrant
-Model is CENTER-RIGHT of the frame
-All 3 callouts sit in the LEFT negative-space column below the headline/sub-heading, stacked vertically with generous spacing
-Callout 1 sits LEFT UPPER/MIDDLE — icon fully in background space
-Callout 3 sits LEFT MIDDLE/LOWER — icon fully in background space, separated from Callout 1 and Callout 2
-Callout 2 sits BOTTOM LEFT — icon fully in background space
+Model is CENTER-RIGHT but fully visible with safe margin, NOT cropped and NOT pushed against the edge
+Callout 1 sits on the LEFT, vertically middle zone — icon fully in background space and close enough for a short line
+Callout 2 sits on the BOTTOM LEFT — icon fully in background space and close enough for a short line
+Callout 3 sits on the RIGHT, vertically middle zone — icon fully in background space and close enough for a short line
 All text and icons must NOT overlap the model's face, body, or bra product
-No callout or icon is allowed on the RIGHT side where the model is placed
 Generous breathing space around all text elements
+Composition must feel like the provided reference image: balanced, airy, with compact callout lines and all graphics fully visible
 Final image feels balanced, editorial, and campaign-ready — true to Souminie's premium identity
 ═══════════════════════════════════════════════════════
 STRICT NEGATIVE INSTRUCTIONS
@@ -181,7 +184,8 @@ Do NOT show any part of the model below the waist
 Do NOT use transparent, semi-transparent, ghost, or outlined-only icons — ALL icons must be 100% solid filled #2D4FA0 with white interior line art
 Do NOT place any icon, circle, or callout graphic touching or overlapping the model's body, skin, hair, or bra
 Do NOT render fewer than 3 icons or fewer than 3 callout text blocks
-Do NOT place the third callout on the right side; keep it fully visible in the left negative-space column
+Do NOT make connector lines long or stretched across the image
+Do NOT crop the model at the right edge or cut off any part of the head, hair, shoulder, arm, bra, waist, or body
 Do NOT alter model or product from reference images
 Do NOT use background other than #F5FBFF
 Do NOT use fonts other than Sora (headings) and DM Sans (body)
