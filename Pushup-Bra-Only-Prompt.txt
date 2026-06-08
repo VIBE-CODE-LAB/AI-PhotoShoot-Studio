@@ -139,13 +139,18 @@ CALLOUT LINE RULE (applies to ALL callouts — CRITICAL):
 → Straight or very slightly angled — no curves, no decorative tips, no arrowheads
 → Lines must NOT cross each other at any point
 → Line runs from icon outward to bra zone — NO dot at touch point, just thin line ending cleanly
-CALLOUT 1 — LEFT SIDE: Points to SIDE SEAM / FABRIC EDGE
+EXACT CALLOUT COUNT — CRITICAL:
+→ Render EXACTLY 3 callouts and EXACTLY 3 circular icons.
+→ Do NOT omit any callout. Do NOT crop out any icon or text block.
+→ All 3 icons and all 3 callout text blocks must be fully visible inside the frame.
+→ Because the model is on the RIGHT HALF, all 3 callout icons and text blocks must sit in the LEFT negative-space column.
+CALLOUT 1 — LEFT SIDE, UPPER: Points to VISIBLE LEFT ARMHOLE / SIDE FABRIC EDGE
 Line 1 (bold, Sora, #2D4FA0): "Elastic-free Armhole"
 Line 2 (DM Sans, #2D4FA0): "for Rashfree Comfort"
-CALLOUT 2 — BOTTOM LEFT: Points to BOTTOM BAND
+CALLOUT 2 — LEFT SIDE, LOWER: Points to BOTTOM BAND
 Line 1 (bold, Sora, #2D4FA0): "Elastic-free Bottom Band"
 Line 2 (DM Sans, #2D4FA0): "for Seamless Support"
-CALLOUT 3 — RIGHT SIDE: Points to RIGHT ARMHOLE EDGE
+CALLOUT 3 — LEFT SIDE, MIDDLE: Points diagonally to VISIBLE FRONT / LEFT ARMHOLE EDGE
 Line 1 (bold, Sora, #2D4FA0): "No-Stitch Design"
 Line 2 (DM Sans, #2D4FA0): "for Invisible Finish"
 ICON STYLE (ALL icons — CRITICAL NON-NEGOTIABLE):
@@ -160,11 +165,13 @@ Every callout icon must be placed ENTIRELY within the background/negative space 
 OVERALL COMPOSITION BALANCE
 ═══════════════════════════════════════════════════════
 Headline + sub-heading occupy TOP LEFT quadrant
-Model is CENTER-LEFT of the frame
-Callout 1 sits on the LEFT, vertically middle zone — icon fully in background space
-Callout 2 sits on the BOTTOM LEFT — icon fully in background space
-Callout 3 sits on the RIGHT, vertically middle zone — icon fully in background space
+Model is CENTER-RIGHT of the frame
+All 3 callouts sit in the LEFT negative-space column below the headline/sub-heading, stacked vertically with generous spacing
+Callout 1 sits LEFT UPPER/MIDDLE — icon fully in background space
+Callout 3 sits LEFT MIDDLE/LOWER — icon fully in background space, separated from Callout 1 and Callout 2
+Callout 2 sits BOTTOM LEFT — icon fully in background space
 All text and icons must NOT overlap the model's face, body, or bra product
+No callout or icon is allowed on the RIGHT side where the model is placed
 Generous breathing space around all text elements
 Final image feels balanced, editorial, and campaign-ready — true to Souminie's premium identity
 ═══════════════════════════════════════════════════════
@@ -173,6 +180,8 @@ STRICT NEGATIVE INSTRUCTIONS
 Do NOT show any part of the model below the waist
 Do NOT use transparent, semi-transparent, ghost, or outlined-only icons — ALL icons must be 100% solid filled #2D4FA0 with white interior line art
 Do NOT place any icon, circle, or callout graphic touching or overlapping the model's body, skin, hair, or bra
+Do NOT render fewer than 3 icons or fewer than 3 callout text blocks
+Do NOT place the third callout on the right side; keep it fully visible in the left negative-space column
 Do NOT alter model or product from reference images
 Do NOT use background other than #F5FBFF
 Do NOT use fonts other than Sora (headings) and DM Sans (body)
