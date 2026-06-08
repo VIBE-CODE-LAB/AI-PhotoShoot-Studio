@@ -228,60 +228,46 @@ LINE RULE (applies to ALL callouts):
 → Straight or very slightly angled — no curves, no 
    decorative tips, no arrowheads
 → Lines must NOT cross each other at any point
-→ Line runs from 4px dot on product outward to icon
+→ Line runs from 4px dot on product outward to the text callout only
 
-ICON RULE (applies to ALL callouts):
-→ Circular container | Diameter: ~42px
-→ Fill: solid #2D4FA0 with white interior line 
-   illustration
-→ Border: thin 1px ring | Color: #2D4FA0
-→ Interior illustration: thin white stroke lines only | 
-   ZERO solid fills inside icon
-→ Icons positioned FULLY OUTSIDE model's body 
-   silhouette — minimum 20px clear of body edge
-→ Icons must NEVER overlap bra, skin, or face
+NO ICON RULE (MOOD ONLY — CRITICAL):
+→ Do NOT render any icons, circular containers, symbol drawings, icon borders, or icon backgrounds in this Mood image
+→ Mood callouts are text + thin lines + tiny 4px product dots only
+→ Keep all callout content typographic; no pictograms, no line-art symbols, no decorative graphic badges
 
 TEXT RULE (applies to ALL callouts):
 → Line 1 (feature name): bold Sora | Color: #2D4FA0
 → Line 2 (benefit): regular DM Sans | Color: #2D4FA0
-→ Text positioned directly below or beside icon — 
+→ Text positioned at the outer end of the line —
    never on bra or body
 
 CALLOUT 1 — LEFT SIDE, upper position
 Touch point: tiny 4px solid dot on LEFT SIDE PANEL 
 at flank/underarm area
-Line: travels LEFT from dot to icon
-Icon: thin-line full coverage panel illustration | 
-Fill: solid #2D4FA0 | Border: #2D4FA0
+Line: travels LEFT from dot to text callout
 Feature text: "Full Coverage"
 Benefit text: "with V-Neckline"
 
 CALLOUT 2 — LEFT SIDE, lower position 
-(minimum 180px below Callout 1 icon center)
+(minimum 180px below Callout 1 text block)
 Touch point: tiny 4px solid dot on FRONT CENTER 
 PANEL at mid-chest
-Line: travels LEFT from dot to icon
-Icon: Minimal flat vector bra icon with W-shaped cups 
-| Fill: solid #2D4FA0 | Border: #2D4FA0
+Line: travels LEFT from dot to text callout
 Feature text: "W-Hold"
 Benefit text: "Wire-free Support"
 
 CALLOUT 3 — RIGHT SIDE, upper position
 Touch point: tiny 4px solid dot on V-NECKLINE 
 at center point
-Line: travels RIGHT from dot to icon
-Icon: thin-line V-neck neckline shape illustration | 
-Fill: solid #2D4FA0 | Border: #2D4FA0
+Line: travels RIGHT from dot to text callout
 Feature text: "Broad Shoulder"
 Benefit text: "Straps"
 
 CALLOUT 4 — RIGHT SIDE, lower position 
-(minimum 180px below Callout 3 icon center)
+(minimum 180px below Callout 3 text block)
 Touch point: tiny 4px solid dot on RIGHT BOTTOM BAND, 
 2cm from right side seam
-Line: travels RIGHT from dot to icon
-Icon: thin-line wire-free bra structure illustration | 
-Fill: solid #2D4FA0 | Border: #2D4FA0
+Line: travels RIGHT from dot to text callout
 Feature text: "No Spillage"
 Benefit text: "No Side Bulges"
 
@@ -296,8 +282,9 @@ pointing RIGHT into bra
 Callouts 3 + 4: RIGHT side, stacked vertically, 
 pointing LEFT into bra
 Symmetric left-right distribution at all times
-No text, icons, or lines on model's face, hair, 
+No text or lines on model's face, hair,
 or bra surface
+No icons anywhere in the Mood image
 Lifestyle background fills softly behind — never 
 competes with product or infographic
 Final image: clean, editorial, balanced, campaign-ready
@@ -312,7 +299,7 @@ Do NOT use background other than #F5FBFF
 Fonts: Sora / DM Sans only — NO Arial, NO Helvetica, 
 NO Inter substitutions
 Color: #2D4FA0 only
-No hair/arms over bra | No icons/text on bra or face | 
+No hair/arms over bra | No text on bra or face | No icons in Mood pose |
 No warm-heavy or harsh lighting | No props | 
 No watermarks | No extra models | 3:4 only | 
 Seated only | 2 LEFT + 2 RIGHT always
