@@ -94,7 +94,7 @@ clearly visible, natural, and catalogue-appropriate.
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION
 ═══════════════════════════════════════════════════════
-Model stands CENTER-RIGHT but fully inside the frame, leaving negative space on BOTH sides for balanced callouts. The model must NOT touch or be cut by the right edge.
+REFERENCE COMPOSITION — CRITICAL: Match the uploaded layout reference closely. Place the model near the CENTER of the frame, only slightly right of center (approximately 55% horizontal position), with balanced open background on both sides. Do NOT place the model hard against the right edge.
 Her body is turned facing towards the LEFT edge of the image frame.
 Her RIGHT shoulder is forward (closest to the camera), and her LEFT shoulder is turned away.
 RIGHT arm hangs relaxed at her side
@@ -102,7 +102,8 @@ LEFT arm is relaxed and slightly away from body so the left side of the bra is c
 Face turns gently toward camera from this opposite-side angle, making direct eye contact while clearly showing the mirrored pose direction.
 Shoulders are relaxed, not raised or tensed
 Shot framed from HEAD TO WAIST only — the image crops precisely at the model's natural waistline (navel level). No hips, no lower body, no legs visible whatsoever. Strict head-to-waist crop.
-FRAME SAFETY — CRITICAL: The full head, hair outline, both shoulders, both arms visible in this crop, full bra, and waist/navel crop line must remain fully inside the image. Keep clear margin around the model on all sides, especially the right edge. Do NOT crop off hair, face, shoulder, upper arm, elbow, bra band, waist, or any side of the body.
+FRAME SAFETY — CRITICAL: The full head and hair outline, both shoulders, both upper arms, complete bra, full bottom band, and waist/navel crop line must remain inside the image. Keep at least 5% clear image margin between the model and the left/right edges. Do NOT crop off hair, face, shoulder, upper arm, bra band, waist, or either side of the torso.
+VERTICAL PLACEMENT: Leave a clean top band for the headline and sub-heading. The top of the model's hair begins below the sub-heading, matching the uploaded layout reference. The model fills the center from below the typography to the waist/navel crop.
 Hair falls softly over both shoulders BUT must be directed AWAY from all bra straps, armhole edges, and bottom band — zero hair overlap on any part of the bra at any point
 Skin is completely tattoo-free and blemish-free
 ═══════════════════════════════════════════════════════
@@ -131,9 +132,10 @@ Consistent with Souminie brand identity: clean, modern, premium lingerie
 ═══════════════════════════════════════════════════════
 INFOGRAPHIC LAYOUT & TYPOGRAPHY
 ═══════════════════════════════════════════════════════
-HEADLINE — TOP LEFT: "Elastic-Free Construction"
+HEADLINE — TOP, SPANNING LEFT TO CENTER: "Elastic-Free Construction"
 Font: Sora (bold display weight, large size) | Color: #2D4FA0
-SUB-HEADING — TOP LEFT below headline: "No Digging. No Marks. No Itching."
+Keep the headline on ONE LINE whenever it fits. Do NOT stack it into an oversized two-line block unless absolutely required.
+SUB-HEADING — directly below headline: "No Digging. No Marks. No Itching."
 Font: DM Sans (medium weight) | Color: #2D4FA0
 CALLOUT LINE RULE (applies to ALL callouts — CRITICAL):
 → Thin single clean line | Color: #2D4FA0 | 1px stroke only
@@ -141,41 +143,43 @@ CALLOUT LINE RULE (applies to ALL callouts — CRITICAL):
 → Lines must NOT cross each other at any point
 → Line runs from icon outward to bra zone — NO dot at touch point, just thin line ending cleanly
 → Lines must be SHORT and close to the product zone; do NOT draw long horizontal lines across the image
-→ Maximum connector length: about 120–180px visually, never more than 25% of the image width
+→ Maximum connector length: about 80–140px visually, never more than 18% of the image width
 → Icons must be positioned near their target bra zone so the line stays compact and elegant
 EXACT CALLOUT COUNT — CRITICAL:
 → Render EXACTLY 3 callouts and EXACTLY 3 circular icons.
 → Do NOT omit any callout. Do NOT crop out any icon or text block.
 → All 3 icons and all 3 callout text blocks must be fully visible inside the frame.
-→ Use the balanced original layout: 2 callouts on the LEFT side and 1 callout on the RIGHT side.
-CALLOUT 1 — LEFT SIDE, UPPER: Points to VISIBLE LEFT ARMHOLE / SIDE FABRIC EDGE
+→ Do NOT add numbers, numbered circles, 1/2/3 labels, badges, tabs, or count markers to any icon.
+→ Match the reference layout exactly: No-Stitch at middle-left, Bottom Band at lower-left, Armhole at upper-right.
+CALLOUT 1 — UPPER RIGHT: Points with a short diagonal line to the visible RIGHT ARMHOLE / underarm fabric edge
 Line 1 (bold, Sora, #2D4FA0): "Elastic-free Armhole"
-Line 2 (DM Sans, #2D4FA0): "for Rashfree Comfort"
+Line 2 (DM Sans, #2D4FA0): "Rashfree Comfort"
 CALLOUT 2 — LEFT SIDE, LOWER: Points to BOTTOM BAND
 Line 1 (bold, Sora, #2D4FA0): "Elastic-free Bottom Band"
-Line 2 (DM Sans, #2D4FA0): "for Seamless Support"
-CALLOUT 3 — RIGHT SIDE, MIDDLE: Points to VISIBLE RIGHT/FRONT ARMHOLE EDGE or seamless cup-side area
+Line 2 (DM Sans, #2D4FA0): "Seamless Support"
+CALLOUT 3 — LEFT SIDE, MIDDLE: Points with a short angled line to the seamless cup-side / front fabric construction
 Line 1 (bold, Sora, #2D4FA0): "No-Stitch Design"
-Line 2 (DM Sans, #2D4FA0): "for Invisible Finish"
+Line 2 (DM Sans, #2D4FA0): "Invisible Finish"
 ICON STYLE (ALL icons — CRITICAL NON-NEGOTIABLE):
 → Circular icon | Size: ~40–45px
 → Background: SOLID FILLED #2D4FA0 circle
 → Inside every circle, YOU MUST draw a distinct white line-art symbol (e.g., waves, feather, sparkles) relevant to the feature. DO NOT LEAVE THE CIRCLES EMPTY OR BLANK.
 → Border ring: #2D4FA0 thin clean ring
 → ALL icons must look identical to a solid dark blue filled circle with a clear white line-art drawing inside. NO empty circles.
+→ No numbers, count labels, mini circles, tabs, badges, or extra marks may be attached to any icon.
 ICON PLACEMENT — CRITICAL:
 Every callout icon must be placed ENTIRELY within the background/negative space area of the image. NO icon, circle border, or any part of the callout graphic may touch, overlap, or rest on any part of the model's body, skin, hair, or bra product. All icons must float clearly in the open background space only.
 ═══════════════════════════════════════════════════════
 OVERALL COMPOSITION BALANCE
 ═══════════════════════════════════════════════════════
-Headline + sub-heading occupy TOP LEFT quadrant
-Model is CENTER-RIGHT but fully visible with safe margin, NOT cropped and NOT pushed against the edge
-Callout 1 sits on the LEFT, vertically middle zone — icon fully in background space and close enough for a short line
-Callout 2 sits on the BOTTOM LEFT — icon fully in background space and close enough for a short line
-Callout 3 sits on the RIGHT, vertically middle zone — icon fully in background space and close enough for a short line
+Headline + sub-heading occupy the TOP band above the model, matching the reference
+Model is centered slightly right, fully visible with safe margins, NOT cropped and NOT pushed against either edge
+Callout 3 "No-Stitch Design / Invisible Finish" sits at MIDDLE LEFT with its icon above the text and a short local line to the cup-side construction
+Callout 2 "Elastic-free Bottom Band / Seamless Support" sits at LOWER LEFT with its icon above the text and a short horizontal line to the bottom band
+Callout 1 "Elastic-free Armhole / Rashfree Comfort" sits at UPPER RIGHT with its icon above the text and a short diagonal line to the right armhole
 All text and icons must NOT overlap the model's face, body, or bra product
 Generous breathing space around all text elements
-Composition must feel like the provided reference image: balanced, airy, with compact callout lines and all graphics fully visible
+Composition must closely reproduce the uploaded reference image: centered model, headline above, 2 callouts left + 1 callout right, compact lines, no numbering, and all elements fully visible
 Final image feels balanced, editorial, and campaign-ready — true to Souminie's premium identity
 ═══════════════════════════════════════════════════════
 STRICT NEGATIVE INSTRUCTIONS
@@ -184,8 +188,10 @@ Do NOT show any part of the model below the waist
 Do NOT use transparent, semi-transparent, ghost, or outlined-only icons — ALL icons must be 100% solid filled #2D4FA0 with white interior line art
 Do NOT place any icon, circle, or callout graphic touching or overlapping the model's body, skin, hair, or bra
 Do NOT render fewer than 3 icons or fewer than 3 callout text blocks
+Do NOT add 1, 2, 3 or any numbering/badges to the icons
 Do NOT make connector lines long or stretched across the image
 Do NOT crop the model at the right edge or cut off any part of the head, hair, shoulder, arm, bra, waist, or body
+Do NOT enlarge the model so much that the callouts are forced outside the canvas
 Do NOT alter model or product from reference images
 Do NOT use background other than #F5FBFF
 Do NOT use fonts other than Sora (headings) and DM Sans (body)
