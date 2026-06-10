@@ -9,7 +9,7 @@ export interface BrandSpecification {
   overallLookFeel: string;
 }
 
-export const BRAND_SPECIFICATIONS: BrandSpecification[] = [
+export const BRAND_SPECIFICATIONS: readonly BrandSpecification[] = Object.freeze([
   {
     id: "tweens",
     label: "Tweens",
@@ -120,15 +120,23 @@ export const BRAND_SPECIFICATIONS: BrandSpecification[] = [
     paletteNotes: "Warm pearl base; dusty nude softness; cocoa-maroon anchor.",
     overallLookFeel: "Classic premium grace.",
   },
-];
+].map((spec) => Object.freeze(spec)));
 
-export const BRAND_SPECIFICATIONS_BY_ID: Record<string, BrandSpecification> = BRAND_SPECIFICATIONS.reduce(
+export const BRAND_SPECIFICATIONS_BY_ID: Readonly<Record<string, BrandSpecification>> = Object.freeze(BRAND_SPECIFICATIONS.reduce(
   (acc, spec) => {
     acc[spec.id] = spec;
     return acc;
   },
   {} as Record<string, BrandSpecification>
-);
+));
+
+export const getBrandSpecification = (brandId: string): BrandSpecification => {
+  const specification = BRAND_SPECIFICATIONS_BY_ID[brandId];
+  if (!specification) {
+    throw new Error(`Unknown brand specification: ${brandId}`);
+  }
+  return specification;
+};
 
 export const PANTY_ONLY_NEUTRAL_DIRECTION = `
 Use a clean minimal e-commerce studio setup.

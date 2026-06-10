@@ -855,12 +855,12 @@ export const getPushupBraOnlyFrontPrompt = (brand: BrandSpecification): string =
 
 export const getPushupBraOnlySide1Prompt = (
   brand: BrandSpecification,
-  content?: ImageCalloutsContent
+  _content?: ImageCalloutsContent
 ): string =>
-  extractPromptSection(
-    PUSHUP_BRA_ONLY_PROMPT_SOURCE,
+  buildPushupBraOnlyPromptFromSection(
     'SIDE 1 PUSH UP PROMPT — BRA ONLY',
-    'SIDE 2 PUSH UP PROMPT — BRA ONLY'
+    'SIDE 2 PUSH UP PROMPT — BRA ONLY',
+    brand
   );
 
 export const getPushupBraOnlySide2Prompt = (

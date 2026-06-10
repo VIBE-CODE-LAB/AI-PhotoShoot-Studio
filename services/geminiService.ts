@@ -39,7 +39,7 @@ import {
   getBraOnlyMockupPrompt,
 } from "./prompt";
 import {
-  BRAND_SPECIFICATIONS_BY_ID,
+  getBrandSpecification,
   PANTY_ONLY_NEUTRAL_DIRECTION,
 } from "./brandSpecifications";
 import type { BrandSpecification } from "./brandSpecifications";
@@ -275,7 +275,7 @@ export const generateShoot = async ({
   const resolvedKey = getStoredApiKey();
   if (!resolvedKey) throw new Error('No API key found. Please enter your Gemini API key.');
   const ai = new GoogleGenAI({ apiKey: resolvedKey });
-  const selectedBrand = BRAND_SPECIFICATIONS_BY_ID[brand] || BRAND_SPECIFICATIONS_BY_ID.dressberry;
+  const selectedBrand = getBrandSpecification(brand);
 
   const sanitizedImageCallouts = sanitizeImageCalloutsForPrompt(mode, viewAngle, imageCalloutsContent);
 

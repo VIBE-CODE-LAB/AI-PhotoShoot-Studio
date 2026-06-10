@@ -13,7 +13,7 @@ import {
   ViewAngle,
 } from './types';
 import { checkApiKey, generateShoot, requestApiKey } from './services/geminiService';
-import { BRAND_SPECIFICATIONS } from './services/brandSpecifications';
+import { BRAND_SPECIFICATIONS, BRAND_SPECIFICATIONS_BY_ID } from './services/brandSpecifications';
 import {
   type StylePreset,
   type PresetPose,
@@ -196,7 +196,7 @@ const App = () => {
   const requiredCount = slotTotal;
   const requiredAdded = slotAdded;
   const awaitingCount = Math.max(0, requiredCount - requiredAdded);
-  const activeBrand = BRAND_SPECIFICATIONS.find((brand) => brand.id === selectedBrand);
+  const activeBrand = BRAND_SPECIFICATIONS_BY_ID[selectedBrand];
   const modeLabel = selectedMode === 'PUSHUP' ? 'Pushup' : selectedMode === 'BRA_AND_PANTY' ? 'Bra + Panty' : selectedMode === 'BRA_ONLY' ? 'Bra' : 'Panty';
   const displayModeLabel = generationMode ? modeLabel : 'Setup';
   const ratioLabel = aspectRatio === '21:9' ? 'A4+' : aspectRatio;
@@ -974,7 +974,14 @@ const App = () => {
                   onClick={() => setSelectedBrand(brand.id)}
                   disabled={!isBrandSelectionActive}
                 >
-                  <div className="dB-br-d" style={{ background: brand.fontHex }}></div>
+                  <div
+                    className="dB-br-d"
+                    title={`${brand.label}: text ${brand.fontHex}, background ${brand.backgroundColor}`}
+                    style={{
+                      background: `linear-gradient(90deg, ${brand.fontHex} 0 50%, ${brand.backgroundColor} 50% 100%)`,
+                      border: `1px solid ${brand.fontHex}`,
+                    }}
+                  ></div>
                   <span className="dB-br-n">{brand.label}</span>
                 </button>
               ))}
