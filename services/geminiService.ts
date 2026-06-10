@@ -158,15 +158,15 @@ const getPromptByModeAndAngle = (
 
   if (mode === "PUSHUP") {
     if (pushupBraOnly) {
-      if (viewAngle === "Back") return getPushupBraOnlyBackPrompt(brandSpec, imageCalloutsContent ?? undefined);
+      if (viewAngle === "Back") return getPushupBraOnlyBackPrompt(brandSpec);
       if (viewAngle === "Front") return getPushupBraOnlyFrontPrompt(brandSpec);
-      if (viewAngle === "Mood") return getPushupBraOnlyMoodPrompt(brandSpec, imageCalloutsContent ?? undefined);
-      if (viewAngle === "Zoom") return getPushupBraOnlyZoomPrompt(brandSpec, imageCalloutsContent ?? undefined);
-      if (viewAngle === "Mockup") return getPushupBraOnlyMockupPrompt(brandSpec, imageCalloutsContent ?? undefined);
+      if (viewAngle === "Mood") return getPushupBraOnlyMoodPrompt(brandSpec);
+      if (viewAngle === "Zoom") return getPushupBraOnlyZoomPrompt(brandSpec);
+      if (viewAngle === "Mockup") return getPushupBraOnlyMockupPrompt(brandSpec);
       if (viewAngle === "Side") {
         return sideViewVariant === "SIDE_VIEW_2"
-          ? getPushupBraOnlySide2Prompt(brandSpec, imageCalloutsContent ?? undefined)
-          : getPushupBraOnlySide1Prompt(brandSpec, imageCalloutsContent ?? undefined);
+          ? getPushupBraOnlySide2Prompt(brandSpec)
+          : getPushupBraOnlySide1Prompt(brandSpec);
       }
       return getPushupBraOnlyFrontPrompt(brandSpec);
     }
@@ -277,7 +277,9 @@ export const generateShoot = async ({
   const ai = new GoogleGenAI({ apiKey: resolvedKey });
   const selectedBrand = getBrandSpecification(brand);
 
-  const sanitizedImageCallouts = sanitizeImageCalloutsForPrompt(mode, viewAngle, imageCalloutsContent);
+  const sanitizedImageCallouts = isPushupBraOnly
+    ? undefined
+    : sanitizeImageCalloutsForPrompt(mode, viewAngle, imageCalloutsContent);
 
   const promptInstructions = getPromptByModeAndAngle(
     mode,
@@ -300,7 +302,7 @@ export const generateShoot = async ({
   // Mockup is a product-only shot — model and panty preambles don't apply.
   const isMockupShot = viewAngle === "Mockup";
   // BRA_ONLY model shots (not Mood, not Mockup) must enforce head-to-navel framing.
-  const isBraOnlyModelShot = (mode === "BRA_ONLY" || isPushupBraOnly) && !isMockupShot && viewAngle !== "Mood";
+  const isBraOnlyModelShot = mode === "BRA_ONLY" && !isMockupShot && viewAngle !== "Mood";
 
   const safetyPreamble =
     "This is a fully clothed fashion catalog image for an adult model. Keep the pose natural and professional, avoid nudity, avoid suggestive framing, and keep the product presentation commercial and modest.";
@@ -311,14 +313,11 @@ export const generateShoot = async ({
     aspectRatio === "3:4" ? "Image Resolution: 1792x2400 pixels." : "";
 
   let mainPromptText: string;
-  const useExactPushupBraOnlySide1Prompt =
-    isPushupBraOnly && viewAngle === "Side" && sideViewVariant === "SIDE_VIEW_1";
-
   const calloutLayoutInstruction = sanitizedImageCallouts
     ? `CRITICAL LAYOUT & COLOR RULE (ABSOLUTE PRIORITY): All callout boxes, text, lines, icons, and annotations MUST be placed ENTIRELY in the blank background space surrounding the model. They MUST NOT touch, overlap, or obscure the model's skin, body, or garments in any way. Keep the model and product 100% visible and unobstructed by any graphics. Furthermore, ALL text, pointer lines, and callout icons MUST be rendered in exact brand color ${selectedBrand.fontHex}. Absolutely NO black (#000000), gray, or generic dark text is allowed. DO NOT generate or include any watermarks, logos, or brand marks.`
     : "DO NOT generate or include any watermarks, logos, or brand marks.";
 
-  if (useExactPushupBraOnlySide1Prompt) {
+  if (isPushupBraOnly) {
     mainPromptText = promptInstructions;
   } else if (isFullCustomPrompt) {
     // Custom full-prompt mode: user's text is the main instruction.
@@ -346,8 +345,6 @@ export const generateShoot = async ({
       !isMockupShot && (mode === "BRA_AND_PANTY" || mode === "PUSHUP") ? COLOR_LOCK_PREAMBLE : "",
       !isMockupShot ? safetyPreamble : "",
       !isMockupShot ? SKIN_QUALITY_INSTRUCTION : "",
-      isPushupBraOnly ? "BRA-ONLY OVERRIDE: do not render any panty, briefs, or lower garment. Keep the lower body product-free and crop accordingly." : "",
-      isPushupBraOnly ? "BRA-ONLY OVERRIDE: do not render any panty, briefs, or lower garment. Keep the lower body product-free and crop accordingly." : "",
       calloutLayoutInstruction,
       trimmedUserPrompt
         ? `CREATIVE DIRECTION (apply this to the generated image):\n${trimmedUserPrompt}`
@@ -363,7 +360,18 @@ export const generateShoot = async ({
   // Mockup is a product-only shot — send only the bra image, skip model and panty.
   // BRA_ONLY sends model + bra, no panty.
   const parts: Array<{ text?: string; inlineData?: { mimeType: string; data: string } }> =
-    isMockupShot && braImage
+    isPushupBraOnly && isMockupShot && braImage
+      ? [
+          { text: mainPromptText },
+          { inlineData: { mimeType: braImage.mimeType, data: braImage.data } },
+        ]
+      : isPushupBraOnly && braImage
+        ? [
+            { text: mainPromptText },
+            { inlineData: { mimeType: modelImage.mimeType, data: modelImage.data } },
+            { inlineData: { mimeType: braImage.mimeType, data: braImage.data } },
+          ]
+      : isMockupShot && braImage
       ? [
           { text: mainPromptText },
           { text: "Image 1: Bra Product" },
@@ -375,8 +383,8 @@ export const generateShoot = async ({
           { inlineData: { mimeType: modelImage.mimeType, data: modelImage.data } },
         ];
 
-  if (!isMockupShot) {
-    if ((mode === "BRA_ONLY" || isPushupBraOnly) && braImage) {
+  if (!isMockupShot && !isPushupBraOnly) {
+    if (mode === "BRA_ONLY" && braImage) {
       parts.push(
         { text: "Image 2: Bra Product" },
         { inlineData: { mimeType: braImage.mimeType, data: braImage.data } }
@@ -401,8 +409,10 @@ export const generateShoot = async ({
       model: aiModel,
       contents: { parts },
       config: {
-          systemInstruction: getSystemInstruction(isPushupBraOnly ? "BRA_ONLY" : mode, viewAngle),
-        imageConfig: { aspectRatio, imageSize: "2K" },
+        ...(isPushupBraOnly ? {} : { systemInstruction: getSystemInstruction(mode, viewAngle) }),
+        imageConfig: isPushupBraOnly
+          ? { imageSize: "2K" }
+          : { aspectRatio, imageSize: "2K" },
         safetySettings: [
           { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
           { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE },

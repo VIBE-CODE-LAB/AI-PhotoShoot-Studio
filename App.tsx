@@ -584,10 +584,14 @@ const App = () => {
     setErrorMsg(null);
     setStatus(GenerationStatus.PREPARING);
 
-    const userPrompt = isImageCalloutsMode ? '' : creativeDirection.trim();
+    const userPrompt = isPushupBraOnlyMode
+      ? ''
+      : isImageCalloutsMode
+        ? ''
+        : creativeDirection.trim();
 
     // Build the callouts content object — always include zone tags alongside callout text.
-    const normalizedImageCalloutsContent: ImageCalloutsContent | undefined = isImageCalloutsMode
+    const normalizedImageCalloutsContent: ImageCalloutsContent | undefined = !isPushupBraOnlyMode && isImageCalloutsMode
       ? (() => {
           const acc = activePromptFieldKeys.reduce((obj, key) => {
             const value = imageCalloutsContent[key];
@@ -1095,14 +1099,18 @@ const App = () => {
 
             <div className="dB-row">
               <span className="dB-row-l">Mode</span>
-              <div className="dB-mini">
-                <button type="button" className={`dB-mp${!isImageCalloutsMode ? ' on' : ''}`} onClick={() => setIsImageCalloutsMode(false)}>
-                  Creative
-                </button>
-                <button type="button" className={`dB-mp${isImageCalloutsMode ? ' on' : ''}`} onClick={() => setIsImageCalloutsMode(true)}>
-                  Callouts
-                </button>
-              </div>
+              {isPushupBraOnlyMode ? (
+                <span className="dB-msg ok">Locked to Pushup-Bra-Only-Prompt.txt</span>
+              ) : (
+                <div className="dB-mini">
+                  <button type="button" className={`dB-mp${!isImageCalloutsMode ? ' on' : ''}`} onClick={() => setIsImageCalloutsMode(false)}>
+                    Creative
+                  </button>
+                  <button type="button" className={`dB-mp${isImageCalloutsMode ? ' on' : ''}`} onClick={() => setIsImageCalloutsMode(true)}>
+                    Callouts
+                  </button>
+                </div>
+              )}
             </div>
             <div className="dB-row">
               <span className="dB-row-l">Sequence</span>
@@ -1154,7 +1162,11 @@ const App = () => {
           </div>
 
           <div className="dB-card">
-            {!isImageCalloutsMode ? (
+            {isPushupBraOnlyMode ? (
+              <div className="dB-msg ok">
+                Exact TXT prompt active. Only the selected brand specification is substituted.
+              </div>
+            ) : !isImageCalloutsMode ? (
               <>
                 <textarea
                   className="dB-note"

@@ -845,17 +845,18 @@ const buildPushupPromptFromSection = (
 const buildPushupBraOnlyPromptFromSection = (
   startMarker: string,
   endMarker: string | undefined,
-  brand: BrandSpecification,
-  replacements: Array<[string, string]> = []
+  brand: BrandSpecification
 ): string =>
-  buildPromptFromSection(startMarker, endMarker, brand, replacements, PUSHUP_BRA_ONLY_PROMPT_SOURCE);
+  normalizePromptTokens(
+    extractPromptSection(PUSHUP_BRA_ONLY_PROMPT_SOURCE, startMarker, endMarker),
+    brand
+  );
 
 export const getPushupBraOnlyFrontPrompt = (brand: BrandSpecification): string =>
   buildPushupBraOnlyPromptFromSection('FRONT PUSH UP PROMPT — BRA ONLY', 'SIDE 1 PUSH UP PROMPT — BRA ONLY', brand);
 
 export const getPushupBraOnlySide1Prompt = (
-  brand: BrandSpecification,
-  _content?: ImageCalloutsContent
+  brand: BrandSpecification
 ): string =>
   buildPushupBraOnlyPromptFromSection(
     'SIDE 1 PUSH UP PROMPT — BRA ONLY',
@@ -864,135 +865,49 @@ export const getPushupBraOnlySide1Prompt = (
   );
 
 export const getPushupBraOnlySide2Prompt = (
-  brand: BrandSpecification,
-  content?: ImageCalloutsContent
-): string => {
-  const copy = buildPromptCopy3(content, {
-    heading: 'Comfort that feels light',
-    subHead: 'Soft touch. Gentle support.',
-    callout1: ['Breathable Cotton Fabric', 'for airy comfort all day'],
-    callout2: ['Light Padding gives', 'Gentle Lift'],
-    callout3: ['Hidden Internal Gripper', 'for Perfect Fit'],
-  });
-
-  const callouts: [ResolvedCallout, ResolvedCallout, ResolvedCallout] = [
-    resolveCallout(copy.callout1, content?.zone1),
-    resolveCallout(copy.callout2, content?.zone2),
-    resolveCallout(copy.callout3, content?.zone3),
-  ];
-
-  const basePrompt = buildPushupBraOnlyPromptFromSection(
+  brand: BrandSpecification
+): string =>
+  buildPushupBraOnlyPromptFromSection(
     'SIDE 2 PUSH UP PROMPT — BRA ONLY',
     'BACK PUSH UP PROMPT — BRA ONLY',
-    brand,
-    [
-      ['"Comfort that feels light"', `"${copy.heading}"`],
-      ['"Soft touch. Gentle support."', `"${copy.subHead}"`],
-      ['"Breathable Cotton Fabric "', `"${copy.callout1[0]}"`],
-      ['"for airy comfort all day"', `"${copy.callout1[1]}"`],
-      ['"Light Padding gives"', `"${copy.callout2[0]}"`],
-      ['"Gentle Lift"', `"${copy.callout2[1]}"`],
-      ['"Hidden Internal Gripper"', `"${copy.callout3[0]}"`],
-      ['"for Perfect Fit"', `"${copy.callout3[1]}"`],
-    ]
+    brand
   );
 
-  return `${basePrompt}\n\n${buildTextLock3(copy)}\n\n${buildCalloutTextColorLock(brand, callouts)}\n\n${buildCalloutPlacementLock()}\n\n${buildBackgroundColorLock(brand)}\n\n${buildFinalBrandRenderLock(brand)}`;
-};
-
 export const getPushupBraOnlyBackPrompt = (
-  brand: BrandSpecification,
-  content?: ImageCalloutsContent
-): string => {
-  const copy = buildPromptCopy3(content, {
-    heading: 'All Day Sturdy Back Support',
-    subHead: 'Curve-Secure Fit. Stays Put. Always.',
-    callout1: ['U-Back Support', 'No Ride-Up'],
-    callout2: ['3-Level Adjustable', 'Hook Closure'],
-    callout3: ['Wide Side Wings', 'for Back Smoothening'],
-  });
-
-  const callouts: [ResolvedCallout, ResolvedCallout, ResolvedCallout] = [
-    resolveCallout(copy.callout1, content?.zone1),
-    resolveCallout(copy.callout2, content?.zone2),
-    resolveCallout(copy.callout3, content?.zone3),
-  ];
-
-  const basePrompt = buildPushupBraOnlyPromptFromSection('BACK PUSH UP PROMPT — BRA ONLY', 'MOOD PUSH UP PROMPT — BRA ONLY', brand);
-
-  return `${basePrompt}\n\n${buildTextLock3(copy)}\n\n${buildCalloutTextColorLock(brand, callouts)}\n\n${buildCalloutPlacementLock()}\n\n${buildBackgroundColorLock(brand)}\n\n${buildFinalBrandRenderLock(brand)}`;
-};
+  brand: BrandSpecification
+): string =>
+  buildPushupBraOnlyPromptFromSection(
+    'BACK PUSH UP PROMPT — BRA ONLY',
+    'MOOD PUSH UP PROMPT — BRA ONLY',
+    brand
+  );
 
 export const getPushupBraOnlyMoodPrompt = (
-  brand: BrandSpecification,
-  content?: ImageCalloutsContent
-): string => {
-  const copy = buildPromptCopy4(content, {
-    heading: 'Bonded Finish, Elevated Support',
-    subHead: 'Comfort That Supports Every Curve',
-    callout1: ['Full Coverage', 'with V-Neckline'],
-    callout2: ['W-Hold', 'Wire-free Support'],
-    callout3: ['Broad Shoulder', 'Straps'],
-    callout4: ['No Spillage', 'No Side Bulges'],
-  });
-
-  const callouts: [ResolvedCallout, ResolvedCallout, ResolvedCallout, ResolvedCallout] = [
-    resolveCallout(copy.callout1, content?.zone1),
-    resolveCallout(copy.callout2, content?.zone2),
-    resolveCallout(copy.callout3, content?.zone3),
-    resolveCallout(copy.callout4, content?.zone4),
-  ];
-
-  const basePrompt = buildPushupBraOnlyPromptFromSection('MOOD PUSH UP PROMPT — BRA ONLY', 'ZOOM PUSH UP PROMPT — (UNCHANGED — BRA ONLY BY DEFAULT)', brand);
-
-  return `${basePrompt}\n\n${buildMoodTextLock(copy)}\n\n${buildCalloutTextColorLock(brand, callouts)}\n\n${buildCalloutPlacementLockNoIcon()}\n\n${buildBackgroundColorLock(brand)}\n\n${buildFinalBrandRenderLockNoIcon(brand)}`;
-};
+  brand: BrandSpecification
+): string =>
+  buildPushupBraOnlyPromptFromSection(
+    'MOOD PUSH UP PROMPT — BRA ONLY',
+    'ZOOM PUSH UP PROMPT — (UNCHANGED — BRA ONLY BY DEFAULT)',
+    brand
+  );
 
 export const getPushupBraOnlyZoomPrompt = (
-  brand: BrandSpecification,
-  content?: ImageCalloutsContent
-): string => {
-  const copy = buildPromptCopy3(content, {
-    heading: 'Elastic-Free Construction',
-    subHead: '',
-    callout1: ['Elastic-free Armhole', 'for Rashfree Comfort'],
-    callout2: ['Elastic-free Bottom Band', 'for Seamless Support'],
-    callout3: ['Seamless Design,', 'Invisible under Outfits'],
-  });
-
-  const callouts: [ResolvedCallout, ResolvedCallout, ResolvedCallout] = [
-    resolveCallout(copy.callout1, content?.zone1),
-    resolveCallout(copy.callout2, content?.zone2),
-    resolveCallout(copy.callout3, content?.zone3),
-  ];
-
-  const basePrompt = buildPushupBraOnlyPromptFromSection('ZOOM PUSH UP PROMPT — (UNCHANGED — BRA ONLY BY DEFAULT)', 'MOCKUP PROMPT — (UNCHANGED — PRODUCT ONLY BY DEFAULT)', brand);
-
-  return `${basePrompt}\n\n${buildTextLock3(copy)}\n\n${buildCalloutTextColorLock(brand, callouts)}\n\n${buildCalloutPlacementLock()}\n\n${buildBackgroundColorLock(brand)}\n\n${buildFinalBrandRenderLock(brand)}`;
-};
+  brand: BrandSpecification
+): string =>
+  buildPushupBraOnlyPromptFromSection(
+    'ZOOM PUSH UP PROMPT — (UNCHANGED — BRA ONLY BY DEFAULT)',
+    'MOCKUP PROMPT — (UNCHANGED — PRODUCT ONLY BY DEFAULT)',
+    brand
+  );
 
 export const getPushupBraOnlyMockupPrompt = (
-  brand: BrandSpecification,
-  content?: ImageCalloutsContent
-): string => {
-  const copy = buildPromptCopy4(content, {
-    heading: 'Effortless Lift, Everyday Comfort',
-    subHead: '',
-    callout1: ['3/4th Coverage', ''],
-    callout2: ['Soft Level 2 Padding', ''],
-    callout3: ['Adjustable Straps', ''],
-    callout4: ['Wide Side Wings', ''],
-  });
-
-  const callouts: [ResolvedCallout, ResolvedCallout, ResolvedCallout, ResolvedCallout] = [
-    resolveCallout(copy.callout1, content?.zone1),
-    resolveCallout(copy.callout2, content?.zone2),
-    resolveCallout(copy.callout3, content?.zone3),
-    resolveCallout(copy.callout4, content?.zone4),
-  ];
-
-  return `${buildPushupBraOnlyPromptFromSection('MOCKUP PROMPT — (UNCHANGED — PRODUCT ONLY BY DEFAULT)', undefined, brand)}\n\n${buildMoodTextLock(copy)}\n\n${buildCalloutTextColorLock(brand, callouts)}\n\n${buildCalloutPlacementLockNoIcon()}\n\n${buildBackgroundColorLock(brand)}\n\n${buildFinalBrandRenderLockNoIcon(brand)}`;
-};
+  brand: BrandSpecification
+): string =>
+  buildPushupBraOnlyPromptFromSection(
+    'MOCKUP PROMPT — (UNCHANGED — PRODUCT ONLY BY DEFAULT)',
+    undefined,
+    brand
+  );
 
 export const getPushupFrontPrompt = (brand: BrandSpecification): string =>
   `${buildPushupPromptFromSection('FRONT PUSH UP PROMPT', 'SIDE 1 PUSH UP PROMPT', brand)}

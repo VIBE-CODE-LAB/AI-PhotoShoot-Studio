@@ -99,7 +99,7 @@ Her body is turned facing towards the LEFT edge of the image frame.
 Her RIGHT shoulder is forward (closest to the camera), and her LEFT shoulder is turned away.
 RIGHT arm hangs relaxed at her side
 LEFT arm is relaxed and slightly away from body so the left side of the bra is clearly visible
-FACE DIRECTION LOCK — ABSOLUTE: Her head, nose, chin, eyes, and gaze must all turn toward the LEFT edge of the image frame. Render a clear left-facing three-quarter profile. She must look left, NOT toward the camera and NOT toward the right edge. Do not mirror or reverse this direction.
+Face turns gently toward camera from this opposite-side angle, making direct eye contact while clearly showing the mirrored pose direction.
 Shoulders are relaxed, not raised or tensed
 Shot framed from HEAD TO WAIST only — the image crops precisely at the model's natural waistline (navel level). No hips, no lower body, no legs visible whatsoever. Strict head-to-waist crop.
 FRAME SAFETY — CRITICAL: The full head, hair outline, both shoulders, both arms visible in this crop, full bra, and waist/navel crop line must remain fully inside the image. Keep clear margin around the model on all sides, especially the right edge. Do NOT crop off hair, face, shoulder, upper arm, elbow, bra band, waist, or any side of the body.
@@ -139,16 +139,10 @@ CALLOUT LINE RULE (applies to ALL callouts — CRITICAL):
 → Thin single clean line | Color: #2D4FA0 | 1px stroke only
 → Straight or very slightly angled — no curves, no decorative tips, no arrowheads
 → Lines must NOT cross each other at any point
-→ Line runs from icon toward the bra zone but stays completely in empty background. It must stop 12–20px BEFORE the model/bra silhouette and must never cross, touch, or overlay skin, hair, arm, body, strap, cup, band, or any garment area.
-→ NO dot at touch point; use a clean line ending in background only
+→ Line runs from icon outward to bra zone — NO dot at touch point, just thin line ending cleanly
 → Lines must be SHORT and close to the product zone; do NOT draw long horizontal lines across the image
 → Maximum connector length: about 120–180px visually, never more than 25% of the image width
 → Icons must be positioned near their target bra zone so the line stays compact and elegant
-MODEL/BRA PROTECTED EXCLUSION ZONE — ABSOLUTE:
-→ Treat the complete model silhouette and bra silhouette, plus a 32px safety margin around them, as a forbidden graphics zone.
-→ ZERO headline text, sub-heading text, callout text, letters, icons, circles, lines, dots, labels, or decorative graphics may enter this protected zone.
-→ Every text block must have clean background visible on all four sides and must remain fully separated from the model, hair, skin, arms, hands, torso, bra straps, cups, armholes, and bottom band.
-→ If space is insufficient, reduce text size slightly or reposition the model farther toward center while preserving wide empty side columns. Never solve spacing by placing text or graphics over the model or bra.
 EXACT CALLOUT COUNT — CRITICAL:
 → Render EXACTLY 3 callouts and EXACTLY 3 circular icons.
 → Do NOT omit any callout. Do NOT crop out any icon or text block.
@@ -171,8 +165,6 @@ ICON STYLE (ALL icons — CRITICAL NON-NEGOTIABLE):
 → ALL icons must look identical to a solid dark blue filled circle with a clear white line-art drawing inside. NO empty circles.
 ICON PLACEMENT — CRITICAL:
 Every callout icon must be placed ENTIRELY within the background/negative space area of the image. NO icon, circle border, or any part of the callout graphic may touch, overlap, or rest on any part of the model's body, skin, hair, or bra product. All icons must float clearly in the open background space only.
-TEXT PLACEMENT — CRITICAL:
-Every headline, sub-heading, feature line, and benefit line must be placed entirely in clean empty background. No letter, word, or text bounding box may touch or overlap the model, face, hair, skin, arm, hand, torso, bra, strap, cup, armhole, or bottom band. Maintain at least 32px of clear background between every text block and the model/bra silhouette.
 ═══════════════════════════════════════════════════════
 OVERALL COMPOSITION BALANCE
 ═══════════════════════════════════════════════════════
@@ -181,7 +173,7 @@ Model is CENTER-RIGHT but fully visible with safe margin, NOT cropped and NOT pu
 Callout 1 sits on the LEFT, vertically middle zone — icon fully in background space and close enough for a short line
 Callout 2 sits on the BOTTOM LEFT — icon fully in background space and close enough for a short line
 Callout 3 sits on the RIGHT, vertically middle zone — icon fully in background space and close enough for a short line
-All text, icons, circles, dots, and connector lines must remain fully outside the model and bra protected exclusion zone
+All text and icons must NOT overlap the model's face, body, or bra product
 Generous breathing space around all text elements
 Composition must feel like the provided reference image: balanced, airy, with compact callout lines and all graphics fully visible
 Final image feels balanced, editorial, and campaign-ready — true to Souminie's premium identity
@@ -191,8 +183,6 @@ STRICT NEGATIVE INSTRUCTIONS
 Do NOT show any part of the model below the waist
 Do NOT use transparent, semi-transparent, ghost, or outlined-only icons — ALL icons must be 100% solid filled #2D4FA0 with white interior line art
 Do NOT place any icon, circle, or callout graphic touching or overlapping the model's body, skin, hair, or bra
-Do NOT place any headline, sub-heading, callout text, letter, word, connector line, or dot on or across the model, face, hair, skin, arms, hands, torso, bra straps, cups, armholes, or bottom band
-Do NOT turn the model's face toward the camera or toward the right edge; her head, nose, eyes, and gaze must point toward the LEFT edge
 Do NOT render fewer than 3 icons or fewer than 3 callout text blocks
 Do NOT make connector lines long or stretched across the image
 Do NOT crop the model at the right edge or cut off any part of the head, hair, shoulder, arm, bra, waist, or body
