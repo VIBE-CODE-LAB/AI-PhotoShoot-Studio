@@ -158,15 +158,15 @@ const getPromptByModeAndAngle = (
 
   if (mode === "PUSHUP") {
     if (pushupBraOnly) {
-      if (viewAngle === "Back") return getPushupBraOnlyBackPrompt(brandSpec);
+      if (viewAngle === "Back") return getPushupBraOnlyBackPrompt(brandSpec, imageCalloutsContent ?? undefined);
       if (viewAngle === "Front") return getPushupBraOnlyFrontPrompt(brandSpec);
-      if (viewAngle === "Mood") return getPushupBraOnlyMoodPrompt(brandSpec);
-      if (viewAngle === "Zoom") return getPushupBraOnlyZoomPrompt(brandSpec);
-      if (viewAngle === "Mockup") return getPushupBraOnlyMockupPrompt(brandSpec);
+      if (viewAngle === "Mood") return getPushupBraOnlyMoodPrompt(brandSpec, imageCalloutsContent ?? undefined);
+      if (viewAngle === "Zoom") return getPushupBraOnlyZoomPrompt(brandSpec, imageCalloutsContent ?? undefined);
+      if (viewAngle === "Mockup") return getPushupBraOnlyMockupPrompt(brandSpec, imageCalloutsContent ?? undefined);
       if (viewAngle === "Side") {
         return sideViewVariant === "SIDE_VIEW_2"
-          ? getPushupBraOnlySide2Prompt(brandSpec)
-          : getPushupBraOnlySide1Prompt(brandSpec);
+          ? getPushupBraOnlySide2Prompt(brandSpec, imageCalloutsContent ?? undefined)
+          : getPushupBraOnlySide1Prompt(brandSpec, imageCalloutsContent ?? undefined);
       }
       return getPushupBraOnlyFrontPrompt(brandSpec);
     }
@@ -277,9 +277,11 @@ export const generateShoot = async ({
   const ai = new GoogleGenAI({ apiKey: resolvedKey });
   const selectedBrand = getBrandSpecification(brand);
 
-  const sanitizedImageCallouts = isPushupBraOnly
-    ? undefined
-    : sanitizeImageCalloutsForPrompt(mode, viewAngle, imageCalloutsContent);
+  const sanitizedImageCallouts = sanitizeImageCalloutsForPrompt(
+    mode,
+    viewAngle,
+    imageCalloutsContent
+  );
 
   const promptInstructions = getPromptByModeAndAngle(
     mode,

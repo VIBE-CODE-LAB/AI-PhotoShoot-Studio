@@ -591,7 +591,7 @@ const App = () => {
         : creativeDirection.trim();
 
     // Build the callouts content object — always include zone tags alongside callout text.
-    const normalizedImageCalloutsContent: ImageCalloutsContent | undefined = !isPushupBraOnlyMode && isImageCalloutsMode
+    const normalizedImageCalloutsContent: ImageCalloutsContent | undefined = isImageCalloutsMode
       ? (() => {
           const acc = activePromptFieldKeys.reduce((obj, key) => {
             const value = imageCalloutsContent[key];
@@ -866,7 +866,11 @@ const App = () => {
               <input
                 type="checkbox"
                 checked={pushupBraOnly}
-                onChange={(event) => setPushupBraOnly(event.target.checked)}
+                onChange={(event) => {
+                  const enabled = event.target.checked;
+                  setPushupBraOnly(enabled);
+                  if (enabled) setIsImageCalloutsMode(true);
+                }}
               />
               <span>Pushup bra-only mode</span>
             </label>
@@ -1100,7 +1104,11 @@ const App = () => {
             <div className="dB-row">
               <span className="dB-row-l">Mode</span>
               {isPushupBraOnlyMode ? (
-                <span className="dB-msg ok">Locked to Pushup-Bra-Only-Prompt.txt</span>
+                <div className="dB-mini">
+                  <button type="button" className="dB-mp on" disabled>
+                    TXT + Callouts
+                  </button>
+                </div>
               ) : (
                 <div className="dB-mini">
                   <button type="button" className={`dB-mp${!isImageCalloutsMode ? ' on' : ''}`} onClick={() => setIsImageCalloutsMode(false)}>
@@ -1162,11 +1170,7 @@ const App = () => {
           </div>
 
           <div className="dB-card">
-            {isPushupBraOnlyMode ? (
-              <div className="dB-msg ok">
-                Exact TXT prompt active. Only the selected brand specification is substituted.
-              </div>
-            ) : !isImageCalloutsMode ? (
+            {!isImageCalloutsMode ? (
               <>
                 <textarea
                   className="dB-note"
