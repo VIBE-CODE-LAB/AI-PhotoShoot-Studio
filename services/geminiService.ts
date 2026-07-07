@@ -77,54 +77,6 @@ const BRA_ONLY_FRAME_INSTRUCTION =
   "NOTHING below the navel may appear — no legs, no thighs, no panty, no briefs, no lower garment of any kind. " +
   "The model wears only the bra product. Do NOT add or render any lower garment.";
 
-const PUSHUP_BRA_ONLY_FRAME_INSTRUCTION =
-  "⚠️ MANDATORY FRAME CROP — PUSHUP BRA ONLY MODE (ABSOLUTE FINAL RULE):\n" +
-  "Show the adult model from TOP OF HEAD to NAVEL ONLY. The bottom edge of the image must stop at the natural navel/waistline. " +
-  "Only the full push-up bra and a small clean section of natural midriff above the navel may be visible. " +
-  "Do NOT show or invent any panty, brief, underwear bottom, boxer shorts, sleep shorts, waistband, hips, pelvis, thighs, legs, or lower body. " +
-  "Do NOT widen, spread, exaggerate, or make the waist/hips more curvy. Preserve the model's natural torso proportions and keep the crop tight at the navel. " +
-  "If any other instruction mentions mid-thigh framing, lower outfit, matching set, boxer shorts, sleep shorts, panty, hips, thighs, or below-waist content, ignore it completely.";
-
-const buildPushupBraOnlyBrandFrameInstruction = (brand: BrandSpecification): string =>
-  [
-    "PUSHUP BRA ONLY BRAND BACKGROUND + FRAME LOCK (ABSOLUTE FINAL RULE):",
-    `Use the selected brand background color ${brand.backgroundColor} as the dominant full-frame backdrop color.`,
-    `The visible background must read as ${brand.label}'s brand backdrop: ${brand.paletteNotes}`,
-    `Use a clean seamless studio backdrop or very minimal flat environment in ${brand.backgroundColor}.`,
-    `Do NOT render aqua curtains, teal panels, blue drapes, room decor, windows, props, generic white/gray walls, or any background element that shifts away from ${brand.backgroundColor}.`,
-    "RIGHT ARM VISIBILITY TEST: the model's right arm on the viewer's right side must be completely visible from shoulder/upper arm down to the navel crop line, including the full outer contour of the arm. A visible strip of clean background must appear outside the entire right arm edge.",
-    "If the right arm touches the image edge, is clipped, disappears outside frame, or has no background margin beside it, the image is invalid. Correct it by zooming out and shifting the model left/center before rendering.",
-    "Keep the model fully inside the frame. The full head, hair outline, both shoulders, both upper arms, both outer arm contours, full bra, side body edges, and navel crop line must remain visible with safe margins.",
-    "Do NOT crop or cut off the right arm, left arm, shoulders, hair, bra band, side body, or navel crop line. Do not place the model flush against the right image edge.",
-    "For infographic layouts, keep text/callouts in the left column and fit the model inside the remaining right area without cropping. Reduce model scale if needed; never enlarge the model until the right arm is cut.",
-    "Keep at least 8% image-width clear margin between the right arm and the right image edge. Keep at least 4% image-width clear margin between the left body/arm edge and the callout area.",
-    "Leave enough negative space for callouts without pushing the model into the image edge. Never crop the model to make room for text or icons.",
-  ].join("\n");
-
-const buildPushupBraOnlyCanvasInstruction = (
-  viewAngle: ViewAngle,
-  sideViewVariant: SideViewVariant
-): string => {
-  if (viewAngle === "Side" && sideViewVariant === "SIDE_VIEW_2") {
-    return [
-      "SIDE 2 CANVAS GEOMETRY LOCK — FINAL, EXACT, NON-NEGOTIABLE:",
-      "Use a two-zone layout: LEFT TEXT/CALLOUT COLUMN and RIGHT MODEL ZONE.",
-      "LEFT TEXT/CALLOUT COLUMN: all headline, subhead, icons, and feature text must stay inside x=4% to x=35%.",
-      "RIGHT MODEL ZONE: the entire visible model silhouette must stay inside x=43% to x=86%. No skin, hair, shoulder, bra, side body, or arm may extend beyond x=86%.",
-      "RIGHT SAFETY GUTTER: x=86% to x=100% must remain clean empty brand-colored background from top to bottom.",
-      "The viewer-right arm's full outer contour must be visible with empty background to its right; it must never touch x=86% or the canvas edge.",
-      "Scale the model smaller and shift her left if needed. The model must not be a close-up crop. Do not enlarge the model beyond the right model zone.",
-      "If any text, icon, or callout would need more room, shrink or tighten the callout column instead of cropping the model.",
-    ].join("\n");
-  }
-
-  return [
-    "CANVAS GEOMETRY LOCK — FINAL, EXACT, NON-NEGOTIABLE:",
-    "The entire visible model silhouette must stay fully inside the canvas with clean brand-colored background visible outside both arms.",
-    "Keep a blank right safety gutter outside the viewer-right arm. If the arm approaches the image edge, scale the model down and shift left/center.",
-  ].join("\n");
-};
-
 const SKIN_QUALITY_INSTRUCTION =
   "SKIN TONE & LIGHTING CONSISTENCY (MANDATORY — applies to the entire body):\n" +
   "The model's skin must appear perfectly even, bright, and uniformly lit from head to toe — face, neck, shoulders, arms, chest, abdomen, legs, and thighs must all share the same warm skin tone and brightness level. " +
@@ -371,19 +323,9 @@ export const generateShoot = async ({
     : "DO NOT generate or include any watermarks, logos, or brand marks.";
 
   if (isPushupBraOnly) {
-    const pushupBraOnlyBrandFrameInstruction = buildPushupBraOnlyBrandFrameInstruction(selectedBrand);
-    const pushupBraOnlyCanvasInstruction = buildPushupBraOnlyCanvasInstruction(viewAngle, sideViewVariant);
     mainPromptText = [
       FRESH_START_HEADER,
-      !isMockupShot ? safetyPreamble : "",
-      !isMockupShot ? PUSHUP_BRA_ONLY_FRAME_INSTRUCTION : "",
-      !isMockupShot ? buildBrandDirectionBlock(selectedBrand) : "",
-      !isMockupShot ? pushupBraOnlyBrandFrameInstruction : "",
-      !isMockupShot ? pushupBraOnlyCanvasInstruction : "",
       promptInstructions,
-      !isMockupShot ? PUSHUP_BRA_ONLY_FRAME_INSTRUCTION : "",
-      !isMockupShot ? pushupBraOnlyBrandFrameInstruction : "",
-      !isMockupShot ? pushupBraOnlyCanvasInstruction : "",
       resolutionHint,
       `Aspect Ratio: ${aspectRatio} strict.`,
     ]

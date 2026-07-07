@@ -197,6 +197,7 @@ Do NOT allow hair over bra, callouts over face or bra, harsh shadows, warm-yello
  
 SIDE 2 PUSH UP PROMPT — BRA ONLY
 """""""REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
+Use Image 1 for the model's identity and body appearance only. Do NOT copy Image 1's original crop, framing, edge cuts, or missing side margins. If Image 1 has any arm/shoulder close to an edge or cropped, reconstruct the full visible viewer-right arm naturally inside this new layout.
 REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, silhouette. Replicate identically.═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION
 ═══════════════════════════════════════════════════════
@@ -205,6 +206,8 @@ Model stands FULLY FRONT-FACING | Body squared to lens | Direct warm eye contact
 Soft natural relaxed smile | Both arms relaxed at sides
 Shot STRICT HEAD-TO-NAVEL only — crop ends at the natural navel/waistline. No hips, no thighs, no panty, no briefs, no lower garment, no waistband, and no lower body visible. Hair away from ALL bra zones | Tattoo-free, blemish-free skin
 RIGHT ARM VISIBILITY — STRICT: the viewer-right arm must be fully visible from shoulder/upper arm down to the navel crop line, with the full outer arm contour inside frame and a clean background strip between arm and right image border. If necessary, zoom out and shift the model left/center.
+CAMERA DISTANCE — STRICT: use a medium upper-body catalog shot, not a close-up crop. The model must appear about 15–20% smaller than a tight portrait crop so both arms and both side body edges fit comfortably inside the canvas.
+REFERENCE CROP OVERRIDE — STRICT: never inherit a cropped arm, cropped shoulder, or tight right-edge boundary from the model reference photo. The new generated image must create a fresh canvas with the full viewer-right arm visible inside the frame.
 Body language: clean, modern, effortlessly premium
 ═══════════════════════════════════════════════════════
 PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
@@ -272,18 +275,21 @@ OVERALL COMPOSITION BALANCE
 ═══════════════════════════════════════════════════════
 
 Headline + sub-heading: TOP LEFT quadrant
-Model: CENTER with comfortable safe margin on both sides; viewer-right arm fully inside frame with clear background margin
+Model: RIGHT-CENTER but smaller, fully inside its own model zone; viewer-right arm fully inside frame with clear background margin
 Three feature icons stacked vertically: LEFT side, middle zone
 No text/icons overlapping model's face or bra
 Generous #F3F0E9 breathing space around all elements
 Final image: balanced, airy, warm, campaign-ready — true to Tweens' minimal premium daily comfort identity
 SIDE 2 CANVAS GEOMETRY LOCK — FINAL, EXACT, NON-NEGOTIABLE:
-LEFT TEXT/CALLOUT COLUMN: all headline, subhead, icons, and feature text must stay inside x=4% to x=35%.
-RIGHT MODEL ZONE: the entire visible model silhouette must stay inside x=43% to x=86%. No skin, hair, shoulder, bra, side body, or arm may extend beyond x=86%.
-RIGHT SAFETY GUTTER: x=86% to x=100% must remain clean empty brand-colored background from top to bottom.
-The viewer-right arm full outer contour must be visible with empty background to its right; it must never touch x=86% or the canvas edge.
-Scale the model smaller and shift her left if needed. The model must not be a close-up crop. Do not enlarge the model beyond the right model zone.
+LEFT TEXT/CALLOUT COLUMN: all headline, subhead, icons, and feature text must stay inside x=4% to x=34%.
+RIGHT MODEL ZONE: the entire visible model silhouette must stay inside x=42% to x=82%. No skin, hair, shoulder, bra, side body, or arm may extend beyond x=82%.
+RIGHT SAFETY GUTTER: x=82% to x=100% must remain clean empty brand-colored background from top to bottom.
+MODEL SCALE: model width must be no more than 40% of total canvas width. Use a smaller upper-body product scale, not a close-up portrait scale.
+MODEL CENTER: place the model centerline around x=62%, not near the right border.
+The viewer-right arm full outer contour must be visible with empty background to its right; it must never touch x=82% or the canvas edge.
+Scale the model smaller and shift her left if needed. Do not enlarge the model beyond the right model zone.
 If any text, icon, or callout would need more room, shrink or tighten the callout column instead of cropping the model.
+RIGHT ARM FAIL CONDITION: if the viewer-right shoulder, upper arm, outer arm contour, or side torso is clipped or flush to the border, the image is wrong; regenerate with the model smaller and farther left.
 ═══════════════════════════════════════════════════════
 ═══════════════════════════════════════════════════════
 STRICT NEGATIVE INSTRUCTIONS
@@ -293,6 +299,7 @@ Do NOT alter model or product | FULLY FRONT-FACING only | No callout lines
 Do NOT show panty, briefs, underwear bottom, boxer shorts, sleep shorts, waistband, hips, thighs, legs, pelvis, or any body area below the natural navel/waistline
 Do NOT widen, spread, exaggerate, or make the waist/hips more curvy — preserve the model's natural torso proportions in a tight head-to-navel crop
 Do NOT crop, hide, or cut the viewer-right arm. Do NOT let the viewer-right shoulder/upper arm/outer arm contour touch the image border.
+Do NOT use a close-up model crop. Do NOT let the model occupy more than 40% of the canvas width. Do NOT place the model beyond x=82%.
 Do NOT use background other than #F5FBFF fresh icy white tones
 Do NOT use fonts other than Sora (headings) and DM Sans (body)
 Do NOT use text color other than #2D4FA0

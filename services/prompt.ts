@@ -856,19 +856,6 @@ const buildPushupBraOnlyPromptFromSection = (
     replacements
   );
 
-const buildPushupBraOnlySide2CanvasLock = (brand: BrandSpecification): string =>
-  [
-    'SIDE 2 CANVAS GEOMETRY LOCK — FINAL, EXACT, NON-NEGOTIABLE',
-    'Use a two-zone layout: LEFT TEXT/CALLOUT COLUMN and RIGHT MODEL ZONE.',
-    'LEFT TEXT/CALLOUT COLUMN: all headline, subhead, icons, and feature text must stay inside x=4% to x=35%.',
-    'RIGHT MODEL ZONE: the entire visible model silhouette must stay inside x=43% to x=86%. No skin, hair, shoulder, bra, side body, or arm may extend beyond x=86%.',
-    `RIGHT SAFETY GUTTER: x=86% to x=100% must remain clean empty ${brand.backgroundColor} brand background from top to bottom.`,
-    'The viewer-right arm full outer contour must be visible with empty background to its right; it must never touch x=86% or the canvas edge.',
-    'Scale the model smaller and shift her left if needed. The model must not be a close-up crop. Do not enlarge the model beyond the right model zone.',
-    'If any text, icon, or callout would need more room, shrink or tighten the callout column instead of cropping the model.',
-    'RIGHT ARM FAIL CONDITION: if the right arm is clipped, flush to the border, or partly outside the canvas, regenerate with the model smaller and farther left.',
-  ].join('\n');
-
 export const getPushupBraOnlyFrontPrompt = (brand: BrandSpecification): string =>
   buildPushupBraOnlyPromptFromSection('FRONT PUSH UP PROMPT — BRA ONLY', 'SIDE 1 PUSH UP PROMPT — BRA ONLY', brand);
 
@@ -937,13 +924,7 @@ export const getPushupBraOnlySide2Prompt = (
     ]
   );
 
-  const callouts: [ResolvedCallout, ResolvedCallout, ResolvedCallout] = [
-    resolveCallout(copy.callout1, content?.zone1),
-    resolveCallout(copy.callout2, content?.zone2),
-    resolveCallout(copy.callout3, content?.zone3),
-  ];
-
-  return `${basePrompt}\n\n${buildSideView2Override(callouts, brand)}\n\n${buildCalloutTextColorLock(brand, callouts)}\n\n${buildCalloutPlacementLock()}\n\n${buildPushupBraOnlySide2CanvasLock(brand)}`;
+  return basePrompt;
 };
 
 export const getPushupBraOnlyBackPrompt = (
