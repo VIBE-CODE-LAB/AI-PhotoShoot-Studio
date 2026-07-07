@@ -924,7 +924,16 @@ export const getPushupBraOnlySide2Prompt = (
     ]
   );
 
-  return basePrompt;
+  const finalSide2FrameLock = [
+    'FINAL SIDE 2 FRAME LOCK:',
+    'The model must be small enough to fit fully inside x=39% to x=74% of the canvas.',
+    'The model may occupy no more than 35% of total canvas width.',
+    'The entire x=74% to x=100% right side must remain empty brand background.',
+    'Both arms must be fully visible inside the frame; no shoulder, upper arm, outer arm contour, side torso, bra, hair, or skin may touch or cross the right image border.',
+    'If the model looks close-up, scale her down before rendering.',
+  ].join('\n');
+
+  return `${basePrompt}\n\n${finalSide2FrameLock}`;
 };
 
 export const getPushupBraOnlyBackPrompt = (
