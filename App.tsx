@@ -31,6 +31,7 @@ import {
 import './design_b_full_window_horizontal.css';
 
 const ALL_ANGLES: ViewAngle[] = ['Front', 'Side', 'Back', 'Mood', 'Zoom', 'Mockup'];
+const TEMPORARY_GEMINI_ERROR_UNTIL = Date.parse('2026-09-15T13:49:50Z');
 const ALLOWED_ANGLES_BY_MODE: Record<ShootMode, ViewAngle[]> = {
   BRA_AND_PANTY: ['Front', 'Side', 'Back', 'Mood', 'Zoom', 'Mockup'],
   PANTY_ONLY: ['Front', 'Side', 'Back', 'Mood'],
@@ -541,6 +542,12 @@ const App = () => {
     pantyOverride?: string | null;
     skipOptionalCheck?: boolean;
   } = {}): Promise<boolean> => {
+    if (Date.now() < TEMPORARY_GEMINI_ERROR_UNTIL) {
+      setStatus(GenerationStatus.ERROR);
+      setErrorMsg('Gemini is temporarily unavailable. Please try again later.');
+      return false;
+    }
+
     const modelForGeneration = options.modelOverride ?? modelImage;
     const braForGeneration = options.braOverride ?? braProductImage;
     const pantyForGeneration = options.pantyOverride ?? pantyProductImage;
