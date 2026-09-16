@@ -1,4 +1,4 @@
-"""REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
+REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
 REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, silhouette. Replicate identically.
 Push Effect — Level 3 Padding (CRITICAL — MUST BE VISIBLY RENDERED):
 
@@ -108,4 +108,4 @@ Do NOT alter model or product | FULLY FRONT-FACING only | No callout lines
 Do NOT use background other than #F5FBFF fresh icy white tones
 Do NOT use fonts other than Sora (headings) and DM Sans (body)
 Do NOT use text color other than #2D4FA0
-No hair over bra | No icons/text on face or bra | No warm-heavy lighting | No watermarks | No extra models | 4:5 ratio only | No flat white backdrop"""
+No hair over bra | No icons/text on face or bra | No warm-heavy lighting | No watermarks | No extra models | 4:5 ratio only | No flat white backdrop
