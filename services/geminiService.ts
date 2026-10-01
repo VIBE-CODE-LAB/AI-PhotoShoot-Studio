@@ -1,6 +1,6 @@
 import { GoogleGenAI, HarmBlockThreshold, HarmCategory } from "@google/genai";
 import { AspectRatio, FrontViewVariant, ImageQuality, ShootMode, SideViewVariant, ViewAngle } from "../types";
-import type { ImageCalloutsContent } from "../types";
+import type { ImageCalloutsContent, UsageMetadata } from "../types";
 import {
   buildBrandDirectionBlock,
   getBraPantyBackViewPrompt,
@@ -268,7 +268,7 @@ export const generateShoot = async ({
   pushupBraOnly = false,
   brand = "dressberry",
   aiModel = "gemini-3.1-flash-image-preview",
-}: GenerateShootParams): Promise<string> => {
+}: GenerateShootParams): Promise<{ image: string; modelUsed: string; usageMetadata: UsageMetadata }> => {
   const mode: ShootMode = shootMode ?? (braBase64 && pantyBase64 ? "BRA_AND_PANTY" : braBase64 ? "BRA_ONLY" : "PANTY_ONLY");
   const isPushupBraOnly = mode === "PUSHUP" && pushupBraOnly;
   
@@ -436,6 +436,14 @@ export const generateShoot = async ({
 
     const candidate = response.candidates?.[0];
 
+    const usageMetadata = response.usageMetadata;
+    if (!usageMetadata) throw new Error("Missing vital token metadata");
+    const normalizedUsageMetadata: UsageMetadata = {
+      prompt_token_count: usageMetadata.promptTokenCount ?? 0,
+      candidates_token_count: usageMetadata.candidatesTokenCount ?? 0,
+      total_token_count: usageMetadata.totalTokenCount ?? 0,
+    };
+
     if (!candidate) {
       throw new Error("The model failed to generate a response. Please try again.");
     }
@@ -452,7 +460,11 @@ export const generateShoot = async ({
       let textContent = "";
       for (const part of responseParts) {
         if (part.inlineData?.data) {
-          return `data:image/png;base64,${part.inlineData.data}`;
+          return {
+            image: `data:image/png;base64,${part.inlineData.data}`,
+            modelUsed: aiModel,
+            usageMetadata: normalizedUsageMetadata,
+          };
         }
         if (part.text) {
           textContent += `${part.text} `;

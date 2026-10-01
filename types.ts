@@ -27,10 +27,31 @@ export interface BillingRecord {
   id: string;
   createdAt: string;
   userName?: string;
-  model: BillingModel;
-  quality: ImageQuality;
+  model: string;
+  quality?: ImageQuality;
+  rawInputTokens: number;
+  rawOutputTokens: number;
   costUsd: number;
   costInr: number;
+  finalUserBillingInr: number;
+}
+
+export interface UsageMetadata {
+  prompt_token_count: number;
+  candidates_token_count: number;
+  total_token_count: number;
+}
+
+export interface BillingCalculation {
+  status: 'success';
+  calculation_breakdown: {
+    model: string;
+    raw_input_tokens: number;
+    raw_output_tokens: number;
+    calculated_usd_cost: number;
+    calculated_base_inr_cost: number;
+  };
+  final_user_billing_inr: number;
 }
 
 export interface BillingUserSummary {

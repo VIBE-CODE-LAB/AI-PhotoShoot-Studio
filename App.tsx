@@ -696,17 +696,15 @@ const App = () => {
       });
 
       if (generationRunRef.current !== runId) return false;
-      setGeneratedImage(result);
+      setGeneratedImage(result.image);
       setStatus(GenerationStatus.COMPLETE);
 
-      const billingModel = selectedAiModel === 'gemini-3-pro-image-preview'
-        ? 'gemini-3-pro-image-preview'
-        : 'gemini-3.1-flash-image-preview';
       void recordGenerationCost({
         apiKey: getStoredApiKey(),
         userName: getStoredUserName(),
-        model: billingModel,
+        model: result.modelUsed,
         quality: imageQuality,
+        usageMetadata: result.usageMetadata,
       })
         .then((summary) => {
           setBillingSummary(summary);
@@ -874,7 +872,7 @@ const App = () => {
             ) : (
               <div className="dB-modal-sub">No completed image generations recorded yet.</div>
             )}
-            <div className="dB-modal-sub">This is an estimate based on configured rates. Google’s billing console remains the source of truth for the actual invoice or quota.</div>
+            <div className="dB-modal-sub">Billing is calculated from the token usage returned by Gemini. Google’s billing console remains the source of truth for the actual invoice or quota.</div>
           </div>
         </div>
       )}

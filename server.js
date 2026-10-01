@@ -7,18 +7,32 @@ import { createServer } from 'node:http';
 const port = Number(process.env.PORT || process.env.BILLING_PORT || 8787);
 const dataPath = join(dirname(fileURLToPath(import.meta.url)), 'data', 'billing.json');
 const distPath = join(dirname(fileURLToPath(import.meta.url)), 'dist');
-const exchangeRate = Number(process.env.BILLING_USD_TO_INR || 85);
+const exchangeRate = 87.5;
+const markupMultiplier = 1.25;
 
-// Override these values when Google changes pricing. Amounts are USD per image.
-const rates = {
-	'gemini-3-pro-image-preview': {
-		'1K': Number(process.env.GEMINI_3_PRO_IMAGE_1K_USD || 0.134),
-		'2K': Number(process.env.GEMINI_3_PRO_IMAGE_2K_USD || 0.134),
-	},
-	'gemini-3.1-flash-image-preview': {
-		'1K': Number(process.env.GEMINI_31_FLASH_IMAGE_1K_USD || 0.039),
-		'2K': Number(process.env.GEMINI_31_FLASH_IMAGE_2K_USD || 0.039),
-	},
+const calculateBilling = (model, usage) => {
+	if (!model || !usage || ![usage.prompt_token_count, usage.candidates_token_count, usage.total_token_count].every((count) => Number.isInteger(count) && count > 0)) {
+		throw new Error('Missing vital token metadata');
+	}
+	const isFlash = /gemini-(?:2\.5|1\.5|3(?:\.1)?)-flash/i.test(model);
+	const isPro = /gemini-(?:2\.5|1\.5|3(?:\.1)?)-pro/i.test(model);
+	if (!isFlash && !isPro) throw new Error('Unsupported Gemini billing model');
+	const inputRate = isFlash ? 0.075 : 1.25;
+	const outputRate = isFlash ? 0.3 : 5;
+	const calculatedUsd = usage.prompt_token_count * inputRate / 1_000_000
+		+ usage.candidates_token_count * outputRate / 1_000_000;
+	const calculatedBaseInr = calculatedUsd * exchangeRate;
+	return {
+		status: 'success',
+		calculation_breakdown: {
+			model,
+			raw_input_tokens: usage.prompt_token_count,
+			raw_output_tokens: usage.candidates_token_count,
+			calculated_usd_cost: Number(calculatedUsd.toFixed(6)),
+			calculated_base_inr_cost: Number(calculatedBaseInr.toFixed(4)),
+		},
+		final_user_billing_inr: Number((calculatedBaseInr * markupMultiplier).toFixed(2)),
+	};
 };
 
 const loadLedger = () => {
@@ -74,7 +88,7 @@ const toSummary = (account, currentUserName) => {
 		const userName = record.userName || 'Previous records';
 		const current = totals.get(userName) || { userName, totalUsd: 0, totalInr: 0 };
 		current.totalUsd += record.costUsd;
-		current.totalInr += record.costInr;
+		current.totalInr += record.finalUserBillingInr ?? record.costInr;
 		totals.set(userName, current);
 		return totals;
 	}, new Map());
@@ -138,21 +152,22 @@ const server = createServer(async (request, response) => {
 		account.userName = userName;
 
 		if (request.url.endsWith('/billing/record')) {
-			if (!Object.hasOwn(rates, body.model) || !Object.hasOwn(rates[body.model], body.quality)) {
-				throw new Error('Unsupported model or quality.');
-			}
-			const costUsd = rates[body.model][body.quality];
-			const costInr = costUsd * exchangeRate;
+			const calculation = calculateBilling(body.model_used, body.usage_metadata);
+			const costUsd = calculation.calculation_breakdown.calculated_usd_cost;
+			const baseInr = calculation.calculation_breakdown.calculated_base_inr_cost;
 			account.totalUsd += costUsd;
-			account.totalInr += costInr;
+			account.totalInr += calculation.final_user_billing_inr;
 			account.records.push({
 				id: randomUUID(),
 				createdAt: new Date().toISOString(),
 				userName,
 				model: body.model,
 				quality: body.quality,
+				rawInputTokens: body.usage_metadata.prompt_token_count,
+				rawOutputTokens: body.usage_metadata.candidates_token_count,
 				costUsd,
-				costInr: Number(costInr.toFixed(2)),
+				costInr: baseInr,
+				finalUserBillingInr: calculation.final_user_billing_inr,
 			});
 			ledger[keyFingerprint] = account;
 			saveLedger(ledger);
@@ -160,7 +175,12 @@ const server = createServer(async (request, response) => {
 
 		json(response, 200, toSummary(account, userName));
 	} catch (error) {
-		json(response, 400, { error: error instanceof Error ? error.message : 'Billing request failed.' });
+		const message = error instanceof Error ? error.message : 'Billing request failed.';
+		if (message === 'Missing vital token metadata') {
+			json(response, 400, { status: 'error', message });
+			return;
+		}
+		json(response, 400, { error: message });
 	}
 });
 

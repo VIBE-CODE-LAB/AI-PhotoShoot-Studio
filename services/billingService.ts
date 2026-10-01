@@ -1,13 +1,10 @@
-import type { BillingModel, BillingSummary, ImageQuality } from '../types';
+import type { BillingCalculation, BillingSummary, ImageQuality, UsageMetadata } from '../types';
 
 const USER_NAME_KEY = 'belle_user_name';
 const BILLING_API_URL = (import.meta.env.VITE_BILLING_API_URL || '/api').replace(/\/$/, '');
 const LOCAL_BILLING_PREFIX = 'belle_local_billing_';
-const USD_TO_INR = 85;
-const LOCAL_RATES: Record<BillingModel, Record<ImageQuality, number>> = {
-  'gemini-3-pro-image-preview': { '1K': 0.134, '2K': 0.134 },
-  'gemini-3.1-flash-image-preview': { '1K': 0.039, '2K': 0.039 },
-};
+const USD_TO_INR = 87.5;
+const MARKUP_MULTIPLIER = 1.25;
 
 const emptySummary = (userName = ''): BillingSummary => ({
   userName,
@@ -86,8 +83,9 @@ export const recordGenerationCost = async ({
 }: {
   apiKey: string;
   userName: string;
-  model: BillingModel;
+  model: string;
   quality: ImageQuality;
+  usageMetadata: UsageMetadata;
 }): Promise<BillingSummary> => {
   const keyFingerprint = await getApiKeyFingerprint(apiKey);
   try {
@@ -96,11 +94,14 @@ export const recordGenerationCost = async ({
       userName: userName.trim(),
       model,
       quality,
+      usage_metadata: usageMetadata,
+      model_used: model,
     })), source: 'server' };
   } catch {
     const current = readLocalSummary(keyFingerprint, userName.trim());
-    const costUsd = LOCAL_RATES[model][quality];
-    const costInr = Number((costUsd * USD_TO_INR).toFixed(2));
+    const calculation = calculateBilling({ model_used: model, usage_metadata: usageMetadata });
+    const costUsd = calculation.calculation_breakdown.calculated_usd_cost;
+    const costInr = calculation.final_user_billing_inr;
     return writeLocalSummary(keyFingerprint, {
       userName: userName.trim(),
       totalUsd: current.totalUsd + costUsd,
@@ -116,9 +117,40 @@ export const recordGenerationCost = async ({
         userName: userName.trim(),
         model,
         quality,
+        rawInputTokens: usageMetadata.prompt_token_count,
+        rawOutputTokens: usageMetadata.candidates_token_count,
         costUsd,
-        costInr,
+        costInr: calculation.calculation_breakdown.calculated_base_inr_cost,
+        finalUserBillingInr: costInr,
       }, ...current.records].slice(0, 100),
     });
   }
+};
+
+export const calculateBilling = (payload: {
+  model_used: string;
+  usage_metadata: UsageMetadata;
+}): BillingCalculation => {
+  const { model_used: model, usage_metadata: usage } = payload;
+  if (!model || !usage || ![usage.prompt_token_count, usage.candidates_token_count, usage.total_token_count].every((count) => Number.isInteger(count) && count > 0)) {
+    throw new Error('Missing vital token metadata');
+  }
+  const isFlash = /gemini-(?:2\.5|1\.5|3(?:\.1)?)-flash/i.test(model);
+  const isPro = /gemini-(?:2\.5|1\.5|3(?:\.1)?)-pro/i.test(model);
+  if (!isFlash && !isPro) throw new Error('Unsupported Gemini billing model');
+  const inputRate = isFlash ? 0.075 : 1.25;
+  const outputRate = isFlash ? 0.3 : 5;
+  const usd = usage.prompt_token_count * inputRate / 1_000_000 + usage.candidates_token_count * outputRate / 1_000_000;
+  const baseInr = usd * USD_TO_INR;
+  return {
+    status: 'success',
+    calculation_breakdown: {
+      model,
+      raw_input_tokens: usage.prompt_token_count,
+      raw_output_tokens: usage.candidates_token_count,
+      calculated_usd_cost: Number(usd.toFixed(6)),
+      calculated_base_inr_cost: Number(baseInr.toFixed(4)),
+    },
+    final_user_billing_inr: Number((baseInr * MARKUP_MULTIPLIER).toFixed(2)),
+  };
 };
