@@ -37,6 +37,7 @@ export interface BillingSummary {
   totalUsd: number;
   totalInr: number;
   records: BillingRecord[];
+  source?: 'server' | 'local';
 }
 
 export type ViewAngle = 'Front' | 'Side' | 'Back' | 'Mood' | 'Zoom' | 'Mockup';

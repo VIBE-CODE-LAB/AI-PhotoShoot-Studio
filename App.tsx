@@ -841,7 +841,11 @@ const App = () => {
             <div className="dB-billing-heading">
               <div>
                 <div className="dB-modal-title">API bill for {billingSummary?.userName || getStoredUserName() || 'this user'}</div>
-                <div className="dB-modal-sub">Estimated tracked spend for this API key across devices.</div>
+                <div className="dB-modal-sub">
+                  {billingSummary?.source === 'local'
+                    ? 'Billing service unavailable. This fallback is stored on this device only.'
+                    : 'Estimated tracked spend for this API key across devices.'}
+                </div>
               </div>
               <button type="button" className="dB-login" onClick={() => setIsBillingOpen(false)}>Close</button>
             </div>

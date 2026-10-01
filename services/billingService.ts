@@ -1,7 +1,13 @@
 import type { BillingModel, BillingSummary, ImageQuality } from '../types';
 
 const USER_NAME_KEY = 'belle_user_name';
-const BILLING_API_URL = import.meta.env.VITE_BILLING_API_URL || '/api';
+const BILLING_API_URL = (import.meta.env.VITE_BILLING_API_URL || '/api').replace(/\/$/, '');
+const LOCAL_BILLING_PREFIX = 'belle_local_billing_';
+const USD_TO_INR = 85;
+const LOCAL_RATES: Record<BillingModel, Record<ImageQuality, number>> = {
+  'gemini-3-pro-image-preview': { '1K': 0.134, '2K': 0.134 },
+  'gemini-3.1-flash-image-preview': { '1K': 0.039, '2K': 0.039 },
+};
 
 const emptySummary = (userName = ''): BillingSummary => ({
   userName,
@@ -9,6 +15,22 @@ const emptySummary = (userName = ''): BillingSummary => ({
   totalInr: 0,
   records: [],
 });
+
+const readLocalSummary = (keyFingerprint: string, userName: string): BillingSummary => {
+  const raw = localStorage.getItem(`${LOCAL_BILLING_PREFIX}${keyFingerprint}`);
+  if (!raw) return { ...emptySummary(userName), source: 'local' };
+  try {
+    return { ...JSON.parse(raw), userName, source: 'local' } as BillingSummary;
+  } catch {
+    return { ...emptySummary(userName), source: 'local' };
+  }
+};
+
+const writeLocalSummary = (keyFingerprint: string, summary: BillingSummary): BillingSummary => {
+  const localSummary = { ...summary, source: 'local' as const };
+  localStorage.setItem(`${LOCAL_BILLING_PREFIX}${keyFingerprint}`, JSON.stringify(localSummary));
+  return localSummary;
+};
 
 export const getStoredUserName = (): string => localStorage.getItem(USER_NAME_KEY) || '';
 
@@ -38,7 +60,11 @@ const postBilling = async (path: string, payload: Record<string, unknown>): Prom
 export const fetchBillingSummary = async (apiKey: string, userName: string): Promise<BillingSummary> => {
   if (!apiKey || !userName.trim()) return emptySummary(userName);
   const keyFingerprint = await getApiKeyFingerprint(apiKey);
-  return postBilling('/billing/summary', { keyFingerprint, userName: userName.trim() });
+  try {
+    return { ...(await postBilling('/billing/summary', { keyFingerprint, userName: userName.trim() })), source: 'server' };
+  } catch {
+    return readLocalSummary(keyFingerprint, userName.trim());
+  }
 };
 
 export const recordGenerationCost = async ({
@@ -53,10 +79,29 @@ export const recordGenerationCost = async ({
   quality: ImageQuality;
 }): Promise<BillingSummary> => {
   const keyFingerprint = await getApiKeyFingerprint(apiKey);
-  return postBilling('/billing/record', {
-    keyFingerprint,
-    userName: userName.trim(),
-    model,
-    quality,
-  });
+  try {
+    return { ...(await postBilling('/billing/record', {
+      keyFingerprint,
+      userName: userName.trim(),
+      model,
+      quality,
+    })), source: 'server' };
+  } catch {
+    const current = readLocalSummary(keyFingerprint, userName.trim());
+    const costUsd = LOCAL_RATES[model][quality];
+    const costInr = Number((costUsd * USD_TO_INR).toFixed(2));
+    return writeLocalSummary(keyFingerprint, {
+      userName: userName.trim(),
+      totalUsd: current.totalUsd + costUsd,
+      totalInr: Number((current.totalInr + costInr).toFixed(2)),
+      records: [{
+        id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+        createdAt: new Date().toISOString(),
+        model,
+        quality,
+        costUsd,
+        costInr,
+      }, ...current.records].slice(0, 100),
+    });
+  }
 };

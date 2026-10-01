@@ -75,6 +75,8 @@ const toSummary = (account) => ({
 	records: account.records.slice(-100).reverse(),
 });
 
+const billingRoutes = ['/api/billing/summary', '/api/billing/record', '/billing/summary', '/billing/record'];
+
 const server = createServer(async (request, response) => {
 	if (request.method === 'OPTIONS') {
 		response.writeHead(204, {
@@ -86,7 +88,7 @@ const server = createServer(async (request, response) => {
 		return;
 	}
 
-	if (request.method !== 'POST' || !['/api/billing/summary', '/api/billing/record'].includes(request.url)) {
+	if (request.method !== 'POST' || !billingRoutes.includes(request.url)) {
 		json(response, 404, { error: 'Not found.' });
 		return;
 	}
@@ -98,7 +100,7 @@ const server = createServer(async (request, response) => {
 		const account = ledger[keyFingerprint] || { userName, totalUsd: 0, totalInr: 0, records: [] };
 		account.userName = userName;
 
-		if (request.url === '/api/billing/record') {
+		if (request.url.endsWith('/billing/record')) {
 			if (!Object.hasOwn(rates, body.model) || !Object.hasOwn(rates[body.model], body.quality)) {
 				throw new Error('Unsupported model or quality.');
 			}
