@@ -166,6 +166,8 @@ body{background:#fff4ec;}
 .dB-billing-modal{max-width:520px;}
 .dB-billing-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
 .dB-billing-total{font-size:32px;font-weight:600;color:#3d2818;padding:10px 0 2px;}
+.dB-billing-shared-label{font-size:10px;color:#a86b4a;text-transform:uppercase;letter-spacing:.08em;}
+.dB-billing-users{display:flex;flex-direction:column;gap:5px;}
 .dB-billing-records{display:flex;flex-direction:column;gap:5px;max-height:260px;overflow-y:auto;}
 .dB-billing-record{display:flex;justify-content:space-between;gap:12px;background:#fff4ec;border-radius:8px;padding:8px 10px;font-size:12px;color:#5c3d28;}
 .dB-billing-record strong{white-space:nowrap;color:#3d2818;}

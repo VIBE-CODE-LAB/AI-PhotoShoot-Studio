@@ -850,6 +850,17 @@ const App = () => {
               <button type="button" className="dB-login" onClick={() => setIsBillingOpen(false)}>Close</button>
             </div>
             <div className="dB-billing-total">{formattedBillingTotal}</div>
+            <div className="dB-billing-shared-label">Shared API key total</div>
+            {billingSummary?.users && billingSummary.users.length > 0 && (
+              <div className="dB-billing-users">
+                {billingSummary.users.map((user) => (
+                  <div className="dB-billing-record" key={user.userName}>
+                    <span>{user.userName}{user.userName === getStoredUserName() ? ' (you)' : ''}</span>
+                    <strong>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(user.totalInr)}</strong>
+                  </div>
+                ))}
+              </div>
+            )}
             {billingError && <div className="dB-msg err">{billingError}</div>}
             {billingSummary?.records.length ? (
               <div className="dB-billing-records">

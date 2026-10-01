@@ -68,12 +68,29 @@ const validateIdentity = (body) => {
 	return { keyFingerprint: body.keyFingerprint, userName: body.userName.trim() };
 };
 
-const toSummary = (account) => ({
-	userName: account.userName,
-	totalUsd: Number(account.totalUsd.toFixed(6)),
-	totalInr: Number(account.totalInr.toFixed(2)),
-	records: account.records.slice(-100).reverse(),
-});
+const toSummary = (account, currentUserName) => {
+	const users = account.records.reduce((totals, record) => {
+		const userName = record.userName || 'Previous records';
+		const current = totals.get(userName) || { userName, totalUsd: 0, totalInr: 0 };
+		current.totalUsd += record.costUsd;
+		current.totalInr += record.costInr;
+		totals.set(userName, current);
+		return totals;
+	}, new Map());
+	if (!users.has(currentUserName)) users.set(currentUserName, { userName: currentUserName, totalUsd: 0, totalInr: 0 });
+
+	return {
+		userName: currentUserName,
+		totalUsd: Number(account.totalUsd.toFixed(6)),
+		totalInr: Number(account.totalInr.toFixed(2)),
+		users: Array.from(users.values()).map((user) => ({
+			...user,
+			totalUsd: Number(user.totalUsd.toFixed(6)),
+			totalInr: Number(user.totalInr.toFixed(2)),
+		})),
+		records: account.records.slice(-100).reverse(),
+	};
+};
 
 const billingRoutes = ['/api/billing/summary', '/api/billing/record', '/billing/summary', '/billing/record'];
 
@@ -111,6 +128,7 @@ const server = createServer(async (request, response) => {
 			account.records.push({
 				id: randomUUID(),
 				createdAt: new Date().toISOString(),
+				userName,
 				model: body.model,
 				quality: body.quality,
 				costUsd,
@@ -120,7 +138,7 @@ const server = createServer(async (request, response) => {
 			saveLedger(ledger);
 		}
 
-		json(response, 200, toSummary(account));
+		json(response, 200, toSummary(account, userName));
 	} catch (error) {
 		json(response, 400, { error: error instanceof Error ? error.message : 'Billing request failed.' });
 	}

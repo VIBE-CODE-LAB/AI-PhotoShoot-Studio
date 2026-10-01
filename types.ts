@@ -26,10 +26,17 @@ export type BillingModel = 'gemini-3-pro-image-preview' | 'gemini-3.1-flash-imag
 export interface BillingRecord {
   id: string;
   createdAt: string;
+  userName?: string;
   model: BillingModel;
   quality: ImageQuality;
   costUsd: number;
   costInr: number;
+}
+
+export interface BillingUserSummary {
+  userName: string;
+  totalUsd: number;
+  totalInr: number;
 }
 
 export interface BillingSummary {
@@ -37,6 +44,7 @@ export interface BillingSummary {
   totalUsd: number;
   totalInr: number;
   records: BillingRecord[];
+  users?: BillingUserSummary[];
   source?: 'server' | 'local';
 }
 

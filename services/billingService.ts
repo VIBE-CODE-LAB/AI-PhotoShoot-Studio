@@ -14,6 +14,7 @@ const emptySummary = (userName = ''): BillingSummary => ({
   totalUsd: 0,
   totalInr: 0,
   records: [],
+  users: userName ? [{ userName, totalUsd: 0, totalInr: 0 }] : [],
 });
 
 const readLocalSummary = (keyFingerprint: string, userName: string): BillingSummary => {
@@ -47,14 +48,24 @@ export const getApiKeyFingerprint = async (apiKey: string): Promise<string> => {
 };
 
 const postBilling = async (path: string, payload: Record<string, unknown>): Promise<BillingSummary> => {
-  const response = await fetch(`${BILLING_API_URL}${path}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  });
-
-  if (!response.ok) throw new Error(`Billing service returned ${response.status}.`);
-  return response.json() as Promise<BillingSummary>;
+  const endpoints = BILLING_API_URL === '/api'
+    ? [`/api${path}`, path]
+    : [`${BILLING_API_URL}${path}`];
+  let lastError = 'Billing service unavailable.';
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (response.ok) return response.json() as Promise<BillingSummary>;
+      lastError = `Billing service returned ${response.status}.`;
+    } catch (error: any) {
+      lastError = error.message || lastError;
+    }
+  }
+  throw new Error(lastError);
 };
 
 export const fetchBillingSummary = async (apiKey: string, userName: string): Promise<BillingSummary> => {
@@ -94,9 +105,15 @@ export const recordGenerationCost = async ({
       userName: userName.trim(),
       totalUsd: current.totalUsd + costUsd,
       totalInr: Number((current.totalInr + costInr).toFixed(2)),
+      users: [{
+        userName: userName.trim(),
+        totalUsd: current.totalUsd + costUsd,
+        totalInr: Number((current.totalInr + costInr).toFixed(2)),
+      }],
       records: [{
         id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
         createdAt: new Date().toISOString(),
+        userName: userName.trim(),
         model,
         quality,
         costUsd,
