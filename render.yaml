@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ai-photoshoot-studio
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /
