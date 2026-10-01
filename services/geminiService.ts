@@ -437,11 +437,10 @@ export const generateShoot = async ({
     const candidate = response.candidates?.[0];
 
     const usageMetadata = response.usageMetadata;
-    if (!usageMetadata) throw new Error("Missing vital token metadata");
     const normalizedUsageMetadata: UsageMetadata = {
-      prompt_token_count: usageMetadata.promptTokenCount ?? 0,
-      candidates_token_count: usageMetadata.candidatesTokenCount ?? 0,
-      total_token_count: usageMetadata.totalTokenCount ?? 0,
+      prompt_token_count: usageMetadata?.promptTokenCount ?? 0,
+      candidates_token_count: usageMetadata?.candidatesTokenCount ?? 0,
+      total_token_count: usageMetadata?.totalTokenCount ?? 0,
     };
 
     if (!candidate) {

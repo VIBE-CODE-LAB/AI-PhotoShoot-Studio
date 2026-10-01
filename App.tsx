@@ -717,7 +717,7 @@ const App = () => {
       setReviewImages((current) => {
         const next = [...current, {
           id: `${Date.now()}-${poseLabelForResult}`,
-          src: result,
+          src: result.image,
           pose: poseLabelForResult,
           ratio: ratioLabelForResult,
         }];
