@@ -865,7 +865,7 @@ const App = () => {
                 {billingSummary.records.map((record) => (
                   <div className="dB-billing-record" key={record.id}>
                     <span>{record.model === 'gemini-3-pro-image-preview' ? 'Gemini 3 Pro' : '3.1 Fast'} · {record.quality}</span>
-                    <strong>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(record.costInr)}</strong>
+                    <strong>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(record.finalUserBillingInr ?? record.costInr)}</strong>
                   </div>
                 ))}
               </div>
