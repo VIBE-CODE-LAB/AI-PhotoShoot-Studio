@@ -8,6 +8,7 @@ import {
   FrontViewVariant,
   GenerationStatus,
   ImageCalloutsContent,
+  ImageQuality,
   ShootMode,
   SideViewVariant,
   ViewAngle,
@@ -132,6 +133,7 @@ const App = () => {
     zone4: 'auto',
   });
   const [aspectRatio, setAspectRatio] = useState<AspectRatio>('3:4');
+  const [imageQuality, setImageQuality] = useState<ImageQuality>('1K');
   const [viewAngle, setViewAngle] = useState<ViewAngle>('Side');
   const [sideViewVariant, setSideViewVariant] = useState<SideViewVariant>('SIDE_VIEW_1');
   const [frontViewVariant, setFrontViewVariant] = useState<FrontViewVariant>('FRONT_SHOOT');
@@ -639,6 +641,7 @@ const App = () => {
         userPrompt,
         imageCalloutsContent: normalizedImageCalloutsContent,
         aspectRatio,
+        imageQuality,
         viewAngle,
         sideViewVariant,
         frontViewVariant,
@@ -1041,6 +1044,21 @@ const App = () => {
                 >
                   3.1 Fast
                 </button>
+              </div>
+            </div>
+            <div className="dB-row">
+              <span className="dB-row-l">Quality</span>
+              <div className="dB-mini">
+                {(['1K', '2K'] as ImageQuality[]).map((quality) => (
+                  <button
+                    key={quality}
+                    type="button"
+                    className={`dB-mp${imageQuality === quality ? ' on' : ''}`}
+                    onClick={() => setImageQuality(quality)}
+                  >
+                    {quality}
+                  </button>
+                ))}
               </div>
             </div>
             <div className="dB-row">

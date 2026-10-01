@@ -1,5 +1,5 @@
 import { GoogleGenAI, HarmBlockThreshold, HarmCategory } from "@google/genai";
-import { AspectRatio, FrontViewVariant, ShootMode, SideViewVariant, ViewAngle } from "../types";
+import { AspectRatio, FrontViewVariant, ImageQuality, ShootMode, SideViewVariant, ViewAngle } from "../types";
 import type { ImageCalloutsContent } from "../types";
 import {
   buildBrandDirectionBlock,
@@ -51,6 +51,7 @@ interface GenerateShootParams {
   userPrompt: string;
   imageCalloutsContent?: ImageCalloutsContent | null;
   aspectRatio?: AspectRatio;
+  imageQuality?: ImageQuality;
   viewAngle?: ViewAngle;
   sideViewVariant?: SideViewVariant;
   frontViewVariant?: FrontViewVariant;
@@ -259,6 +260,7 @@ export const generateShoot = async ({
   userPrompt,
   imageCalloutsContent = null,
   aspectRatio = "3:4",
+  imageQuality = "1K",
   viewAngle = "Front",
   sideViewVariant = "SIDE_VIEW_1",
   frontViewVariant = "FRONT_SHOOT",
@@ -422,7 +424,7 @@ export const generateShoot = async ({
       contents: { parts },
       config: {
         systemInstruction: getSystemInstruction(mode, viewAngle, isPushupBraOnly),
-        imageConfig: { aspectRatio, imageSize: "2K" },
+        imageConfig: { aspectRatio, imageSize: imageQuality },
         safetySettings: [
           { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
           { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE },
