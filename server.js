@@ -4,8 +4,9 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createServer } from 'node:http';
 
-const port = Number(process.env.BILLING_PORT || 8787);
+const port = Number(process.env.PORT || process.env.BILLING_PORT || 8787);
 const dataPath = join(dirname(fileURLToPath(import.meta.url)), 'data', 'billing.json');
+const distPath = join(dirname(fileURLToPath(import.meta.url)), 'dist');
 const exchangeRate = Number(process.env.BILLING_USD_TO_INR || 85);
 
 // Override these values when Google changes pricing. Amounts are USD per image.
@@ -93,6 +94,14 @@ const toSummary = (account, currentUserName) => {
 };
 
 const billingRoutes = ['/api/billing/summary', '/api/billing/record', '/billing/summary', '/billing/record'];
+const contentTypes = {
+	'.css': 'text/css',
+	'.js': 'application/javascript',
+	'.png': 'image/png',
+	'.jpg': 'image/jpeg',
+	'.svg': 'image/svg+xml',
+	'.webp': 'image/webp',
+};
 
 const server = createServer(async (request, response) => {
 	if (request.method === 'OPTIONS') {
@@ -103,6 +112,17 @@ const server = createServer(async (request, response) => {
 		});
 		response.end();
 		return;
+	}
+	if (request.method === 'GET' && existsSync(distPath)) {
+		const requestedPath = decodeURIComponent((request.url || '/').split('?')[0]);
+		const relativePath = requestedPath === '/' ? '/index.html' : requestedPath;
+		const filePath = join(distPath, relativePath);
+		if (filePath.startsWith(distPath) && existsSync(filePath)) {
+			const extension = filePath.slice(filePath.lastIndexOf('.'));
+			response.writeHead(200, { 'Content-Type': contentTypes[extension] || 'text/html' });
+			response.end(readFileSync(filePath));
+			return;
+		}
 	}
 
 	if (request.method !== 'POST' || !billingRoutes.includes(request.url)) {

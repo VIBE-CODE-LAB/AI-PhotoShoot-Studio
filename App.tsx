@@ -880,7 +880,15 @@ const App = () => {
       )}
 
       <div className="dB-top">
-        <button type="button" className="dB-bill" onClick={() => setIsBillingOpen(true)} title="View tracked API spend">
+        <button
+          type="button"
+          className="dB-bill"
+          onClick={() => {
+            setIsBillingOpen(true);
+            void refreshBillingSummary();
+          }}
+          title="View tracked API spend"
+        >
           <span className="dB-bill-label">API bill</span>
           <strong>{formattedBillingTotal}</strong>
         </button>
