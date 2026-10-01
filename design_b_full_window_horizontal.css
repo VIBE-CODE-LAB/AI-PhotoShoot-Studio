@@ -6,6 +6,10 @@ body{background:#fff4ec;}
 .dB{background:#fff4ec;font-family:var(--font-sans);color:#3d2818;border-radius:0;overflow:hidden;border:0;width:100vw;display:flex;flex-direction:column;height:100vh;min-height:760px;}
 
 .dB-top{padding:10px 18px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #fde2d0;flex-shrink:0;}
+.dB-bill{display:flex;align-items:center;gap:9px;border:1px solid #fde2d0;background:#fff4ec;border-radius:12px;padding:5px 10px;color:#3d2818;cursor:pointer;min-width:104px;text-align:left;}
+.dB-bill:hover{border-color:#fb7d4b;background:#fffaf5;}
+.dB-bill-label{font-size:10px;color:#a86b4a;text-transform:uppercase;letter-spacing:.08em;}
+.dB-bill strong{font-size:13px;color:#3d2818;}
 .dB-brand{display:flex;align-items:center;gap:9px;}
 .dB-logo{width:32px;height:32px;border-radius:50%;background:#fb7d4b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;}
 .dB-name{font-size:16px;font-weight:500;color:#3d2818;}
@@ -159,6 +163,12 @@ body{background:#fff4ec;}
 .dB-modal-options{display:flex;gap:10px;flex-wrap:wrap;}
 .dB-modal-option{display:flex;align-items:center;gap:6px;background:#fff4ec;border:1px solid #fde2d0;border-radius:10px;padding:6px 10px;font-size:12px;color:#3d2818;}
 .dB-modal-actions{display:flex;justify-content:flex-end;gap:8px;}
+.dB-billing-modal{max-width:520px;}
+.dB-billing-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.dB-billing-total{font-size:32px;font-weight:600;color:#3d2818;padding:10px 0 2px;}
+.dB-billing-records{display:flex;flex-direction:column;gap:5px;max-height:260px;overflow-y:auto;}
+.dB-billing-record{display:flex;justify-content:space-between;gap:12px;background:#fff4ec;border-radius:8px;padding:8px 10px;font-size:12px;color:#5c3d28;}
+.dB-billing-record strong{white-space:nowrap;color:#3d2818;}
 .dB-back-ref-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
 .dB-feedback-brand-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
 .dB-feedback-brand{background:#fff4ec;border:1px solid #fde2d0;border-radius:10px;padding:8px 9px;font-size:12px;font-weight:500;color:#5c3d28;cursor:pointer;display:flex;align-items:center;gap:7px;min-width:0;}

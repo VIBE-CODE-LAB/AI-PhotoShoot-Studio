@@ -3,7 +3,15 @@ import { ImageUploader } from './components/ImageUploader';
 import { LoginModal } from './components/LoginModal';
 import { clearStoredApiKey, getStoredApiKey } from './services/geminiService';
 import {
+  clearStoredUserName,
+  fetchBillingSummary,
+  getStoredUserName,
+  recordGenerationCost,
+  setStoredUserName,
+} from './services/billingService';
+import {
   AspectRatio,
+  BillingSummary,
   CalloutZone,
   FrontViewVariant,
   GenerationStatus,
@@ -170,6 +178,9 @@ const App = () => {
   const [usageCount, setUsageCount] = useState<number>(0);
   const [isPro, setIsPro] = useState<boolean>(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [billingSummary, setBillingSummary] = useState<BillingSummary | null>(null);
+  const [isBillingOpen, setIsBillingOpen] = useState(false);
+  const [billingError, setBillingError] = useState<string | null>(null);
 
   const hasModel = Boolean(modelImage);
   const hasBra = Boolean(braProductImage);
@@ -202,6 +213,11 @@ const App = () => {
   const activeBrand = BRAND_SPECIFICATIONS_BY_ID[selectedBrand];
   const modeLabel = selectedMode === 'PUSHUP' ? 'Pushup' : selectedMode === 'BRA_AND_PANTY' ? 'Bra + Panty' : selectedMode === 'BRA_ONLY' ? 'Bra' : 'Panty';
   const displayModeLabel = generationMode ? modeLabel : 'Setup';
+  const formattedBillingTotal = new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 2,
+  }).format(billingSummary?.totalInr ?? 0);
   const ratioLabel = aspectRatio === '21:9' ? 'A4+' : aspectRatio;
   const poseLabel = viewAngle === 'Front'
     ? frontViewVariant === 'FRONT_PUSH_UP'
@@ -265,12 +281,29 @@ const App = () => {
       })
     : defaultSequence;
 
+  const refreshBillingSummary = async (userName = getStoredUserName()) => {
+    const apiKey = getStoredApiKey();
+    if (!apiKey || !userName) {
+      setBillingSummary(null);
+      return;
+    }
+
+    try {
+      const summary = await fetchBillingSummary(apiKey, userName);
+      setBillingSummary(summary);
+      setBillingError(null);
+    } catch (error: any) {
+      setBillingError(error.message || 'Billing service unavailable.');
+    }
+  };
+
   useEffect(() => {
     const savedCount = localStorage.getItem('belle_usage_count');
     const savedPro = localStorage.getItem('belle_is_pro');
     if (savedCount) setUsageCount(parseInt(savedCount, 10));
     // Auto-unlock Pro if a valid API key is already stored in the browser
     if (savedPro === 'true' && getStoredApiKey()) setIsPro(true);
+    if (getStoredUserName() && getStoredApiKey()) void refreshBillingSummary();
     setStylePresets(loadPresetsFromStorage());
 
     const savedSheetUrl = loadGoogleSheetUrlFromStorage();
@@ -369,16 +402,21 @@ const App = () => {
     setTimeout(() => setCsvImportMsg(null), 4000);
   };
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (userName: string) => {
+    setStoredUserName(userName);
     setIsPro(true);
     localStorage.setItem('belle_is_pro', 'true');
     setIsLoginModalOpen(false);
+    void refreshBillingSummary(userName);
   };
 
   const handleLogout = () => {
     clearStoredApiKey();
+    clearStoredUserName();
     localStorage.removeItem('belle_is_pro');
     setIsPro(false);
+    setBillingSummary(null);
+    setIsBillingOpen(false);
   };
 
   const downloadImage = (src: string, label: string) => {
@@ -588,6 +626,12 @@ const App = () => {
       return false;
     }
 
+    if (!getStoredUserName()) {
+      setIsLoginModalOpen(true);
+      setErrorMsg('Enter your name with your access code and API key before generating.');
+      return false;
+    }
+
     const runId = generationRunRef.current + 1;
     generationRunRef.current = runId;
     setErrorMsg(null);
@@ -654,6 +698,23 @@ const App = () => {
       if (generationRunRef.current !== runId) return false;
       setGeneratedImage(result);
       setStatus(GenerationStatus.COMPLETE);
+
+      const billingModel = selectedAiModel === 'gemini-3-pro-image-preview'
+        ? 'gemini-3-pro-image-preview'
+        : 'gemini-3.1-flash-image-preview';
+      void recordGenerationCost({
+        apiKey: getStoredApiKey(),
+        userName: getStoredUserName(),
+        model: billingModel,
+        quality: imageQuality,
+      })
+        .then((summary) => {
+          setBillingSummary(summary);
+          setBillingError(null);
+        })
+        .catch((error: any) => {
+          setBillingError(error.message || 'Could not record API cost.');
+        });
 
       setReviewImages((current) => {
         const next = [...current, {
@@ -774,8 +835,40 @@ const App = () => {
   return (
     <div className="dB">
       <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} onLogin={handleLoginSuccess} />
+      {isBillingOpen && (
+        <div className="dB-modal" onClick={() => setIsBillingOpen(false)}>
+          <div className="dB-modal-card dB-billing-modal" onClick={(event) => event.stopPropagation()}>
+            <div className="dB-billing-heading">
+              <div>
+                <div className="dB-modal-title">API bill for {billingSummary?.userName || getStoredUserName() || 'this user'}</div>
+                <div className="dB-modal-sub">Estimated tracked spend for this API key across devices.</div>
+              </div>
+              <button type="button" className="dB-login" onClick={() => setIsBillingOpen(false)}>Close</button>
+            </div>
+            <div className="dB-billing-total">{formattedBillingTotal}</div>
+            {billingError && <div className="dB-msg err">{billingError}</div>}
+            {billingSummary?.records.length ? (
+              <div className="dB-billing-records">
+                {billingSummary.records.map((record) => (
+                  <div className="dB-billing-record" key={record.id}>
+                    <span>{record.model === 'gemini-3-pro-image-preview' ? 'Gemini 3 Pro' : '3.1 Fast'} · {record.quality}</span>
+                    <strong>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(record.costInr)}</strong>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="dB-modal-sub">No completed image generations recorded yet.</div>
+            )}
+            <div className="dB-modal-sub">This is an estimate based on configured rates. Google’s billing console remains the source of truth for the actual invoice or quota.</div>
+          </div>
+        </div>
+      )}
 
       <div className="dB-top">
+        <button type="button" className="dB-bill" onClick={() => setIsBillingOpen(true)} title="View tracked API spend">
+          <span className="dB-bill-label">API bill</span>
+          <strong>{formattedBillingTotal}</strong>
+        </button>
         <div className="dB-brand">
           <div className="dB-logo">S</div>
           <span className="dB-name">Studio</span>

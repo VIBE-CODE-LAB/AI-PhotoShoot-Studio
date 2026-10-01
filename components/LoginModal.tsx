@@ -5,10 +5,11 @@ import { setStoredApiKey } from '../services/geminiService';
 interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onLogin: () => void;
+  onLogin: (userName: string) => void;
 }
 
 export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin }) => {
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [apiKey, setApiKey] = useState('');
   const [error, setError] = useState('');
@@ -20,6 +21,12 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    const trimmedName = userName.trim();
+    if (!trimmedName) {
+      setError('Please enter your name.');
+      return;
+    }
 
     if (password !== 'Studio@5678') {
       setError('Invalid access code. Please try again.');
@@ -33,7 +40,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
     }
 
     setStoredApiKey(trimmedKey);
-    onLogin();
+    onLogin(trimmedName);
   };
 
   const EyeIcon = ({ visible }: { visible: boolean }) => visible ? (
@@ -69,6 +76,18 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-brand-800 mb-1">Your Name</label>
+              <input
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                className="w-full bg-white text-brand-900 placeholder-brand-400 border border-brand-200 rounded-lg p-3 focus:ring-2 focus:ring-brand-500 outline-none transition-all"
+                placeholder="Enter your name..."
+                autoComplete="name"
+              />
+            </div>
+
             {/* Access Password */}
             <div>
               <label className="block text-sm font-medium text-brand-800 mb-1">Access Password</label>
@@ -108,7 +127,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
                   <EyeIcon visible={showApiKey} />
                 </button>
               </div>
-              <p className="text-xs text-brand-400 mt-1">Your key is stored only in your browser — never sent to any server.</p>
+              <p className="text-xs text-brand-400 mt-1">Your key stays in this browser. Only a one-way fingerprint is used for shared billing totals.</p>
             </div>
 
             {error && (

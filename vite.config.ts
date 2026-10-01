@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => {
         host: '0.0.0.0',
         open: true,
         allowedHosts: ['trafficable-sanjuana-frontoparietal.ngrok-free.dev'],
+        proxy: {
+          '/api': 'http://localhost:8787',
+        },
       },
       plugins: [react()],
       resolve: {

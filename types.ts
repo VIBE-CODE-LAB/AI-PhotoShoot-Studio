@@ -21,6 +21,24 @@ export type AspectRatio = '1:1' | '3:4' | '4:3' | '9:16' | '16:9' | '21:9';
 
 export type ImageQuality = '1K' | '2K';
 
+export type BillingModel = 'gemini-3-pro-image-preview' | 'gemini-3.1-flash-image-preview';
+
+export interface BillingRecord {
+  id: string;
+  createdAt: string;
+  model: BillingModel;
+  quality: ImageQuality;
+  costUsd: number;
+  costInr: number;
+}
+
+export interface BillingSummary {
+  userName: string;
+  totalUsd: number;
+  totalInr: number;
+  records: BillingRecord[];
+}
+
 export type ViewAngle = 'Front' | 'Side' | 'Back' | 'Mood' | 'Zoom' | 'Mockup';
 
 export type ShootMode = 'BRA_AND_PANTY' | 'PANTY_ONLY' | 'PUSHUP' | 'BRA_ONLY';
