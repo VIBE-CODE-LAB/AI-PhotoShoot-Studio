@@ -80,6 +80,7 @@ export const recordGenerationCost = async ({
   userName,
   model,
   quality,
+  usageMetadata,
 }: {
   apiKey: string;
   userName: string;
